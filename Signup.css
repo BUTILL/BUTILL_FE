@@ -1,0 +1,323 @@
+/* 전체화면 */
+.phone-container {
+  position: relative;
+}
+
+/*회원가입 화면*/
+.signup-content {
+  padding: 15px 26px 32px;
+}
+
+
+/*상단 헤더*/
+.top-bar {
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+  border-bottom: 1px solid #eeeeee;
+  background-color: white;
+}
+
+.top-bar h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222222;
+}
+
+
+/*뒤로가기 버튼*/
+.icon-button {
+  width: 36px;
+  height: 36px;
+  font-weight: 700;
+  border: none;
+  background: transparent;
+
+  font-size: 24px;
+  color: #170971;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* 제목 가운데 정렬을 위한 빈 공간 */
+.empty-space {
+  width: 36px;
+}
+
+
+/*회원가입 제목*/
+.signup-content h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.signup-description {
+  margin: 0 0 32px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #777777;
+  line-height: 1.5;
+}
+
+
+/*입력 영역*/
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+}
+
+
+/*입력칸 전체 박스*/
+.input-box {
+  width: 100%;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 14px;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+
+/*입력칸을 클릭했을 때*/
+.input-box:focus-within {
+  border-color: #333333;
+}
+
+
+/*왼쪽 아이콘*/
+.input-icon {
+  margin-right: 10px;
+  font-size: 18px;
+  color: #777777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* 실제 입력창 */
+.input-box input {
+  flex: 1;
+  min-width: 0;
+
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #222222;
+  background: transparent;
+}
+
+
+/* 입력 전 안내 문구 */
+.input-box input::placeholder {
+  color: #aaaaaa;
+}
+
+
+/*비밀번호*/
+/* 비밀번호 보기 버튼 */
+.password-eye {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+  margin-left: 8px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+/* 비밀번호 눈 아이콘 이미지 */
+.password-eye img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+
+/* 비밀번호 조건 설명 */
+.password-description {
+  margin: 7px 0 0 2px;
+  font-size: 12px;
+  color: #888888;
+}
+
+
+/*이용약관*/
+.terms-box {
+  margin-top: 6px;
+  margin-bottom: 28px;
+}
+
+.terms-label {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  color: #555555;
+  cursor: pointer;
+}
+
+
+/* 체크박스 */
+.terms-label input {
+  width: 17px;
+  height: 17px;
+  margin: 0 9px 0 0;
+  cursor: pointer;
+}
+
+
+/* 이용약관 문장 */
+.terms-label span {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+
+/* 약관보기 버튼 */
+.terms-detail {
+  border: none;
+  background: transparent;
+
+  padding: 0;
+  font-size: 10px;
+  font-weight: 600;
+  color: #555555;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+/*회원가입 완료 버튼*/
+.main-button.signup-button {
+  width: 100%;
+  height: 54px;
+  border: none;
+  border-radius: 10px;
+
+  background-color: #170971;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/*회원가입 버튼 눌렀을 때*/
+.main-button.signup-button.signup-complete {
+  background-color: #766eab;
+}
+
+/*스낵바*/
+.signup-snackbar {
+  position: absolute;
+  left: 50%;
+  bottom: 80px;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+
+  background-color: #1c2947;
+  color: white;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* 스낵바 체크 아이콘 */
+.snackbar-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 18px;
+  height: 18px;
+  border: 1px solid white;
+  border-radius: 50%;
+  font-size: 11px;
+}
+
+
+/*회원가입 입력 오류*/
+/* 오류가 발생한 입력칸 */
+.input-box.input-error {
+  border: 1px solid #ff4d5a;
+  background-color: #fffafa;
+}
+
+/* 오류 입력칸을 클릭했을 때 */
+.input-box.input-error:focus-within {
+  border-color: #ff4d5a;
+}
+
+/* 비밀번호 오류 문구 */
+.password-error-message {
+  margin: 7px 0 0 2px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #ff3b4f;
+}
+
+
+/* 회원가입 오류 메시지 박스 */
+.signup-error-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border: 1px solid #ffb3b9;
+  border-radius: 8px;
+  background-color: #fff1f2;
+  color: #e53945;
+
+  font-size: 12px;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+/* 오류 메시지 아이콘 */
+.signup-error-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 17px;
+  height: 17px;
+  border: 1px solid #e53945;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+}
