@@ -26,6 +26,17 @@ function Login({ setPage }) {
 
     if (loginId === savedId && loginPassword === savedPassword) {
       setLoginError(false);
+      
+      localStorage.removeItem("isLoggedIn");
+      sessionStorage.removeItem("isLoggedIn");
+
+      // 로그인 상태 유지 여부 확인
+      if (keepLogin) {
+        localStorage.setItem("isLoggedIn", "true");
+      } else {
+        sessionStorage.setItem("isLoggedIn", "true");
+      }
+
       setShowSnackbar(true);
       
       setTimeout(() => {
