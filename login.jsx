@@ -5,7 +5,6 @@ import eye from "../eye-regular-full.svg";
 import eyeSlash from "../eye-slash-regular-full.svg";
 
 function Login({ setPage }) {
-
   // 로그인 입력값
   const [loginId, setLoginId] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
