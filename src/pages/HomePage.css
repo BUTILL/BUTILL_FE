@@ -1,0 +1,253 @@
+.home-page {
+  padding: 16px 20px 78px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.status {
+  height: 32px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 13px;
+  border: 1px solid #e2e7ff;
+  border-radius: 12px;
+  background: #fff;
+  color: #444651;
+  font-size: 11px;
+  letter-spacing: 0.1px;
+}
+.status > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.status > span i {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  border-radius: 50%;
+  background: #0058be;
+}
+.status b {
+  color: #131b2e;
+  font-weight: 700;
+}
+.status > svg {
+  width: 12px;
+  height: 12px;
+  color: #5c6475;
+}
+.status.guide {
+  justify-content: flex-start;
+}
+.status.guide > span i {
+  background: #27476c;
+}
+.home-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  height: 257px;
+  flex: none;
+  padding: 20px;
+  border: 0;
+  border-radius: 24px;
+  text-align: left;
+  color: white;
+  background: linear-gradient(143.7deg, #00236f 0%, #1e3a8a 50%, #0058be 100%);
+  box-shadow:
+    0 10px 15px -3px #0002,
+    0 4px 6px -4px #0002;
+}
+.home-hero:before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  width: 160px;
+  height: 160px;
+  right: -32px;
+  top: -32px;
+  border-radius: 50%;
+  background: #d8e2ff33;
+  filter: blur(20px);
+}
+.balance-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #dce1ff;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+.balance-label svg {
+  width: 14px;
+  height: 14px;
+}
+.balance {
+  display: block;
+  margin-top: 7px;
+  font-family: "Plus Jakarta Sans", "Noto Sans KR", sans-serif;
+  font-size: 24px;
+  line-height: 34px;
+  letter-spacing: -0.65px;
+}
+.runway {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: 126px;
+  flex: none;
+  margin-top: 7px;
+  padding: 21px 17px 13px;
+  border: 1px solid #ffffff26;
+  border-radius: 16px;
+  background: #ffffff1a;
+  backdrop-filter: blur(6px);
+}
+.runway > small {
+  display: block;
+  color: #dce1ff;
+  font-size: 11px;
+  line-height: 15px;
+}
+.runway > b {
+  display: block;
+  margin-top: 2px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 28px;
+  white-space: nowrap;
+  letter-spacing: -0.4px;
+}
+.runway u {
+  color: #acc1fe;
+  text-underline-offset: 3px;
+  font-size: 24px;
+}
+.progress {
+  height: 10px;
+  margin-top: 10px;
+  border-radius: 99px;
+  background: #0004;
+  overflow: hidden;
+}
+.progress i {
+  display: block;
+  width: 70%;
+  height: 100%;
+  border: 2px solid #2b4e90;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #2170e4, #d8e2ff);
+}
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  color: #dce1ff;
+  font-size: 9px;
+  white-space: nowrap;
+}
+.progress-label span:nth-child(2) {
+  color: white;
+}
+.hero-foot {
+  position: static;
+  display: block;
+  flex: none;
+  margin-top: 10px;
+  color: #dce1ff88;
+  font-size: 12px;
+  line-height: 16px;
+}
+.quick h2 {
+  margin: 0 0 8px;
+  padding-left: 4px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.quick-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.quick-card {
+  height: 118px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 14px;
+  border: 1px solid #e2e7ff;
+  border-radius: 16px;
+  background: #fff;
+  color: #131b2e;
+  text-align: left;
+}
+.quick-card:nth-child(n + 3) {
+  height: 132px;
+}
+.quick-card b {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+.quick-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #e2e7ff;
+  color: #00236f;
+}
+.quick-icon svg {
+  width: 19px;
+  height: 19px;
+}
+.quick-card.support {
+  gap: 1px;
+}
+.quick-card.support small {
+  margin-top: -2px;
+  color: #444651;
+  font-size: 11px;
+  line-height: 14px;
+  white-space: nowrap;
+}
+.home-bills {
+  padding: 16px;
+}
+.home-bills .bill {
+  margin-top: 10px;
+}
+.more-bills {
+  width: 100%;
+  height: 32px;
+  margin-top: 10px;
+  border: 1px solid #dce2ff;
+  border-radius: 12px;
+  background: #fff;
+  color: #30384a;
+  font-size: 11px;
+}
+.home-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.balance-label {
+  flex: none;
+  line-height: 17px;
+}
+.balance {
+  flex: none;
+  margin-top: 7px;
+  line-height: 34px;
+}
+.home-page {
+  animation: screen-enter 0.24s ease-out both;
+}

@@ -1,0 +1,102 @@
+.money-field {
+  display: block;
+  width: 100%;
+}
+.money-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 46px;
+  gap: 9px;
+  padding: 0 10px 0 13px;
+  border: 1px solid #d3d7eb;
+  border-radius: 13px;
+  background: #f2f3ff;
+}
+.money-box:focus-within {
+  border-color: #2872e8;
+  box-shadow: 0 0 0 2px #2872e812;
+}
+.money-box input {
+  appearance: textfield;
+  -moz-appearance: textfield;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  background: transparent;
+  text-align: right;
+  color: #202a3e;
+  font-size: 14px;
+}
+.money-box input::-webkit-inner-spin-button,
+.money-box input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.money-unit {
+  flex: none;
+  font-size: 11px;
+  color: #68738b;
+  white-space: nowrap;
+}
+.money-arrows {
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  border-left: 1px solid #d6ddef;
+  padding-left: 6px;
+}
+.money-arrows button {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 21px;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: #4c638e;
+  font-size: 9px;
+  padding: 0;
+  line-height: 1;
+}
+.money-arrows button:hover {
+  background: #dfe7ff;
+}
+.money-box.invalid {
+  border: 1px solid #ed4359;
+  background: #fff2f4;
+}
+.input-error-note {
+  display: block;
+  color: #d92f49;
+  font-size: 10px;
+  margin-top: 5px;
+  line-height: 1.5;
+}
+.connected-management input[aria-invalid="true"],
+.connected-management select[aria-invalid="true"],
+.onboard-page input[aria-invalid="true"] {
+  border-color: #ed4359;
+  background: #fff2f4;
+  color: #b9283f;
+}
+.connected-management .money-box input[aria-invalid="true"] {
+  border: 0;
+  background: transparent;
+}
+.dashboard .store-caption {
+  font-size: 20px;
+  font-weight: 750;
+  color: #203a73;
+  margin: 0 3px 2px;
+  letter-spacing: -0.5px;
+}
+.onboard-page .money-field {
+  margin-top: 8px;
+}

@@ -1,0 +1,237 @@
+.access-page {
+  --blue: #170971;
+  background: white;
+  color: #333;
+}
+.access-page .access-body {
+  padding: 15px 26px 32px;
+}
+.login-screen .access-body {
+  padding: 0 32px 40px;
+}
+.login-screen .login-brand {
+  padding: 45px 32px 0;
+}
+.login-screen .login-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  margin: 30px auto 16px;
+}
+.login-screen .login-mark img {
+  position: static;
+  display: block;
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+}
+.login-screen .login-brand p {
+  margin: 10px 0 35px;
+  font-size: 14px;
+  color: #777;
+}
+.access-page .access-label {
+  margin: 0 0 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+.signup-screen .access-label {
+  margin-bottom: 15px;
+}
+.access-page .access-input {
+  width: 100%;
+  height: 52px;
+  min-height: 52px;
+  margin-top: 8px;
+  padding: 0 14px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+  color: #777;
+}
+.signup-screen .access-input {
+  border-radius: 10px;
+}
+.access-page .access-input:focus-within {
+  border-color: #4f8cff;
+  box-shadow: none;
+}
+.signup-screen .access-input:focus-within {
+  border-color: #333;
+}
+.access-page .access-input input {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+.access-page .access-input input::placeholder {
+  color: #aaa;
+}
+.access-page .access-input button {
+  padding: 4px;
+}
+.access-page .access-input.invalid {
+  border-color: #ff4d5a;
+  background: #fff7f7;
+  color: #ed3345;
+}
+.access-page .access-input.invalid input {
+  color: #ed3345;
+}
+.access-page .login-options {
+  margin: 4px 0 28px;
+  gap: 6px;
+}
+.access-page .login-options label {
+  gap: 6px;
+  font-size: 11px;
+  color: #555;
+}
+.access-page .login-options button {
+  font-size: 10px;
+  color: #666;
+}
+.access-page .login-options input {
+  width: 16px;
+  height: 16px;
+}
+.access-page .auth-submit {
+  height: 54px;
+  min-height: 54px;
+  margin-top: 0;
+  padding: 0 12px;
+  border-radius: 12px;
+  background: #170971;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: none;
+}
+.access-page .auth-submit:hover {
+  background: #766eab;
+}
+.signup-screen .auth-submit {
+  border-radius: 10px;
+  font-weight: 600;
+}
+.access-page .signup-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 0;
+  padding: 0;
+  margin: 24px 0 0;
+  font-size: 13px;
+  color: #777;
+}
+.access-page .signup-link button {
+  padding: 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+.signup-screen .flow-header {
+  height: 64px;
+  padding: 0 20px;
+  border-bottom: 1px solid #eee;
+  background: white;
+}
+.signup-screen .flow-header > button {
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  font-weight: 700;
+}
+.signup-screen .flow-header > span {
+  width: 36px;
+}
+.signup-screen .flow-header > b {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+}
+.signup-screen .flow-intro h1 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: normal;
+}
+.signup-screen .flow-intro p {
+  margin: 0 0 32px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #777;
+}
+.signup-screen .field-hint,
+.signup-screen .field-error {
+  margin: -8px 0 15px 2px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #888;
+}
+.signup-screen .field-error {
+  font-size: 11px;
+  font-weight: 500;
+  color: #ff3b4f;
+}
+.signup-screen .consent-row {
+  padding: 0;
+  margin: 6px 0 28px;
+  border-radius: 0;
+  background: none;
+  color: #555;
+  gap: 4px;
+}
+.signup-screen .consent-row label {
+  gap: 9px;
+  font-size: 10px;
+}
+.signup-screen .consent-row input {
+  width: 17px;
+  height: 17px;
+}
+.signup-screen .consent-row button {
+  color: #555;
+  font-weight: 600;
+}
+.access-page .access-error {
+  padding: 12px 10px;
+  border: 1px solid #ffc5c5;
+  border-radius: 10px;
+  background: #fff3f3;
+  color: #ed3345;
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 12px 0 0;
+}
+.signup-screen .access-error {
+  margin: 0 0 12px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+@media (max-width: 350px) {
+  .login-screen .access-body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .signup-screen .access-body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .signup-screen .consent-row {
+    flex-wrap: wrap;
+  }
+}
+
+.password-eye {
+  width: 18px;
+  height: 18px;
+  display: block;
+  opacity: 0.6;
+}

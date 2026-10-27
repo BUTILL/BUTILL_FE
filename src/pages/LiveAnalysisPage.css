@@ -1,0 +1,80 @@
+.live-analysis {
+  padding: 24px 20px 110px;
+  color: #243247;
+}
+.live-analysis h1 {
+  font-size: 23px;
+}
+.live-analysis h2 {
+  font-size: 18px;
+  margin-top: 24px;
+}
+.live-analysis p,
+.live-analysis li {
+  font-size: 14px;
+  line-height: 1.7;
+}
+.live-analysis fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.live-analysis label {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.live-analysis input {
+  padding: 12px;
+  border: 1px solid #ced8e4;
+  border-radius: 10px;
+  font: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+.live-analysis button {
+  border: 0;
+  border-radius: 10px;
+  padding: 13px;
+  background: #2868d6;
+  color: white;
+  cursor: pointer;
+}
+.live-analysis button:disabled {
+  opacity: 0.6;
+}
+.live-analysis button[type="submit"] {
+  width: 100%;
+}
+.live-tabs {
+  display: flex;
+  gap: 6px;
+  margin-top: 24px;
+}
+.live-tabs button {
+  flex: 1;
+  background: #e7eef8;
+  color: #243247;
+}
+.live-tabs button[aria-pressed="true"] {
+  background: #2868d6;
+  color: white;
+}
+.live-error {
+  color: #b42318;
+}
+.live-table {
+  overflow-x: auto;
+}
+.live-table table {
+  border-collapse: collapse;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.live-table td,
+.live-table th {
+  padding: 10px;
+  border-bottom: 1px solid #e1e7ef;
+  text-align: right;
+}

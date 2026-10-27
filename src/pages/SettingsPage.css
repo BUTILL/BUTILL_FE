@@ -1,0 +1,570 @@
+.settings-page {
+  width: 100%;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 16px 18px 78px;
+  animation: screen-enter 0.24s ease-out both;
+}
+.settings-lead {
+  margin: 0 -2px -5px;
+  color: #3f4554;
+  font-size: 13px;
+  line-height: 20px;
+}
+.settings-card {
+  padding: 17px 18px;
+  border: 1px solid #f0eff6;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 2px #00000009;
+}
+.settings-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.settings-card-heading h1,
+.alert-settings-card > h1 {
+  margin: 0;
+  color: #13213a;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.25px;
+}
+.settings-card-heading > button {
+  min-width: 48px;
+  height: 25px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 99px;
+  background: #dce5ff;
+  color: #0058be;
+  font-size: 12px;
+  font-weight: 700;
+}
+.settings-info-row {
+  min-height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: #454b5a;
+  font-size: 13px;
+}
+.settings-info-row > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.settings-info-row b {
+  color: #111c32;
+  font-size: 14px;
+  text-align: right;
+}
+.settings-info-row img,
+.funds-total img,
+.funds-edit-input > img,
+.funds-result p img,
+.profile-name-label img {
+  vertical-align: middle;
+}
+.funds-summary-card > p {
+  margin: 4px 0 8px;
+  color: #464b59;
+  font-size: 13px;
+}
+.funds-total {
+  min-height: 39px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: #eff2ff;
+  color: #1e3a8a;
+}
+.funds-total b {
+  font-size: 21px;
+  letter-spacing: -0.4px;
+}
+.funds-summary-card .reserve-summary-label {
+  margin-top: 14px;
+}
+.reserve-summary {
+  min-height: 79px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 19px;
+  border-radius: 15px;
+  background: #1e3a8a;
+  color: white;
+  box-shadow: 0 3px 6px #1725542b;
+}
+.reserve-summary strong {
+  font-size: 23px;
+}
+.reserve-summary b {
+  font-size: 17px;
+  font-weight: 500;
+}
+.available-summary {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+  padding: 11px 13px;
+  margin-top: 14px;
+  border-radius: 10px;
+  background: #e8eaff;
+}
+.available-summary span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: #3b4352;
+  font-size: 11px;
+}
+.available-summary small {
+  color: #6e7482;
+  font-size: 9px;
+}
+.available-summary b {
+  color: #1e3a8a;
+  font-size: 17px;
+  white-space: nowrap;
+}
+.alert-settings-card {
+  padding-top: 17px;
+}
+.settings-toggle-row {
+  min-height: 73px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.settings-toggle-row:first-of-type {
+  margin-top: 4px;
+}
+.settings-toggle-row > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.settings-toggle-row b {
+  color: #17223a;
+  font-size: 12px;
+}
+.settings-toggle-row small {
+  color: #767b89;
+  font-size: 10px;
+  line-height: 14px;
+}
+.toggle-switch {
+  width: 43px;
+  height: 24px;
+  position: relative;
+  flex: none;
+  padding: 0;
+  border: 0;
+  border-radius: 99px;
+  background: #c6c9d3;
+  transition: background 160ms ease;
+}
+.toggle-switch span {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  transition: transform 160ms ease;
+}
+.toggle-switch.on {
+  background: #1e3a8a;
+}
+.toggle-switch.on span {
+  transform: translateX(19px);
+}
+.settings-edit-page {
+  width: 100%;
+  min-width: 0;
+  padding: 24px 18px 80px;
+  animation: screen-enter 0.24s ease-out both;
+}
+.settings-edit-form {
+  display: flex;
+  flex-direction: column;
+}
+.profile-edit-card,
+.funds-edit-card {
+  padding: 17px;
+  border: 1px solid #ebeaf2;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 1px 2px #00000008;
+}
+.profile-name-label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #17223a;
+  font-size: 14px;
+  font-weight: 700;
+}
+.profile-name-label > div {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 15px;
+  border: 1px solid #c9cbd8;
+  border-radius: 17px;
+  box-shadow: 0 1px 2px #00000012;
+}
+.profile-name-label input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #17223a;
+  font-size: 15px;
+  font-weight: 400;
+}
+.profile-edit-card h2 {
+  margin: 17px 0 13px;
+  color: #17223a;
+  font-size: 15px;
+}
+.industry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.industry-grid button {
+  min-height: 64px;
+  position: relative;
+  padding: 0 12px;
+  border: 1px solid #e0e1e9;
+  border-radius: 16px;
+  background: white;
+  color: #17223a;
+  font-size: 11px;
+  text-align: left;
+  white-space: nowrap;
+}
+.industry-grid button.chosen {
+  border: 2px solid #1e3a8a;
+}
+.industry-grid i {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #1e3a8a;
+  color: white;
+  font-size: 12px;
+  font-style: normal;
+}
+.custom-industry-input {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 12px;
+  color: #17223a;
+  font-size: 12px;
+  font-weight: 600;
+}
+.custom-industry-input input {
+  width: 100%;
+  height: 48px;
+  padding: 0 13px;
+  border: 1px solid #c9d2f4;
+  border-radius: 13px;
+  outline-color: #2872e8;
+  background: #f2f3ff;
+  color: #17223a;
+  font: inherit;
+  font-weight: 400;
+}
+.profile-edit-card .district-heading {
+  margin-top: 27px;
+}
+.district-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px 4px;
+}
+.district-grid button {
+  min-width: 0;
+  height: 39px;
+  padding: 0 2px;
+  border: 1px solid #e0e1e9;
+  border-radius: 13px;
+  background: white;
+  color: #17223a;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.district-grid button.chosen {
+  border-color: #1e3a8a;
+  background: #1e3a8a;
+  color: white;
+}
+.settings-save-wrap {
+  position: relative;
+  margin-top: 34px;
+}
+.settings-save {
+  width: 100%;
+  height: 56px;
+  border: 0;
+  border-radius: 14px;
+  background: #1e3a8a;
+  color: white;
+  font-size: 19px;
+  font-weight: 700;
+  box-shadow: 0 6px 12px #1e3a8a24;
+}
+.settings-save.is-saved {
+  background: #d6dcf5;
+  box-shadow: 0 3px 6px #17255416;
+}
+.settings-toast {
+  position: fixed;
+  z-index: 20;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.funds-edit-page {
+  padding-top: 23px;
+}
+.funds-edit-card {
+  padding: 21px 18px 43px;
+  border-color: #e4e7ff;
+  border-radius: 24px;
+}
+.funds-edit-card > h1 {
+  margin: 0 8px 21px;
+  color: #17223a;
+  font-size: 18px;
+}
+.funds-input-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #444b5a;
+  font-size: 13px;
+}
+.funds-edit-input {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  border: 1px solid #e0e5ff;
+  border-radius: 16px;
+  background: #f3f4ff;
+}
+.funds-edit-input > i {
+  width: 1px;
+  height: 32px;
+  background: #c9d2f4;
+}
+.funds-edit-input input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #002d83;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: right;
+}
+.funds-edit-input > span {
+  color: #17223a;
+  font-size: 13px;
+  font-weight: 700;
+}
+.funds-edit-input > button {
+  width: 21px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.funds-presets {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin: 12px 0 19px;
+}
+.funds-presets button {
+  min-width: 0;
+  height: 28px;
+  padding: 0 3px;
+  border: 1px solid #dce2ff;
+  border-radius: 99px;
+  background: #f2f3ff;
+  color: #002d83;
+  font-size: 10px;
+  white-space: nowrap;
+}
+.funds-presets button:last-child {
+  color: #555b69;
+}
+.reserve-editor {
+  padding-top: 19px;
+  border-top: 1px solid #dce2ff;
+}
+.reserve-editor-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  margin-bottom: 12px;
+  color: #454b59;
+  font-size: 12px;
+}
+.reserve-editor-heading b {
+  padding: 4px 9px;
+  border-radius: 99px;
+  background: #e9edff;
+  color: #0058be;
+  font-size: 10px;
+  white-space: nowrap;
+}
+.reserve-rate-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.reserve-rate-grid button {
+  min-width: 0;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 0 2px;
+  border: 1px solid #e0e4ff;
+  border-radius: 16px;
+  background: #f2f3ff;
+  color: #17223a;
+}
+.reserve-rate-grid button.selected {
+  border-color: #1e3a8a;
+  background: #1e3a8a;
+  color: white;
+  box-shadow: 0 3px 5px #17255430;
+}
+.reserve-rate-grid b {
+  font-size: 17px;
+}
+.reserve-rate-grid small {
+  font-size: 10px;
+  white-space: nowrap;
+}
+.funds-result {
+  padding: 16px;
+  margin-top: 34px;
+  border-radius: 16px;
+  background: #e9ebff;
+}
+.funds-result-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d9def8;
+}
+.funds-result-top span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #17223a;
+  font-size: 12px;
+}
+.funds-result-top small {
+  color: #5e6574;
+  font-size: 9px;
+  line-height: 13px;
+}
+.funds-result-top strong {
+  color: #002d83;
+  font-size: 20px;
+  white-space: nowrap;
+}
+.funds-result p {
+  margin: 9px 0 0;
+  color: #4c5363;
+  font-size: 10px;
+  line-height: 17px;
+  word-break: keep-all;
+}
+.funds-result p b {
+  color: #002d83;
+}
+.funds-edit-page .settings-save-wrap {
+  margin: 34px 4px 0;
+}
+@media (max-width: 360px) {
+  .settings-page,
+  .settings-edit-page {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+  .industry-grid button {
+    padding-inline: 8px;
+    font-size: 10px;
+  }
+  .funds-result-top strong {
+    font-size: 17px;
+  }
+}
+
+.settings-back {
+  margin: 12px 18px 0;
+  border: 0;
+  background: transparent;
+  color: #1e3a8a;
+  font-weight: 700;
+}
+.settings-store-name {
+  margin-top: 18px;
+}
+.settings-page .toggle-switch:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.settings-save:disabled {
+  opacity: 0.6;
+}
+.funds-input-label .money-box {
+  min-height: 64px;
+}
+.funds-input-label .money-box input {
+  font-size: 20px;
+  font-weight: 700;
+}

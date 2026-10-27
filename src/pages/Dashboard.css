@@ -1,0 +1,433 @@
+.dashboard {
+  gap: 14px;
+  padding: 16px 20px 90px;
+}
+.dashboard button {
+  cursor: pointer;
+}
+.dashboard .status {
+  width: 100%;
+  font-size: 10px;
+}
+.dashboard .status button {
+  background: none;
+  border: 0;
+  padding: 0;
+  height: 20px;
+}
+.store-caption {
+  font-size: 11px;
+  color: #727b90;
+  margin: -6px 4px;
+}
+.dashboard .home-hero {
+  height: auto;
+  min-height: 235px;
+  padding: 20px;
+}
+.dashboard .cash-card:disabled {
+  opacity: 1;
+  cursor: default;
+}
+.dashboard .runway {
+  height: auto;
+  min-height: 106px;
+  padding: 15px;
+}
+.dashboard .runway > b {
+  font-size: 17px;
+  line-height: 1.6;
+  white-space: normal;
+}
+.dashboard .hero-foot {
+  font-size: 10px;
+}
+.dashboard .balance {
+  font-size: 25px;
+}
+.empty-hero > div {
+  padding: 14px;
+  border: 1px solid #ffffff30;
+  border-radius: 16px;
+  background: #ffffff16;
+}
+.empty-hero p {
+  font-size: 12px;
+}
+.empty-hero button {
+  display: block;
+  margin: 10px 0;
+  background: #e7eeff;
+  color: #284884;
+  border: 0;
+  border-radius: 20px;
+  padding: 6px 9px;
+  font-size: 10px;
+  text-align: left;
+}
+.empty-hero small {
+  display: block;
+  font-size: 9px;
+  margin-top: 25px;
+  color: #d8e4ff;
+}
+.dashboard .quick h2 {
+  font-size: 15px;
+}
+.dashboard .quick-card {
+  height: 118px;
+  padding: 14px;
+}
+.dashboard .quick-card small {
+  font-size: 10px;
+  color: #697185;
+}
+.dashboard .quick-icon {
+  width: 36px;
+  height: 36px;
+}
+.dashboard .home-bills {
+  padding: 14px;
+}
+.dashboard .bill-copy {
+  min-width: 0;
+}
+.dashboard .bill-copy b {
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+.dashboard .bill-money b {
+  font-size: 12px;
+  white-space: nowrap;
+}
+.dashboard .bill-money small {
+  font-size: 9px;
+}
+.empty-copy {
+  font-size: 11px;
+  line-height: 1.7;
+  padding: 12px 0;
+}
+.calendar-hero p {
+  background: #ffffff1a;
+  border: 1px solid #ffffff20;
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+.month-pick {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #264581;
+  font-size: 12px;
+}
+.month-pick input {
+  border: 1px solid #e1e4f3;
+  border-radius: 10px;
+  padding: 8px;
+  background: white;
+}
+.date-strip {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px 8px;
+  border: 1px solid #e1e5f8;
+  border-radius: 14px;
+  background: white;
+  gap: 5px;
+}
+.date-strip div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+.date-strip b {
+  border-radius: 50%;
+  background: #eef2ff;
+  padding: 6px;
+  font-size: 13px;
+  color: #315692;
+}
+.date-strip small {
+  max-width: 48px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 9px;
+}
+.analysis-panel {
+  background: white;
+  border: 1px solid #e1e6ff;
+  border-radius: 16px;
+  padding: 14px;
+}
+.analysis-panel h2 {
+  font-size: 13px;
+  margin: 0 0 12px;
+}
+.analysis-panel > svg {
+  width: 100%;
+  height: auto;
+}
+.chart-legend {
+  display: flex;
+  gap: 12px;
+  background: #f0f4ff;
+  padding: 9px;
+  border-radius: 9px;
+  font-size: 10px;
+  color: #3079ec;
+}
+.chart-legend span:nth-child(2) {
+  color: #ef626c;
+}
+.chart-legend span:nth-child(3) {
+  color: #0b2a6d;
+}
+.cash-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin-top: -7px;
+}
+.cash-metrics article {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  background: #eaf0ff;
+  border-radius: 13px;
+  color: #1c3b84;
+}
+.cash-metrics small {
+  font-size: 10px;
+}
+.cash-metrics b {
+  font-size: 14px;
+}
+.risk-box {
+  background: #f4f3ff;
+  border-radius: 12px;
+  margin-top: 14px;
+  padding: 12px;
+}
+.risk-box h3 {
+  font-size: 12px;
+  color: #243f8e;
+}
+.risk-box p {
+  font-size: 10px;
+  line-height: 1.6;
+}
+.risk-numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  font-size: 9px;
+}
+.risk-numbers span {
+  background: white;
+  padding: 7px 4px;
+  border-radius: 8px;
+}
+.risk-numbers b {
+  display: block;
+  font-size: 10px;
+  margin-top: 5px;
+  overflow-wrap: anywhere;
+}
+.muted {
+  color: #747b8d;
+  font-size: 10px;
+}
+.cash-month {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 10px;
+  background: #f1f3ff;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+.cash-month > span {
+  background: #dde7ff;
+  color: #28498d;
+  border-radius: 8px;
+  padding: 8px 5px;
+  font-size: 11px;
+}
+.cash-month div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 10px;
+}
+.cash-month div:last-child {
+  text-align: right;
+  margin-left: auto;
+}
+.cash-month small {
+  font-size: 9px;
+  color: #798196;
+}
+.cash-month .negative {
+  color: #e95765;
+}
+.flow-state {
+  padding: 80px 24px 100px;
+  text-align: center;
+}
+.state-ring {
+  width: 88px;
+  height: 88px;
+  border: 7px solid #e1e9ff;
+  border-top-color: #123781;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 30px;
+  font-size: 26px;
+  color: #123781;
+}
+.state-ring.loading {
+  animation: wait-spin 1.5s linear infinite;
+}
+@keyframes wait-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.flow-state h2 {
+  font-size: 19px;
+}
+.flow-state p {
+  font-size: 12px;
+  color: #687184;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.connected-management fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+.connected-management .management-tabs {
+  margin-bottom: 20px;
+}
+.connected-management .management-tabs button {
+  font-size: 11px;
+}
+.connected-management .management-intro {
+  min-height: 105px;
+  padding: 16px 42px 16px 14px;
+}
+.connected-management .management-intro h1 {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.connected-management .management-intro p {
+  font-size: 11px;
+  line-height: 1.6;
+}
+.connected-management .management-intro > button {
+  width: 25px;
+  height: 25px;
+  font-size: 20px;
+}
+.connected-management .management-item {
+  margin-bottom: 0;
+}
+.money-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.money-control input {
+  text-align: right;
+  padding-right: 34px;
+}
+.money-control > span {
+  position: absolute;
+  right: 14px;
+  font-size: 10px;
+}
+.connected-management .add-entry {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: 1px dashed #8aabf5;
+  border-radius: 13px;
+  color: #1965c9;
+  background: #f0f3ff;
+  font-size: 12px;
+}
+.connected-management .management-summary {
+  margin-top: 22px;
+}
+.connected-management .sales-entry {
+  margin-bottom: 22px;
+}
+.entry-heading {
+  font-size: 17px;
+}
+.connected-management .paid-check {
+  flex-direction: row;
+  align-items: center;
+  font-size: 10px;
+}
+.connected-management .paid-check input {
+  width: 16px;
+  height: 16px;
+}
+.connected-management .base-settings {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+.base-settings summary {
+  cursor: pointer;
+  color: #2c467d;
+}
+.save-toast {
+  position: fixed;
+  z-index: 20;
+  bottom: 76px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2b344d;
+  color: white;
+  border-radius: 20px;
+  padding: 13px 18px;
+  max-width: 340px;
+  width: max-content;
+  font-size: 11px;
+  box-shadow: 0 5px 20px #17233a25;
+}
+.entry-error {
+  color: #c02c42;
+  padding: 14px;
+  background: #fff0f2;
+  border-radius: 12px;
+  font-size: 12px;
+}
+.topbar .header-action {
+  border: 0;
+  background: none;
+  color: #18387c;
+  font-size: 20px;
+}
+.settings-session {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  padding: 12px 20px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .state-ring.loading {
+    animation: none;
+  }
+}
