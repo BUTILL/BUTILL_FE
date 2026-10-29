@@ -3,9 +3,11 @@ import "./App.css";
 import { Icon } from "./components/Icon";
 import RawMaterialsPage from "./pages/RawMaterialsPage";
 import HomePage from "./pages/HomePage";
+import GuidePage from "./pages/GuidePage";
 import CalendarPage from "./pages/CalendarPage";
 import ManagementPage from "./pages/ManagementPage";
 import SimulationPage from "./pages/SimulationPage";
+import NotificationsPage from "./pages/NotificationsPage";
 import SupportPage from "./pages/SupportPage";
 import TaxPage, { initialTaxSelections } from "./pages/TaxPage";
 import {
@@ -16,6 +18,8 @@ import {
 
 type Page =
   | "home"
+  | "notifications"
+  | "guide"
   | "calendar"
   | "tax"
   | "support"
@@ -28,6 +32,11 @@ type Page =
 export default function App() {
   const [page, setPage] = useState<Page>("home");
   const [rawRefreshCount, setRawRefreshCount] = useState(0);
+  const [hasUnreadNotifications, setHasUnreadNotifications] = useState(true);
+  const openNotifications = () => {
+    setHasUnreadNotifications(false);
+    setPage("notifications");
+  };
   const [picked, setPicked] = useState(initialTaxSelections);
   const [annual, setAnnual] = useState(false);
   const [businessName, setBusinessName] = useState("홍길동");
@@ -51,7 +60,8 @@ export default function App() {
         page === "simulation" ||
         page === "settings" ||
         page === "profile-settings" ||
-        page === "funds-settings" ? (
+        page === "funds-settings" ||
+        page === "notifications" ? (
           <button
             className="back"
             aria-label="이전 화면"
@@ -79,10 +89,14 @@ export default function App() {
           >
             <Icon name="sync" />
           </button>
-        ) : page === "home" ? (
-          <button className="bell" aria-label="알림">
+        ) : page === "home" || page === "guide" ? (
+          <button
+            className="bell"
+            aria-label="알림 확인"
+            onClick={openNotifications}
+          >
             <Icon name="bell" />
-            <i />
+            {hasUnreadNotifications && <i />}
           </button>
         ) : (
           <span className="side" />
@@ -91,9 +105,18 @@ export default function App() {
       {page === "home" && (
         <HomePage
           onOpenCalendar={() => setPage("calendar")}
+          onOpenGuide={() => setPage("guide")}
           onOpenTax={() => setPage("tax")}
           onOpenRawMaterials={() => setPage("raw")}
           onOpenSupport={() => setPage("support")}
+        />
+      )}
+      {page === "guide" && <GuidePage onFinish={() => setPage("home")} />}
+      {page === "notifications" && (
+        <NotificationsPage
+          onOpenRawMaterials={() => setPage("raw")}
+          onOpenTax={() => setPage("tax")}
+          onOpenCalendar={() => setPage("calendar")}
         />
       )}
       {page === "support" && <SupportPage />}
@@ -148,7 +171,9 @@ export default function App() {
       {page !== "tax" &&
         page !== "support" &&
         page !== "raw" &&
-        page !== "calendar" && (
+        page !== "calendar" &&
+        page !== "guide" &&
+        page !== "notifications" && (
           <nav className="bottom">
             <button
               className={page === "home" ? "current" : ""}

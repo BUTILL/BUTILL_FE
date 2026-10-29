@@ -245,12 +245,38 @@
   flex-direction: column;
   gap: 3px;
 }
-.fixed-title b {
-  font-size: 14px;
+.fixed-title-fields {
+  min-width: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
 }
-.fixed-title small {
+.fixed-title-fields input {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  background: transparent;
+}
+.fixed-title-fields .fixed-name-input {
+  font-size: 14px;
+  font-weight: 700;
+  color: #17233a;
+}
+.fixed-title-fields .fixed-name-input::placeholder {
+  color: #17233a;
+  opacity: 1;
+}
+.fixed-title-fields .fixed-description-input {
   color: #777d8a;
   font-size: 10px;
+}
+.fixed-title-fields .fixed-description-input::placeholder {
+  color: #777d8a;
+  opacity: 1;
 }
 .amount-presets {
   display: flex;

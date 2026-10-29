@@ -41,7 +41,10 @@
   color: #5c6475;
 }
 .status.guide {
+  width: 100%;
   justify-content: flex-start;
+  text-align: left;
+  cursor: pointer;
 }
 .status.guide > span i {
   background: #27476c;
@@ -251,3 +254,4 @@
 .home-page {
   animation: screen-enter 0.24s ease-out both;
 }
+

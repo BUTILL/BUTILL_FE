@@ -1,6 +1,65 @@
 .tax-page {
   padding: 17px 18px 28px;
 }
+.tax-diagnosis-toggle {
+  width: 100%;
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  margin: 0 0 16px;
+  border: 1px solid #eaedff;
+  border-radius: 16px;
+  background: #fff;
+  color: #17233a;
+  text-align: left;
+  box-shadow: 0 1px 2px #0000000c;
+}
+.tax-diagnosis-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.tax-diagnosis-copy b {
+  font-size: 15px;
+}
+.tax-diagnosis-copy small {
+  color: #667085;
+  font-size: 11px;
+}
+.tax-diagnosis-chevron {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  display: block;
+  align-self: center;
+  margin: 0 4px 5px 12px;
+  border-right: 2px solid #111;
+  border-bottom: 2px solid #111;
+  transform: rotate(45deg);
+  transition: transform 180ms ease;
+}
+.tax-diagnosis-chevron.open {
+  margin-bottom: -5px;
+  transform: rotate(225deg);
+}
+.diagnosis-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 280ms ease,
+    opacity 200ms ease;
+}
+.diagnosis-panel.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.diagnosis-panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
 .choice-card {
   padding: 16px;
   margin-bottom: 17px;
@@ -108,7 +167,6 @@
   position: relative;
 }
 .schedule {
-  min-height: 327px;
   padding: 16px;
   border: 1px solid #eaedff;
   border-radius: 16px;
@@ -193,6 +251,25 @@
   background: white;
   color: #444651;
   font-size: 11px;
+}
+.annual-events {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 260ms ease,
+    opacity 180ms ease;
+}
+.annual-events.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.annual-events-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+.annual-events .tax-event {
+  margin-bottom: 0;
 }
 .tax-page {
   padding-top: 17px;

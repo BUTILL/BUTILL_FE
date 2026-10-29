@@ -37,7 +37,7 @@ export default function CalendarPage() {
             <Icon name="calendar" />
             예정 지출 &amp; 세금 캘린더
           </span>
-          <em>총 8건</em>
+          <em>총 7건</em>
         </h2>
         {[...bills, ...bills.slice(1, 4)].map((b, i) => (
           <article className={"bill " + (b.urgent ? "urgent" : "")} key={i}>

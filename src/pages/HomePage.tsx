@@ -4,6 +4,7 @@ import "./HomePage.css";
 
 type HomePageProps = {
   onOpenCalendar: () => void;
+  onOpenGuide: () => void;
   onOpenTax: () => void;
   onOpenRawMaterials: () => void;
   onOpenSupport: () => void;
@@ -11,6 +12,7 @@ type HomePageProps = {
 
 export default function HomePage({
   onOpenCalendar,
+  onOpenGuide,
   onOpenTax,
   onOpenRawMaterials,
   onOpenSupport,
@@ -24,12 +26,12 @@ export default function HomePage({
         </span>
         <Icon name="sync" />
       </div>
-      <div className="status guide">
+      <button type="button" className="status guide" onClick={onOpenGuide}>
         <span>
           <i />
           버틸 이용 가이드
         </span>
-      </div>
+      </button>
       <section
         className="home-hero"
         aria-label="현재 안전하게 사용할 수 있는 돈"
@@ -92,7 +94,7 @@ export default function HomePage({
             <Icon name="calendar" />
             예정 지출 &amp; 세금 캘린더
           </span>
-          <em>총 8건</em>
+          <em>총 7건</em>
         </h2>
         {[bills[1], bills[3], bills[0]].map((b, i) => (
           <article className={"bill " + (b.urgent ? "urgent" : "")} key={i}>
@@ -111,9 +113,11 @@ export default function HomePage({
           </article>
         ))}
         <button className="more-bills" onClick={onOpenCalendar}>
-          지출 내역 더보기 (2건)
+          지출 내역 더보기 (4건)
         </button>
       </section>
     </section>
   );
 }
+
+

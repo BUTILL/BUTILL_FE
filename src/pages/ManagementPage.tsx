@@ -3,7 +3,13 @@ import Toast from "../components/Toast";
 import "./ManagementPage.css";
 
 type ManageTab = "materials" | "fixed" | "additional";
-type ManageItem = { id: number; name: string; amount: string; due?: string };
+type ManageItem = {
+  id: number;
+  name: string;
+  amount: string;
+  due?: string;
+  description?: string;
+};
 
 export default function ManagementPage() {
   const [tab, setTab] = useState<ManageTab>("materials");
@@ -17,9 +23,27 @@ export default function ManagementPage() {
     { id: 3, name: "", amount: "0" },
   ]);
   const [fixedItems, setFixedItems] = useState<ManageItem[]>([
-    { id: 1, name: "매장 월세", amount: "5,000,000", due: "매월 10일" },
-    { id: 2, name: "직원 · 알바 인건비", amount: "650,000", due: "매월 10일" },
-    { id: 3, name: "공과금 · 관리비", amount: "300,000", due: "매월 10일" },
+    {
+      id: 1,
+      name: "매장 월세",
+      amount: "5,000,000",
+      due: "매월 10일",
+      description: "건물 임대료 및 기본 관리",
+    },
+    {
+      id: 2,
+      name: "직원 · 알바 인건비",
+      amount: "650,000",
+      due: "매월 10일",
+      description: "정직원 급여 및 파트타임 정산",
+    },
+    {
+      id: 3,
+      name: "공과금 · 관리비",
+      amount: "300,000",
+      due: "매월 10일",
+      description: "전기, 수도, 가스 및 상가 관리비",
+    },
   ]);
   const [extraItems, setExtraItems] = useState<ManageItem[]>([
     { id: 1, name: "원두 및 우유", amount: "3,000" },
@@ -53,6 +77,7 @@ export default function ManagementPage() {
         id: Date.now(),
         name: "",
         amount: "0",
+        ...(tab === "fixed" ? { description: "" } : {}),
         ...(tab === "fixed" ? { due: "매월 10일" } : {}),
       },
     ]);
@@ -60,7 +85,7 @@ export default function ManagementPage() {
   const updateItem = (
     setter: Dispatch<SetStateAction<ManageItem[]>>,
     id: number,
-    key: "name" | "amount" | "due",
+    key: "name" | "amount" | "due" | "description",
     value: string,
   ) =>
     setter((items) =>
@@ -236,17 +261,35 @@ export default function ManagementPage() {
                       alt=""
                     />
                   </span>
-                  <div>
-                    <b>{item.name || `고정 지출 ${index + 1}`}</b>
-                    <small>
-                      {
-                        [
-                          "건물 임대료 및 기본 관리",
-                          "정직원 급여 및 파트타임 정산",
-                          "전기, 수도, 가스 및 상가 관리비",
-                        ][index % 3]
+                  <div className="fixed-title-fields">
+                    <input
+                      className="fixed-name-input"
+                      aria-label={`고정 지출 ${index + 1} 이름`}
+                      value={item.name}
+                      placeholder={`고정 지출 ${index + 1}`}
+                      onChange={(event) =>
+                        updateItem(
+                          setFixedItems,
+                          item.id,
+                          "name",
+                          event.target.value,
+                        )
                       }
-                    </small>
+                    />
+                    <input
+                      className="fixed-description-input"
+                      aria-label={`${item.name || `고정 지출 ${index + 1}`} 상세 내역`}
+                      value={item.description ?? ""}
+                      placeholder="상세 내역을 작성해주세요"
+                      onChange={(event) =>
+                        updateItem(
+                          setFixedItems,
+                          item.id,
+                          "description",
+                          event.target.value,
+                        )
+                      }
+                    />
                   </div>
                   <button
                     aria-label={`${item.name} 삭제`}

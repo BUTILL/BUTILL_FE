@@ -67,6 +67,7 @@ export default function TaxPage({
   const [saveNoticeId, setSaveNoticeId] = useState(0);
   const [showTaxIntro, setShowTaxIntro] = useState(true);
   const [taxIntroClosing, setTaxIntroClosing] = useState(false);
+  const [showDiagnosis, setShowDiagnosis] = useState(false);
   const saveTimer = useRef<number | undefined>(undefined);
 
   return (
@@ -94,67 +95,94 @@ export default function TaxPage({
           </button>
         </div>
       )}
-      <div className="form">
-        {groups.map((g, i) => (
-          <section
-            className={
-              "choice-card " +
-              (g.tip ? "has-tip " : "") +
-              (g.rows ? "rows-card" : "")
-            }
-            key={g.title}
-          >
-            <div className="choice-heading">
-              <span>
-                <i>{i + 1}</i>
-                <b>{g.title}</b>
-              </span>
-              {g.hint && <small>{g.hint}</small>}
-            </div>
-            <div className={g.rows ? "options two-rows" : "options"}>
-              {g.choices.map((c) => (
-                <button
-                  className={
-                    picked[g.title] === c ? "option selected" : "option"
-                  }
-                  key={c}
-                  onClick={() => setPicked((old) => ({ ...old, [g.title]: c }))}
-                >
-                  {c.split("\\n").map((line) => (
-                    <span key={line}>{line}</span>
+      <button
+        className="tax-diagnosis-toggle"
+        type="button"
+        aria-expanded={showDiagnosis}
+        onClick={() => setShowDiagnosis((shown) => !shown)}
+      >
+        <span className="tax-diagnosis-copy">
+          <b>세금 진단 정보</b>
+          <small>사업자 형태와 납부 방식을 설정해요</small>
+        </span>
+        <span
+          className={
+            showDiagnosis
+              ? "tax-diagnosis-chevron open"
+              : "tax-diagnosis-chevron"
+          }
+          aria-hidden="true"
+        />
+      </button>
+      <div
+        className={showDiagnosis ? "diagnosis-panel open" : "diagnosis-panel"}
+      >
+        <div className="diagnosis-panel-inner">
+          <div className="form">
+            {groups.map((g, i) => (
+              <section
+                className={
+                  "choice-card " +
+                  (g.tip ? "has-tip " : "") +
+                  (g.rows ? "rows-card" : "")
+                }
+                key={g.title}
+              >
+                <div className="choice-heading">
+                  <span>
+                    <i>{i + 1}</i>
+                    <b>{g.title}</b>
+                  </span>
+                  {g.hint && <small>{g.hint}</small>}
+                </div>
+                <div className={g.rows ? "options two-rows" : "options"}>
+                  {g.choices.map((c) => (
+                    <button
+                      className={
+                        picked[g.title] === c ? "option selected" : "option"
+                      }
+                      key={c}
+                      onClick={() =>
+                        setPicked((old) => ({ ...old, [g.title]: c }))
+                      }
+                    >
+                      {c.split("\\n").map((line) => (
+                        <span key={line}>{line}</span>
+                      ))}
+                    </button>
                   ))}
-                </button>
-              ))}
+                </div>
+                {g.tip && (
+                  <div className="tip">
+                    ⓘ　부가가치세 연 2회 확정신고 대상 (1월 · 7월)
+                  </div>
+                )}
+              </section>
+            ))}
+            <div className="save-wrap">
+              {saved && (
+                <Toast
+                  key={saveNoticeId}
+                  message="저장이 완료되었습니다"
+                  className="tax-toast"
+                />
+              )}
+              <button
+                className={saved ? "save saved" : "save"}
+                onClick={() => {
+                  setSaved(true);
+                  setSaveNoticeId((v) => v + 1);
+                  if (saveTimer.current) window.clearTimeout(saveTimer.current);
+                  saveTimer.current = window.setTimeout(() => {
+                    setSaved(false);
+                    saveTimer.current = undefined;
+                  }, 2500);
+                }}
+              >
+                저장
+              </button>
             </div>
-            {g.tip && (
-              <div className="tip">
-                ⓘ　부가가치세 연 2회 확정신고 대상 (1월 · 7월)
-              </div>
-            )}
-          </section>
-        ))}
-        <div className="save-wrap">
-          {saved && (
-            <Toast
-              key={saveNoticeId}
-              message="저장이 완료되었습니다"
-              className="tax-toast"
-            />
-          )}
-          <button
-            className={saved ? "save saved" : "save"}
-            onClick={() => {
-              setSaved(true);
-              setSaveNoticeId((v) => v + 1);
-              if (saveTimer.current) window.clearTimeout(saveTimer.current);
-              saveTimer.current = window.setTimeout(() => {
-                setSaved(false);
-                saveTimer.current = undefined;
-              }, 2500);
-            }}
-          >
-            저장
-          </button>
+          </div>
         </div>
       </div>
       <section className="schedule">
@@ -171,7 +199,6 @@ export default function TaxPage({
           </div>
           <b>1기 부가가치세 확정신고</b>
           <em>집중 대비</em>
-          <strong>!</strong>
         </article>
         <article className="tax-event">
           <div className="datebox">
@@ -184,17 +211,19 @@ export default function TaxPage({
             <small>직원 2인 월 예상 약 65만 원</small>
           </div>
         </article>
-        {annual && (
-          <article className="tax-event">
-            <div className="datebox">
-              <small>매년</small>
-              <b>5.31</b>
-            </div>
-            <b>종합소득세 신고</b>
-          </article>
-        )}
+        <div className={annual ? "annual-events open" : "annual-events"}>
+          <div className="annual-events-inner">
+            <article className="tax-event">
+              <div className="datebox">
+                <small>매년</small>
+                <b>5.31</b>
+              </div>
+              <b>종합소득세 신고</b>
+            </article>
+          </div>
+        </div>
         <button className="annual" onClick={() => setAnnual(!annual)}>
-          {annual ? "연간 세무 일정 접기" : "연간 세무 일정 5개 더보기"}　⌄
+          {annual ? "연간 세무 일정 접기" : "연간 세무 일정 5개 더보기"}
         </button>
       </section>
     </section>
