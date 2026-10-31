@@ -304,9 +304,6 @@
   background: #d6dcf5;
   box-shadow: 0 8px 20px -4px #d6dcf559;
 }
-.tax-page {
-  animation: screen-enter 0.24s ease-out both;
-}
 .form .toast {
   animation: save-toast-life 2.5s ease both;
 }

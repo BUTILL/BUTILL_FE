@@ -559,6 +559,29 @@ button:active:not(:disabled) {
     transform: translateY(0);
   }
 }
+.app-screen-transition {
+  animation: screen-enter 0.14s ease-out both;
+}
+.app-screen-transition.is-leaving {
+  pointer-events: none;
+  animation: screen-exit 0.14s ease-in both;
+}
+.app-screen-transition.management-screen {
+  animation: none;
+}
+.app-screen-transition.management-screen.is-leaving {
+  animation: screen-exit 0.14s ease-in both;
+}
+@keyframes screen-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
 .intro {
   overflow: hidden;
   max-height: 190px;

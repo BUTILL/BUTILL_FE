@@ -213,6 +213,53 @@ export default function SimulationPage() {
         <ScenarioComparisonChart />
       </section>
 
+      <section className="store-diagnosis-card">
+        <header className="store-diagnosis-heading">
+          <div>
+            <h2>현재 가게 상황 점검</h2>
+            <p>가게 운영에서 놓치기 쉬운 항목을 확인해 보세요.</p>
+          </div>
+        </header>
+        <div className="store-diagnosis-list">
+          <article className="store-diagnosis-item cost-risk">
+            <div className="store-diagnosis-label">
+              <b>원재료비 부담</b>
+              <span>원가 점검</span>
+            </div>
+            <p>
+              식용유나 돼지고기 단가가 오르면 메뉴별 원재료비가 빠르게 늘 수
+              있어요.
+            </p>
+            <small>
+              대응 제안 · 대체 재료 가격과 메뉴별 원가를 함께 비교해 보세요.
+            </small>
+          </article>
+          <article className="store-diagnosis-item labor-risk">
+            <div className="store-diagnosis-label">
+              <b>인건비 비중 확인</b>
+              <span>고정 지출</span>
+            </div>
+            <p>
+              매출이 줄어도 인건비가 유지되면 매달 사용할 수 있는 자금이 줄어들
+              수 있어요.
+            </p>
+            <small>
+              대응 제안 · 시간대별 매출과 근무 일정을 함께 확인해 보세요.
+            </small>
+          </article>
+          <article className="store-diagnosis-item sales-risk">
+            <div className="store-diagnosis-label">
+              <b>매출 감소 대비</b>
+              <span>매출 흐름</span>
+            </div>
+            <p>매출 감소가 이어지면 예상보다 자금이 빨리 소진될 수 있어요.</p>
+            <small>
+              대응 제안 · 최근 3개월 매출과 다가오는 지출 일정을 점검해 보세요.
+            </small>
+          </article>
+        </div>
+      </section>
+
       <aside className="financial-coach">
         <img src="/simulation-icons/financial-coach-advisor.png" alt="" />
         <div>

@@ -692,7 +692,6 @@
   color: #00236f;
 }
 .raw-page {
-  animation: screen-enter 0.24s ease-out both;
 }
 
 .advice-actions button:last-child {

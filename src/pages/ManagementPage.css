@@ -25,10 +25,10 @@
   content: "";
   transition: transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-.management-tabs[data-active="fixed"]::after {
+.management-tabs[data-active="expenses"]::after {
   transform: translateX(100%);
 }
-.management-tabs[data-active="additional"]::after {
+.management-tabs[data-active="sales"]::after {
   transform: translateX(200%);
 }
 .management-tabs button {
@@ -44,6 +44,13 @@
 .management-tabs button.active {
   color: #00236f;
   font-weight: 700;
+}
+.management-tab-panel {
+  animation: screen-enter 0.14s ease-out both;
+}
+.management-tab-panel.is-leaving {
+  pointer-events: none;
+  animation: screen-exit 0.14s ease-in both;
 }
 .management-intro {
   position: relative;
@@ -168,6 +175,66 @@
   line-height: 15px;
   text-align: center;
   word-break: keep-all;
+}
+.ingredient-name-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 15px 16px;
+  margin: 0 0 16px;
+  border: 1px solid #d9dcef;
+  border-radius: 14px;
+  background: #fff;
+  color: #14213a;
+  font-size: 12px;
+  font-weight: 700;
+}
+.ingredient-name-field input {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #d3d7eb;
+  border-radius: 11px;
+  outline-color: #2872e8;
+  background: #f2f3ff;
+  color: #202a3e;
+  font-size: 13px;
+  font-weight: 400;
+}
+.ingredient-name-field input::placeholder {
+  color: #8a90a0;
+  opacity: 1;
+}
+.ingredient-name-field small {
+  color: #777d8a;
+  font-size: 10px;
+  font-weight: 400;
+}
+.ingredient-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-top: 4px;
+}
+.ingredient-preview b {
+  color: #515767;
+  font-size: 11px;
+}
+.ingredient-preview ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.ingredient-preview li {
+  padding: 5px 9px;
+  border-radius: 99px;
+  background: #eaedff;
+  color: #203f8c;
+  font-size: 11px;
+  font-weight: 600;
 }
 .management-summary {
   padding: 24px 18px 19px;
@@ -320,12 +387,11 @@
   display: block;
 }
 .month-selector {
-  position: relative;
   height: 54px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 7px;
+  justify-content: center;
+  gap: 12px;
   padding: 0 10px;
   margin-bottom: 23px;
   border: 1px solid #d9dcef;
@@ -333,31 +399,9 @@
   background: #f2f3ff;
   color: #002d83;
 }
-.month-selector button {
-  position: absolute;
-  width: 28px;
-  height: 38px;
-  border: 0;
-  background: transparent;
-  color: #444651;
-  font-size: 22px;
-}
-.month-selector button:first-child {
-  left: 10px;
-}
-.month-selector button:last-child {
-  right: 10px;
-}
 .month-selector b {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   font-size: 14px;
   white-space: nowrap;
-}
-.month-selector span {
-  position: absolute;
-  right: 46px;
 }
 .month-selector span {
   padding: 3px 8px;

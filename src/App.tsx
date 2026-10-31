@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { Icon } from "./components/Icon";
 import RawMaterialsPage from "./pages/RawMaterialsPage";
@@ -31,11 +31,27 @@ type Page =
   | "funds-settings";
 export default function App() {
   const [page, setPage] = useState<Page>("home");
+  const [renderPage, setRenderPage] = useState<Page>("home");
+  const [pageLeaving, setPageLeaving] = useState(false);
+  const pageTransitionTimer = useRef<number | undefined>(undefined);
   const [rawRefreshCount, setRawRefreshCount] = useState(0);
   const [hasUnreadNotifications, setHasUnreadNotifications] = useState(true);
+  const navigatePage = (nextPage: Page) => {
+    if (nextPage === page) return;
+    if (pageTransitionTimer.current !== undefined) {
+      window.clearTimeout(pageTransitionTimer.current);
+    }
+    setPage(nextPage);
+    setPageLeaving(true);
+    pageTransitionTimer.current = window.setTimeout(() => {
+      setRenderPage(nextPage);
+      setPageLeaving(false);
+      pageTransitionTimer.current = undefined;
+    }, 140);
+  };
   const openNotifications = () => {
     setHasUnreadNotifications(false);
-    setPage("notifications");
+    navigatePage("notifications");
   };
   const [picked, setPicked] = useState(initialTaxSelections);
   const [annual, setAnnual] = useState(false);
@@ -47,27 +63,38 @@ export default function App() {
   const [reserveRate, setReserveRate] = useState(10);
   const [runwayAlert, setRunwayAlert] = useState(true);
   const [ingredientAlert, setIngredientAlert] = useState(true);
+  useEffect(
+    () => () => {
+      if (pageTransitionTimer.current !== undefined) {
+        window.clearTimeout(pageTransitionTimer.current);
+      }
+    },
+    [],
+  );
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [page]);
+  }, [renderPage]);
   return (
     <main className="device">
-      <header className={"topbar " + (page === "raw" ? "raw-topbar" : "")}>
-        {page === "tax" ||
-        page === "support" ||
-        page === "raw" ||
-        page === "calendar" ||
-        page === "simulation" ||
-        page === "settings" ||
-        page === "profile-settings" ||
-        page === "funds-settings" ||
-        page === "notifications" ? (
+      <header
+        className={"topbar " + (renderPage === "raw" ? "raw-topbar" : "")}
+      >
+        {renderPage === "tax" ||
+        renderPage === "support" ||
+        renderPage === "raw" ||
+        renderPage === "calendar" ||
+        renderPage === "simulation" ||
+        renderPage === "settings" ||
+        renderPage === "profile-settings" ||
+        renderPage === "funds-settings" ||
+        renderPage === "notifications" ? (
           <button
             className="back"
             aria-label="이전 화면"
             onClick={() =>
-              setPage(
-                page === "profile-settings" || page === "funds-settings"
+              navigatePage(
+                renderPage === "profile-settings" ||
+                  renderPage === "funds-settings"
                   ? "settings"
                   : "home",
               )
@@ -81,7 +108,7 @@ export default function App() {
         <div className="brand-logo" aria-label="BUTILL">
           <img src="/figma/brand-source.png" alt="" />
         </div>
-        {page === "raw" ? (
+        {renderPage === "raw" ? (
           <button
             className="refresh"
             onClick={() => setRawRefreshCount((count) => count + 1)}
@@ -89,7 +116,7 @@ export default function App() {
           >
             <Icon name="sync" />
           </button>
-        ) : page === "home" || page === "guide" ? (
+        ) : renderPage === "home" || renderPage === "guide" ? (
           <button
             className="bell"
             aria-label="알림 확인"
@@ -102,106 +129,115 @@ export default function App() {
           <span className="side" />
         )}
       </header>
-      {page === "home" && (
-        <HomePage
-          onOpenCalendar={() => setPage("calendar")}
-          onOpenGuide={() => setPage("guide")}
-          onOpenTax={() => setPage("tax")}
-          onOpenRawMaterials={() => setPage("raw")}
-          onOpenSupport={() => setPage("support")}
-        />
-      )}
-      {page === "guide" && <GuidePage onFinish={() => setPage("home")} />}
-      {page === "notifications" && (
-        <NotificationsPage
-          onOpenRawMaterials={() => setPage("raw")}
-          onOpenTax={() => setPage("tax")}
-          onOpenCalendar={() => setPage("calendar")}
-        />
-      )}
-      {page === "support" && <SupportPage />}
-      {page === "raw" && <RawMaterialsPage refreshCount={rawRefreshCount} />}
-      {page === "manage" && <ManagementPage />}
-      {page === "simulation" && <SimulationPage />}
-      {page === "settings" && (
-        <SettingsPage
-          onEditProfile={() => setPage("profile-settings")}
-          onEditFunds={() => setPage("funds-settings")}
-          businessName={businessName}
-          businessType={businessType}
-          district={district}
-          totalFunds={totalFunds}
-          reserveRate={reserveRate}
-          runwayAlert={runwayAlert}
-          setRunwayAlert={setRunwayAlert}
-          ingredientAlert={ingredientAlert}
-          setIngredientAlert={setIngredientAlert}
-          customBusinessType={customBusinessType}
-        />
-      )}
-      {page === "profile-settings" && (
-        <ProfileSettingsPage
-          businessName={businessName}
-          setBusinessName={setBusinessName}
-          businessType={businessType}
-          setBusinessType={setBusinessType}
-          customBusinessType={customBusinessType}
-          setCustomBusinessType={setCustomBusinessType}
-          district={district}
-          setDistrict={setDistrict}
-        />
-      )}
-      {page === "funds-settings" && (
-        <FundsSettingsPage
-          totalFunds={totalFunds}
-          setTotalFunds={setTotalFunds}
-          reserveRate={reserveRate}
-          setReserveRate={setReserveRate}
-        />
-      )}
-      {page === "calendar" && <CalendarPage />}
-      {page === "tax" && (
-        <TaxPage
-          picked={picked}
-          setPicked={setPicked}
-          annual={annual}
-          setAnnual={setAnnual}
-        />
-      )}
-      {page !== "tax" &&
-        page !== "support" &&
-        page !== "raw" &&
-        page !== "calendar" &&
-        page !== "guide" &&
-        page !== "notifications" && (
+      <div
+        className={`app-screen-transition${pageLeaving ? " is-leaving" : ""}${renderPage === "manage" ? " management-screen" : ""}`}
+        key={renderPage}
+      >
+        {renderPage === "home" && (
+          <HomePage
+            onOpenCalendar={() => navigatePage("calendar")}
+            onOpenGuide={() => navigatePage("guide")}
+            onOpenTax={() => navigatePage("tax")}
+            onOpenRawMaterials={() => navigatePage("raw")}
+            onOpenSupport={() => navigatePage("support")}
+          />
+        )}
+        {renderPage === "guide" && (
+          <GuidePage onFinish={() => navigatePage("home")} />
+        )}
+        {renderPage === "notifications" && (
+          <NotificationsPage
+            onOpenRawMaterials={() => navigatePage("raw")}
+            onOpenTax={() => navigatePage("tax")}
+            onOpenCalendar={() => navigatePage("calendar")}
+          />
+        )}
+        {renderPage === "support" && <SupportPage />}
+        {renderPage === "raw" && (
+          <RawMaterialsPage refreshCount={rawRefreshCount} />
+        )}
+        {renderPage === "manage" && <ManagementPage />}
+        {renderPage === "simulation" && <SimulationPage />}
+        {renderPage === "settings" && (
+          <SettingsPage
+            onEditProfile={() => navigatePage("profile-settings")}
+            onEditFunds={() => navigatePage("funds-settings")}
+            businessName={businessName}
+            businessType={businessType}
+            district={district}
+            totalFunds={totalFunds}
+            reserveRate={reserveRate}
+            runwayAlert={runwayAlert}
+            setRunwayAlert={setRunwayAlert}
+            ingredientAlert={ingredientAlert}
+            setIngredientAlert={setIngredientAlert}
+            customBusinessType={customBusinessType}
+          />
+        )}
+        {renderPage === "profile-settings" && (
+          <ProfileSettingsPage
+            businessName={businessName}
+            setBusinessName={setBusinessName}
+            businessType={businessType}
+            setBusinessType={setBusinessType}
+            customBusinessType={customBusinessType}
+            setCustomBusinessType={setCustomBusinessType}
+            district={district}
+            setDistrict={setDistrict}
+          />
+        )}
+        {renderPage === "funds-settings" && (
+          <FundsSettingsPage
+            totalFunds={totalFunds}
+            setTotalFunds={setTotalFunds}
+            reserveRate={reserveRate}
+            setReserveRate={setReserveRate}
+          />
+        )}
+        {renderPage === "calendar" && <CalendarPage />}
+        {renderPage === "tax" && (
+          <TaxPage
+            picked={picked}
+            setPicked={setPicked}
+            annual={annual}
+            setAnnual={setAnnual}
+          />
+        )}
+      </div>
+      {renderPage !== "tax" &&
+        renderPage !== "support" &&
+        renderPage !== "raw" &&
+        renderPage !== "calendar" &&
+        renderPage !== "guide" &&
+        renderPage !== "notifications" && (
           <nav className="bottom">
             <button
-              className={page === "home" ? "current" : ""}
-              onClick={() => setPage("home")}
+              className={renderPage === "home" ? "current" : ""}
+              onClick={() => navigatePage("home")}
             >
               <Icon name="home" />
               <small>홈</small>
             </button>
             <button
               type="button"
-              className={page === "manage" ? "current" : ""}
-              onClick={() => setPage("manage")}
+              className={renderPage === "manage" ? "current" : ""}
+              onClick={() => navigatePage("manage")}
             >
               <Icon name="manage" />
               <small>입력/관리</small>
             </button>
             <button
               type="button"
-              className={page === "simulation" ? "current" : ""}
-              onClick={() => setPage("simulation")}
+              className={renderPage === "simulation" ? "current" : ""}
+              onClick={() => navigatePage("simulation")}
             >
               <Icon name="simulation" />
               <small>시뮬레이션</small>
             </button>
             <button
               type="button"
-              className={page.includes("settings") ? "current" : ""}
-              onClick={() => setPage("settings")}
+              className={renderPage.includes("settings") ? "current" : ""}
+              onClick={() => navigatePage("settings")}
             >
               <Icon name="settings" />
               <small>설정</small>

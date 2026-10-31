@@ -3,7 +3,6 @@
   flex-direction: column;
   gap: 14px;
   padding: 16px 20px 86px;
-  animation: screen-enter 0.24s ease-out both;
   font-family: "Noto Sans KR", sans-serif;
 }
 .simulation-intro {
@@ -56,20 +55,14 @@
   border-radius: 14px;
   background: white;
   box-shadow: 0 1px 2px #0000000c;
-  animation: screen-enter 0.26s ease both;
 }
 .scenario-overview.optimistic {
   background: #a8d8bb;
   color: #075d2c;
-  animation-delay: 0.03s;
-}
-.scenario-overview.basic {
-  animation-delay: 0.07s;
 }
 .scenario-overview.pessimistic {
   background: #ffddda;
   color: #b91c1c;
-  animation-delay: 0.11s;
 }
 .scenario-overview-heading {
   min-height: 48px;
@@ -268,6 +261,96 @@
 .comparison-point.optimistic {
   fill: #0aa14a;
 }
+.store-diagnosis-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #e6eaff;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 2px #0000000c;
+}
+.store-diagnosis-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.store-diagnosis-heading h2 {
+  margin: 0 0 4px;
+  color: #13213a;
+  font-size: 16px;
+  line-height: 22px;
+}
+.store-diagnosis-heading p {
+  margin: 0;
+  color: #667085;
+  font-size: 11px;
+  line-height: 16px;
+}
+.store-diagnosis-heading > span {
+  flex: none;
+  padding: 4px 8px;
+  border-radius: 99px;
+  background: #e8edff;
+  color: #203f8c;
+  font-size: 10px;
+  font-weight: 700;
+}
+.store-diagnosis-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.store-diagnosis-item {
+  padding: 12px;
+  border-radius: 12px;
+  background: #f2f5ff;
+}
+.store-diagnosis-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.store-diagnosis-label b {
+  color: #17233a;
+  font-size: 13px;
+}
+.store-diagnosis-label span {
+  flex: none;
+  padding: 3px 7px;
+  border-radius: 99px;
+  background: #fff;
+  color: #53617b;
+  font-size: 9px;
+}
+.store-diagnosis-item p {
+  margin: 0 0 7px;
+  color: #555d6d;
+  font-size: 11px;
+  line-height: 16px;
+  word-break: keep-all;
+}
+.store-diagnosis-item small {
+  display: block;
+  color: #203f8c;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 15px;
+  word-break: keep-all;
+}
+.store-diagnosis-item.cost-risk {
+  background: #fff5f2;
+}
+.store-diagnosis-item.labor-risk {
+  background: #f2f5ff;
+}
+.store-diagnosis-item.sales-risk {
+  background: #f0f8f3;
+}
 .financial-coach {
   min-height: 88px;
   display: flex;
@@ -286,7 +369,7 @@
   object-fit: contain;
 }
 .financial-coach b {
-  color: #0058be;
+  color: #17233a;
   font-size: 13px;
 }
 .financial-coach p {

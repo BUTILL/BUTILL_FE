@@ -1,8 +1,14 @@
-import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
 import Toast from "../components/Toast";
 import "./ManagementPage.css";
 
-type ManageTab = "materials" | "fixed" | "additional";
+type ManageTab = "materials" | "expenses" | "sales";
 type ManageItem = {
   id: number;
   name: string;
@@ -13,15 +19,18 @@ type ManageItem = {
 
 export default function ManagementPage() {
   const [tab, setTab] = useState<ManageTab>("materials");
+  const [displayTab, setDisplayTab] = useState<ManageTab>("materials");
+  const [tabLeaving, setTabLeaving] = useState(false);
+  const tabTransitionTimer = useRef<number | undefined>(undefined);
   const [introVisible, setIntroVisible] = useState(true);
   const [introClosing, setIntroClosing] = useState(false);
   const [saved, setSaved] = useState(false);
-  const [monthOffset, setMonthOffset] = useState(0);
   const [materials, setMaterials] = useState<ManageItem[]>([
-    { id: 1, name: "원두 및 우유", amount: "3,000" },
-    { id: 2, name: "포장 용기 및 테이크아웃 컵", amount: "2,000" },
+    { id: 1, name: "", amount: "3,000" },
+    { id: 2, name: "", amount: "2,000" },
     { id: 3, name: "", amount: "0" },
   ]);
+  const [ingredientNames, setIngredientNames] = useState("");
   const [fixedItems, setFixedItems] = useState<ManageItem[]>([
     {
       id: 1,
@@ -46,8 +55,8 @@ export default function ManagementPage() {
     },
   ]);
   const [extraItems, setExtraItems] = useState<ManageItem[]>([
-    { id: 1, name: "원두 및 우유", amount: "3,000" },
-    { id: 2, name: "원두 및 우유", amount: "2,000" },
+    { id: 1, name: "", amount: "3,000" },
+    { id: 2, name: "", amount: "2,000" },
   ]);
   const [sales, setSales] = useState("3,000");
 
@@ -57,11 +66,30 @@ export default function ManagementPage() {
     return () => window.clearTimeout(timer);
   }, [saved]);
 
+  useEffect(
+    () => () => {
+      if (tabTransitionTimer.current !== undefined) {
+        window.clearTimeout(tabTransitionTimer.current);
+      }
+    },
+    [],
+  );
+
   const changeTab = (nextTab: ManageTab) => {
+    if (nextTab === tab) return;
+    if (tabTransitionTimer.current !== undefined) {
+      window.clearTimeout(tabTransitionTimer.current);
+    }
     setTab(nextTab);
-    setIntroVisible(true);
-    setIntroClosing(false);
+    setTabLeaving(true);
     setSaved(false);
+    tabTransitionTimer.current = window.setTimeout(() => {
+      setDisplayTab(nextTab);
+      setIntroVisible(true);
+      setIntroClosing(false);
+      setTabLeaving(false);
+      tabTransitionTimer.current = undefined;
+    }, 140);
   };
   const dismissIntro = () => {
     setIntroClosing(true);
@@ -70,15 +98,17 @@ export default function ManagementPage() {
       setIntroClosing(false);
     }, 230);
   };
-  const addItem = (setter: Dispatch<SetStateAction<ManageItem[]>>) => {
+  const addItem = (
+    setter: Dispatch<SetStateAction<ManageItem[]>>,
+    defaults: Partial<Pick<ManageItem, "due" | "description">> = {},
+  ) => {
     setter((items) => [
       ...items,
       {
         id: Date.now(),
         name: "",
         amount: "0",
-        ...(tab === "fixed" ? { description: "" } : {}),
-        ...(tab === "fixed" ? { due: "매월 10일" } : {}),
+        ...defaults,
       },
     ]);
   };
@@ -99,16 +129,20 @@ export default function ManagementPage() {
     Number(value.replace(/[^0-9]/g, "")) || 0;
   const total = (items: ManageItem[]) =>
     items.reduce((sum, item) => sum + amountValue(item.amount), 0);
-  const month = new Date(2026, 11 + monthOffset, 1).toLocaleDateString(
-    "ko-KR",
-    { year: "numeric", month: "long" },
-  );
+  const enteredIngredients = ingredientNames
+    .split(/[,，\n]/)
+    .map((name) => name.trim())
+    .filter(Boolean);
+  const month = new Date(2026, 11, 1).toLocaleDateString("ko-KR", {
+    year: "numeric",
+    month: "long",
+  });
   const saveLabel =
-    tab === "materials"
+    displayTab === "materials"
       ? "원재료비 저장하기"
-      : tab === "fixed"
-        ? "고정 지출 변경사항 저장하기"
-        : "추가 지출 변경사항 저장하기";
+      : displayTab === "expenses"
+        ? "지출 변경사항 저장하기"
+        : "매출 저장하기";
 
   return (
     <section className="management-page">
@@ -124,21 +158,28 @@ export default function ManagementPage() {
           원재료비 입력/수정
         </button>
         <button
-          className={tab === "fixed" ? "active" : ""}
-          onClick={() => changeTab("fixed")}
+          className={tab === "expenses" ? "active" : ""}
+          onClick={() => changeTab("expenses")}
         >
-          고정 지출 수정
+          고정/추가 지출
         </button>
         <button
-          className={tab === "additional" ? "active" : ""}
-          onClick={() => changeTab("additional")}
+          className={tab === "sales" ? "active" : ""}
+          onClick={() => changeTab("sales")}
         >
-          매출/추가 지출 입력
+          매출 입력
         </button>
       </nav>
 
-      {tab === "materials" && (
-        <>
+      {displayTab === "materials" && (
+        <div
+          className={
+            tabLeaving
+              ? "management-tab-panel is-leaving"
+              : "management-tab-panel"
+          }
+          key={displayTab}
+        >
           {introVisible && (
             <section
               className={`management-intro intro${introClosing ? " intro-closing" : ""}`}
@@ -168,10 +209,10 @@ export default function ManagementPage() {
                   </button>
                 </div>
                 <label>
-                  원재료 또는 품목명
+                  메뉴명
                   <input
                     value={item.name}
-                    placeholder="원재료 또는 부자재명 입력"
+                    placeholder="메뉴명 입력"
                     onChange={(event) =>
                       updateItem(
                         setMaterials,
@@ -183,7 +224,7 @@ export default function ManagementPage() {
                   />
                 </label>
                 <label>
-                  월 예상 지출액
+                  메뉴별 원재료비
                   <div className="currency-field">
                     <input
                       inputMode="numeric"
@@ -207,12 +248,31 @@ export default function ManagementPage() {
             className="add-management-item"
             onClick={() => addItem(setMaterials)}
           >
-            <img src="/management-icons/add.png" alt="" /> 원재료 추가하기
+            <img src="/management-icons/add.png" alt="" /> 메뉴별 원재료비 추가
           </button>
           <p className="management-helper">
             매달 주기적으로 지출되는 주요 재료 및 원가 항목을 등록·수정하여 자금
             고갈 시점을 정밀하게 예측하세요.
           </p>
+          <label className="ingredient-name-field">
+            실제 사용하는 원재료
+            <input
+              value={ingredientNames}
+              onChange={(event) => setIngredientNames(event.target.value)}
+              placeholder="예: 대파, 양파"
+            />
+            <small>여러 재료는 쉼표로 구분해 입력해주세요.</small>
+            {enteredIngredients.length > 0 && (
+              <div className="ingredient-preview" aria-live="polite">
+                <b>입력한 원재료</b>
+                <ul>
+                  {enteredIngredients.map((name, index) => (
+                    <li key={`${name}-${index}`}>{name}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </label>
           <ManagementSummary
             title="등록된 월 주요 원재료비 합계"
             label="예상 원가 합산"
@@ -221,20 +281,27 @@ export default function ManagementPage() {
             saved={saved}
             onSave={() => setSaved(true)}
           />
-        </>
+        </div>
       )}
 
-      {tab === "fixed" && (
-        <>
+      {displayTab === "expenses" && (
+        <div
+          className={
+            tabLeaving
+              ? "management-tab-panel is-leaving"
+              : "management-tab-panel"
+          }
+          key={displayTab}
+        >
           {introVisible && (
             <section
               className={`management-intro fixed-intro intro${introClosing ? " intro-closing" : ""}`}
             >
               <div>
-                <h1>월 필수 고정 지출 수정</h1>
+                <h1>월 고정/추가 지출 관리</h1>
                 <p>
-                  매월 고정적으로 지출되는 사업장 필수 비용을 최신 정보로
-                  수정하여 정밀한 현금 흐름을 관리하세요.
+                  매월 반복되는 고정 지출과 이번 달 추가 지출을 함께 관리해 현금
+                  흐름을 확인하세요.
                 </p>
                 <span className="management-tip">
                   ⓘ 납부일 미정시 매월 5일 자동 처리
@@ -245,6 +312,12 @@ export default function ManagementPage() {
               </button>
             </section>
           )}
+          <div className="additional-heading">
+            <h1>고정 지출</h1>
+            <p>
+              월세, 인건비, 공과금처럼 매월 반복해서 나가는 지출을 입력하세요.
+            </p>
+          </div>
           <div className="management-item-list">
             {fixedItems.map((item, index) => (
               <article className="management-item fixed-entry" key={item.id}>
@@ -368,7 +441,12 @@ export default function ManagementPage() {
           </div>
           <button
             className="add-management-item"
-            onClick={() => addItem(setFixedItems)}
+            onClick={() =>
+              addItem(setFixedItems, {
+                description: "",
+                due: "매월 10일",
+              })
+            }
           >
             <img src="/management-icons/add.png" alt="" /> 고정 지출 항목
             추가하기
@@ -377,55 +455,15 @@ export default function ManagementPage() {
             매달 고정적으로 지출되는 새로운 항목(보험료, 렌탈비 등)을 추가할 수
             있습니다.
           </p>
-          <ManagementSummary
-            title="수정 반영된 예상 월 고정 지출 합계"
-            label="예상 고정비 합산"
-            amount={total(fixedItems)}
-            saveLabel={saveLabel}
-            saved={saved}
-            onSave={() => setSaved(true)}
-          />
-        </>
-      )}
-
-      {tab === "additional" && (
-        <>
           <div className="month-selector">
-            <button
-              aria-label="이전 달"
-              onClick={() => setMonthOffset((offset) => offset - 1)}
-            >
-              ‹
-            </button>
             <b>{month}</b>
             <span>당월</span>
-            <button
-              aria-label="다음 달"
-              onClick={() =>
-                setMonthOffset((offset) => Math.min(0, offset + 1))
-              }
-            >
-              ›
-            </button>
           </div>
-          <article className="sales-entry">
-            <label>
-              이번달 총 매출액
-              <div className="currency-field">
-                <input
-                  inputMode="numeric"
-                  value={sales}
-                  onChange={(event) => setSales(event.target.value)}
-                />
-                <span>원</span>
-              </div>
-            </label>
-          </article>
           <div className="additional-heading">
             <h1>추가 지출</h1>
             <p>
-              갑작스러운 수리비, 비품 구매, 회식비, 카드값 등<br />
-              이번 달 추가로 발생한 지출
+              갑작스러운 수리비, 비품 구매, 회식비, 카드값 등 이번 달 추가로
+              발생한 지출을 입력하세요.
             </p>
           </div>
           <div className="management-item-list">
@@ -476,20 +514,58 @@ export default function ManagementPage() {
             className="add-management-item"
             onClick={() => addItem(setExtraItems)}
           >
-            <img src="/management-icons/add.png" alt="" /> 지출 항목 추가하기
+            <img src="/management-icons/add.png" alt="" /> 추가 지출 항목
+            추가하기
           </button>
           <p className="management-helper">
-            이번달 카드값 등 잊은 지출은 없는지 확인해주세요.
+            이번 달 카드값이나 갑작스러운 지출을 빠짐없이 입력해주세요.
           </p>
           <ManagementSummary
-            title="수정 반영된 예상 월 추가 지출 합계"
-            label="추가지출 합산"
-            amount={total(extraItems)}
+            title="수정 반영된 예상 월 지출 합계"
+            label="예상 지출 합산"
+            amount={total(fixedItems) + total(extraItems)}
             saveLabel={saveLabel}
             saved={saved}
             onSave={() => setSaved(true)}
           />
-        </>
+        </div>
+      )}
+
+      {displayTab === "sales" && (
+        <div
+          className={
+            tabLeaving
+              ? "management-tab-panel is-leaving"
+              : "management-tab-panel"
+          }
+          key={displayTab}
+        >
+          <div className="month-selector">
+            <b>{month}</b>
+            <span>당월</span>
+          </div>
+          <article className="sales-entry">
+            <label>
+              이번달 총 매출액
+              <div className="currency-field">
+                <input
+                  inputMode="numeric"
+                  value={sales}
+                  onChange={(event) => setSales(event.target.value)}
+                />
+                <span>원</span>
+              </div>
+            </label>
+          </article>
+          <ManagementSummary
+            title="이번 달 매출"
+            label="입력된 매출"
+            amount={amountValue(sales)}
+            saveLabel={saveLabel}
+            saved={saved}
+            onSave={() => setSaved(true)}
+          />
+        </div>
       )}
     </section>
   );

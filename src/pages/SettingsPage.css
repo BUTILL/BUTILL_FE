@@ -6,7 +6,6 @@
   flex-direction: column;
   gap: 22px;
   padding: 16px 18px 78px;
-  animation: screen-enter 0.24s ease-out both;
 }
 .settings-lead {
   margin: 0 -2px -5px;
@@ -199,7 +198,6 @@
   width: 100%;
   min-width: 0;
   padding: 24px 18px 80px;
-  animation: screen-enter 0.24s ease-out both;
 }
 .settings-edit-form {
   display: flex;
