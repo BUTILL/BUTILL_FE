@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import "./SimulationAnalysisWebPage.css";
 
 type ScenarioKey = "basic" | "optimistic" | "pessimistic";
@@ -13,6 +13,9 @@ type Scenario = {
   assumptions: string[];
   insight: string;
 };
+type ScenarioAssumptions = Record<ScenarioKey, string[]>;
+
+const assumptionStorageKey = "butill-simulation-assumptions";
 
 const months = [
   "3월",
@@ -155,14 +158,85 @@ function AnalysisChart({ selectedKey }: { selectedKey: ScenarioKey }) {
   );
 }
 
+function loadSavedAssumptions(): ScenarioAssumptions {
+  const defaults = Object.fromEntries(
+    scenarios.map(({ key, assumptions }) => [key, assumptions]),
+  ) as ScenarioAssumptions;
+
+  try {
+    const saved = localStorage.getItem(assumptionStorageKey);
+    if (!saved) return defaults;
+
+    const parsed = JSON.parse(saved) as Partial<ScenarioAssumptions>;
+    return {
+      basic: Array.isArray(parsed.basic)
+        ? parsed.basic.filter((item): item is string => typeof item === "string")
+        : defaults.basic,
+      optimistic: Array.isArray(parsed.optimistic)
+        ? parsed.optimistic.filter((item): item is string => typeof item === "string")
+        : defaults.optimistic,
+      pessimistic: Array.isArray(parsed.pessimistic)
+        ? parsed.pessimistic.filter((item): item is string => typeof item === "string")
+        : defaults.pessimistic,
+    };
+  } catch {
+    return defaults;
+  }
+}
+
 export default function SimulationAnalysisWebPage() {
   const [selectedKey, setSelectedKey] = useState<ScenarioKey>("basic");
+  const [assumptions, setAssumptions] = useState<ScenarioAssumptions>(
+    loadSavedAssumptions,
+  );
+  const [newAssumption, setNewAssumption] = useState("");
   const scenario =
     scenarios.find(({ key }) => key === selectedKey) ?? scenarios[0];
 
   useEffect(() => {
     document.title = "BUTILL | 시뮬레이션 상세 분석";
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem(assumptionStorageKey, JSON.stringify(assumptions));
+  }, [assumptions]);
+
+  const updateAssumption = (index: number, value: string) => {
+    setAssumptions((current) => ({
+      ...current,
+      [selectedKey]: current[selectedKey].map((item, itemIndex) =>
+        itemIndex === index ? value : item,
+      ),
+    }));
+  };
+
+  const removeAssumption = (index: number) => {
+    setAssumptions((current) => ({
+      ...current,
+      [selectedKey]: current[selectedKey].filter(
+        (_, itemIndex) => itemIndex !== index,
+      ),
+    }));
+  };
+
+  const addAssumption = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const value = newAssumption.trim();
+    if (!value) return;
+
+    setAssumptions((current) => ({
+      ...current,
+      [selectedKey]: [...current[selectedKey], value],
+    }));
+    setNewAssumption("");
+  };
+
+  const applyExampleAssumptions = () => {
+    setAssumptions((current) => ({
+      ...current,
+      [selectedKey]: [...scenario.assumptions],
+    }));
+  };
 
   return (
     <main className="analysis-web">
@@ -276,12 +350,49 @@ export default function SimulationAnalysisWebPage() {
             </div>
             <div className="analysis-assumptions">
               <h3>시나리오 가정</h3>
-              {scenario.assumptions.map((item) => (
-                <div key={item}>
-                  <i>✓</i>
-                  {item}
-                </div>
-              ))}
+              <p className="analysis-assumptions-help">
+                이 시나리오에서 예상하는 상황을 직접 입력해 보세요.
+              </p>
+              <div className="analysis-assumptions-list">
+                {assumptions[selectedKey].map((item, index) => (
+                  <div
+                    className="analysis-assumption-row"
+                    key={`${selectedKey}-${index}`}
+                  >
+                    <input
+                      aria-label={`시나리오 가정 ${index + 1}`}
+                      value={item}
+                      onChange={(event) =>
+                        updateAssumption(index, event.target.value)
+                      }
+                      placeholder="예: 매출 10% 증가"
+                    />
+                    <button
+                      type="button"
+                      aria-label={`시나리오 가정 ${index + 1} 삭제`}
+                      onClick={() => removeAssumption(index)}
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <form className="analysis-assumption-add" onSubmit={addAssumption}>
+                <input
+                  aria-label="새 시나리오 가정"
+                  value={newAssumption}
+                  onChange={(event) => setNewAssumption(event.target.value)}
+                  placeholder="새 가정을 입력하세요"
+                />
+                <button type="submit">추가</button>
+              </form>
+              <button
+                className="analysis-assumption-examples"
+                type="button"
+                onClick={applyExampleAssumptions}
+              >
+                예시 시나리오 적용
+              </button>
             </div>
             <div className={`analysis-status ${scenario.key}`}>
               <i />
