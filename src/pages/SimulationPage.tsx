@@ -37,41 +37,6 @@ const scenarioCards: ScenarioCard[] = [
   },
 ];
 
-const graphMonths = [
-  "3월",
-  "4월",
-  "5월",
-  "6월",
-  "7월",
-  "8월",
-  "9월",
-  "10월",
-  "11월",
-  "12월",
-  "1월",
-  "2월",
-];
-const graphLines = [
-  {
-    label: "기본 시나리오",
-    tone: "basic",
-    values: [100, 96, 91, 86, 66, 60, 53, 44, 36, 29, 22, 15],
-  },
-  {
-    label: "비관 시나리오",
-    tone: "pessimistic",
-    values: [100, 80, 61, 44, 29, 19, 4, -10, -22, -33, -43, -50],
-  },
-  {
-    label: "낙관 시나리오",
-    tone: "optimistic",
-    values: [100, 104, 108, 115, 106, 112, 119, 126, 133, 140, 147, 153],
-  },
-];
-const graphTicks = [150, 100, 50, 0, -50];
-const chartX = (index: number) => 43 + (index * 294) / (graphMonths.length - 1);
-const chartY = (value: number) => 34 + ((150 - value) / 200) * 160;
-
 function ScenarioOverview({ scenario }: { scenario: ScenarioCard }) {
   return (
     <article className={`scenario-overview ${scenario.key}`}>
@@ -93,77 +58,11 @@ function ScenarioOverview({ scenario }: { scenario: ScenarioCard }) {
   );
 }
 
-function ScenarioComparisonChart() {
-  return (
-    <div
-      className="scenario-comparison-chart"
-      role="img"
-      aria-label="3월부터 다음 해 2월까지 기본, 비관, 낙관 시나리오별 가용자금 비교 그래프"
-    >
-      <svg viewBox="0 0 360 232" preserveAspectRatio="xMidYMid meet">
-        {graphTicks.map((tick) => {
-          const y = chartY(tick);
-          return (
-            <g key={tick}>
-              <line
-                x1="43"
-                x2="344"
-                y1={y}
-                y2={y}
-                className="comparison-gridline"
-              />
-              <text
-                x="31"
-                y={y + 3}
-                textAnchor="end"
-                className="comparison-axis-label"
-              >
-                {tick}
-              </text>
-            </g>
-          );
-        })}
-        {graphMonths.map((month, index) => (
-          <text
-            key={month}
-            x={chartX(index)}
-            y="218"
-            textAnchor="middle"
-            className="comparison-month-label"
-          >
-            {month}
-          </text>
-        ))}
-        {graphLines.map((line) => {
-          const points = line.values
-            .map((value, index) => `${chartX(index)},${chartY(value)}`)
-            .join(" ");
-          const lastX = chartX(line.values.length - 1);
-          const lastY = chartY(line.values[line.values.length - 1]);
-          return (
-            <g key={line.tone}>
-              <polyline
-                points={points}
-                className={`comparison-line ${line.tone}`}
-              />
-              <circle
-                cx={lastX}
-                cy={lastY}
-                r="3.1"
-                className={`comparison-point ${line.tone}`}
-              />
-            </g>
-          );
-        })}
-      </svg>
-    </div>
-  );
-}
-
 export default function SimulationPage() {
   const [introVisible, setIntroVisible] = useState(true);
   const [introClosing, setIntroClosing] = useState(false);
-
+  const analysisWebUrl =
+    import.meta.env.VITE_SIMULATION_ANALYSIS_URL || "http://localhost:5174/";
   const closeIntro = () => {
     setIntroClosing(true);
     window.setTimeout(() => {
@@ -198,19 +97,15 @@ export default function SimulationPage() {
         ))}
       </div>
 
-      <section className="scenario-chart-card">
-        <h2>시나리오별 그래프</h2>
-        <p>시나리오별 가용자금 상황을 비교해 보세요.</p>
-        <div className="comparison-legend">
-          {graphLines.map((line) => (
-            <span key={line.tone}>
-              <i className={line.tone} />
-              {line.label}
-            </span>
-          ))}
+      <section className="scenario-chart-card scenario-analysis-link-card">
+        <div className="scenario-analysis-copy">
+          <span className="scenario-analysis-eyebrow">시나리오 상세 분석</span>
+          <h2>자금 흐름을 자세히 확인해 보세요</h2>
+          <p>월별 그래프와 시나리오별 분석을 웹에서 확인할 수 있어요.</p>
         </div>
-        <small className="comparison-chart-caption">가용자금 기준</small>
-        <ScenarioComparisonChart />
+        <a className="scenario-analysis-link" href={analysisWebUrl}>
+          자세한 분석 및 그래프 보러 가기 <span aria-hidden="true">→</span>
+        </a>
       </section>
 
       <section className="store-diagnosis-card">

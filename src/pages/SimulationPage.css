@@ -146,120 +146,57 @@
   line-height: 15px;
 }
 .scenario-chart-card {
-  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
   border-radius: 16px;
   background: #fff;
   box-shadow: 0 1px 2px #0000000c;
 }
+.scenario-analysis-eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 99px;
+  background: #e8efff;
+  color: #203f8c;
+  font-size: 10px;
+  font-weight: 700;
+}
 .scenario-chart-card h2 {
-  margin: 0 0 5px;
+  margin: 8px 0 4px;
   color: #13213a;
-  font-size: 19px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 23px;
 }
-.scenario-chart-card > p {
-  min-height: 36px;
-  margin: 0 0 10px;
-  color: #444651;
-  font-size: 14px;
-  line-height: 19px;
+.scenario-analysis-copy > p {
+  margin: 0;
+  color: #596273;
+  font-size: 12px;
+  line-height: 18px;
 }
-.comparison-legend {
-  min-height: 33px;
+.scenario-analysis-link {
+  width: 100%;
+  min-height: 44px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  gap: 5px;
-  padding: 0 6px;
-  border-radius: 8px;
-  background: #eef3ff;
-  color: #202a3e;
-  font-size: 10px;
-  white-space: nowrap;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 11px;
+  background: #203f8c;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
 }
-.comparison-legend span {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-.comparison-legend i {
-  width: 9px;
-  height: 9px;
-  flex: none;
-  border-radius: 2px;
-}
-.comparison-legend i.basic {
-  background: #0064d7;
-}
-.comparison-legend i.pessimistic {
-  background: #c91e24;
-}
-.comparison-legend i.optimistic {
-  background: #0aa14a;
-}
-.comparison-chart-caption {
-  display: block;
-  margin: 17px 0 0;
-  color: #66728a;
-  font-size: 9px;
-}
-.scenario-comparison-chart {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 360 / 232;
-  margin-top: 1px;
-  overflow: hidden;
-}
-.scenario-comparison-chart svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  shape-rendering: geometricPrecision;
-  font-family: "Noto Sans KR", sans-serif;
-}
-.comparison-gridline {
-  stroke: #e8effa;
-  stroke-width: 1;
-}
-.comparison-axis-label,
-.comparison-month-label {
-  fill: #596b8b;
-  font-size: 9px;
-  font-weight: 500;
-}
-.comparison-month-label {
-  font-size: 8px;
-}
-.comparison-line {
-  fill: none;
-  stroke-width: 2.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  vector-effect: non-scaling-stroke;
-}
-.comparison-line.basic {
-  stroke: #0064d7;
-}
-.comparison-line.pessimistic {
-  stroke: #d33b3c;
-}
-.comparison-line.optimistic {
-  stroke: #0aa14a;
-}
-.comparison-point {
-  stroke: #fff;
-  stroke-width: 1.5;
-  vector-effect: non-scaling-stroke;
-}
-.comparison-point.basic {
-  fill: #0064d7;
-}
-.comparison-point.pessimistic {
-  fill: #d33b3c;
-}
-.comparison-point.optimistic {
-  fill: #0aa14a;
+.scenario-analysis-link span {
+  font-size: 17px;
+  line-height: 1;
 }
 .store-diagnosis-card {
   display: flex;
@@ -389,13 +326,5 @@
   }
   .scenario-runway-result b {
     font-size: 18px;
-  }
-  .comparison-legend {
-    gap: 3px;
-    padding-inline: 4px;
-    font-size: 9px;
-  }
-  .comparison-legend span {
-    gap: 3px;
   }
 }
