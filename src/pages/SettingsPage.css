@@ -541,3 +541,124 @@
     font-size: 17px;
   }
 }
+
+.account-withdrawal-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-color: #f0e5e5;
+}
+.account-withdrawal-card h1 {
+  margin: 0;
+  color: #333b4d;
+  font-size: 14px;
+}
+.account-withdrawal-card p {
+  margin: 5px 0 0;
+  color: #7b8190;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.account-withdrawal-card > button {
+  flex: none;
+  padding: 8px 12px;
+  border: 1px solid #f0caca;
+  border-radius: 10px;
+  background: #fff7f7;
+  color: #bd3438;
+  font-size: 11px;
+  font-weight: 700;
+}
+.withdrawal-modal-backdrop {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #10182b75;
+  animation: withdrawal-fade-in 160ms ease both;
+}
+.withdrawal-modal {
+  width: min(100%, 340px);
+  padding: 24px 21px 18px;
+  border: 1px solid #eaedf4;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 16px 42px #11182730;
+  text-align: center;
+  animation: withdrawal-pop-in 180ms ease both;
+}
+.withdrawal-modal-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: #fff0ef;
+  color: #c53b3b;
+  font-size: 20px;
+  font-weight: 800;
+}
+.withdrawal-modal h2 {
+  margin: 0;
+  color: #17233a;
+  font-size: 17px;
+}
+.withdrawal-modal p {
+  margin: 10px 0 19px;
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.withdrawal-modal > button {
+  width: 100%;
+  min-height: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: #203f8c;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+@keyframes withdrawal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes withdrawal-pop-in {
+  from { opacity: 0; transform: translateY(8px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .withdrawal-modal-backdrop,
+  .withdrawal-modal {
+    animation: none;
+  }
+}
+@media (max-width: 360px) {
+  .account-withdrawal-card {
+    align-items: flex-start;
+  }
+}.withdrawal-modal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+.withdrawal-modal-actions > button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.withdrawal-modal-actions .withdrawal-cancel {
+  background: #f0f3f9;
+  color: #48536a;
+}
+.withdrawal-modal-actions .withdrawal-confirm {
+  background: #bd3438;
+  color: #fff;
+}

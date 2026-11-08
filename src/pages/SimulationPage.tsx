@@ -97,16 +97,7 @@ export default function SimulationPage() {
         ))}
       </div>
 
-      <section className="scenario-chart-card scenario-analysis-link-card">
-        <div className="scenario-analysis-copy">
-          <span className="scenario-analysis-eyebrow">시나리오 상세 분석</span>
-          <h2>자금 흐름을 자세히 확인해 보세요</h2>
-          <p>월별 그래프와 시나리오별 분석을 웹에서 확인할 수 있어요.</p>
-        </div>
-        <a className="scenario-analysis-link" href={analysisWebUrl}>
-          자세한 분석 및 그래프 보러 가기 <span aria-hidden="true">→</span>
-        </a>
-      </section>
+
 
       <section className="store-diagnosis-card">
         <header className="store-diagnosis-heading">
@@ -153,6 +144,17 @@ export default function SimulationPage() {
             </small>
           </article>
         </div>
+      </section>
+
+      <section className="simulation-detail-web">
+        <div className="simulation-detail-copy">
+          <span className="simulation-detail-kicker">시나리오 상세 분석</span>
+          <h2>자금 흐름을 자세히 확인해 보세요</h2>
+          <p>월별 그래프와 시나리오별 분석을 웹에서 확인할 수 있어요.</p>
+        </div>
+        <a className="simulation-detail-link" href={analysisWebUrl}>
+          자세한 분석 및 그래프 보러 가기 <span aria-hidden="true">→</span>
+        </a>
       </section>
 
       <aside className="financial-coach">

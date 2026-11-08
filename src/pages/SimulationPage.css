@@ -328,3 +328,73 @@
     font-size: 18px;
   }
 }
+
+.simulation-detail-web {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 16px;
+  border: 1px solid #dce5fb;
+  border-radius: 16px;
+  background: #f0f5ff;
+}
+.simulation-detail-kicker {
+  display: inline-flex;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 99px;
+  background: #e8efff;
+  color: #203f8c;
+  font-size: 10px;
+  font-weight: 700;
+}
+.simulation-detail-copy h2 {
+  margin: 5px 0;
+  color: #17233a;
+  font-size: 15px;
+  line-height: 21px;
+}
+.simulation-detail-copy p {
+  margin: 0;
+  color: #69758b;
+  font-size: 11px;
+  line-height: 16px;
+}
+.simulation-detail-link {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 12px;
+  border-radius: 11px;
+  background: #203f8c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+.simulation-detail-link span {
+  font-size: 16px;
+}
+/* Keep the diagnosis area quiet so it doesn't compete with scenario colors. */
+.store-diagnosis-card {
+  border-color: #e8ebf3;
+}
+.store-diagnosis-item,
+.store-diagnosis-item.cost-risk,
+.store-diagnosis-item.labor-risk,
+.store-diagnosis-item.sales-risk {
+  background: #f3f5fb;
+}
+.store-diagnosis-label b {
+  color: #25324a;
+}
+.store-diagnosis-label span {
+  background: #e8edff;
+  color: #53617b;
+}
+.store-diagnosis-item small {
+  color: #435982;
+}

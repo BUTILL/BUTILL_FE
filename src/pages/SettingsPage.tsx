@@ -57,6 +57,13 @@ const seoulDistricts = [
 ];
 
 export function SettingsPage(props: SettingsProps) {
+  const [showWithdrawalNotice, setShowWithdrawalNotice] = useState(false);
+  const [withdrawalUnavailable, setWithdrawalUnavailable] = useState(false);
+  useEffect(() => {
+    if (!withdrawalUnavailable) return;
+    const timer = window.setTimeout(() => setWithdrawalUnavailable(false), 2400);
+    return () => window.clearTimeout(timer);
+  }, [withdrawalUnavailable]);
   const total = Number(props.totalFunds.replace(/[^0-9]/g, "")) || 0;
   const reserve = Math.round((total * props.reserveRate) / 100);
   const available = total - reserve;
@@ -137,6 +144,63 @@ export function SettingsPage(props: SettingsProps) {
           onChange={() => props.setIngredientAlert((value) => !value)}
         />
       </section>
+
+      <section className="settings-card account-withdrawal-card">
+        <div>
+          <h1>회원 탈퇴</h1>
+          <p>계정과 서비스 이용을 종료할 수 있어요.</p>
+        </div>
+        <button type="button" onClick={() => setShowWithdrawalNotice(true)}>
+          회원 탈퇴
+        </button>
+      </section>
+
+      {showWithdrawalNotice && (
+        <div
+          className="withdrawal-modal-backdrop"
+          onClick={() => setShowWithdrawalNotice(false)}
+        >
+          <section
+            className="withdrawal-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="withdrawal-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <span className="withdrawal-modal-mark" aria-hidden="true">!</span>
+            <h2 id="withdrawal-title">회원 탈퇴를 진행할까요?</h2>
+            <p>
+              탈퇴하면 계정 이용이 중단되며, 계정 정보는 개인정보 처리방침에
+              따라 처리돼요. 탈퇴 후에는 계정을 복구할 수 없어요.
+            </p>
+            <div className="withdrawal-modal-actions">
+              <button
+                type="button"
+                className="withdrawal-cancel"
+                onClick={() => setShowWithdrawalNotice(false)}
+              >
+                계속 이용하기
+              </button>
+              <button
+                type="button"
+                className="withdrawal-confirm"
+                onClick={() => {
+                  setShowWithdrawalNotice(false);
+                  setWithdrawalUnavailable(true);
+                }}
+              >
+                탈퇴하기
+              </button>
+            </div>
+          </section>
+        </div>
+      )}
+      {withdrawalUnavailable && (
+        <Toast
+          message="회원 탈퇴는 서버 연동 후 이용할 수 있어요"
+          className="settings-toast"
+        />
+      )}
     </section>
   );
 }

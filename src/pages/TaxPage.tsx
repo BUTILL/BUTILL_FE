@@ -69,6 +69,8 @@ export default function TaxPage({
   const [taxIntroClosing, setTaxIntroClosing] = useState(false);
   const [showDiagnosis, setShowDiagnosis] = useState(false);
   const saveTimer = useRef<number | undefined>(undefined);
+  const detailUrl =
+    import.meta.env.VITE_TAX_ANALYSIS_WEB_URL || "http://localhost:5174/tax";
 
   return (
     <section className="tax-page">
@@ -225,6 +227,16 @@ export default function TaxPage({
         <button className="annual" onClick={() => setAnnual(!annual)}>
           {annual ? "연간 세무 일정 접기" : "연간 세무 일정 5개 더보기"}
         </button>
+      </section>
+      <section className="tax-detail-web">
+        <div>
+          <span className="tax-detail-kicker">상세 분석 웹</span>
+          <h2>연간 세무 일정과 세금 정보를 확인해 보세요</h2>
+          <p>월별 납부 일정과 세금별 안내를 웹에서 한눈에 볼 수 있어요.</p>
+        </div>
+        <a href={detailUrl}>
+          세금 일정 자세히 보기 <span aria-hidden="true">→</span>
+        </a>
       </section>
     </section>
   );

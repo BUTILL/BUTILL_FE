@@ -307,3 +307,47 @@
 .form .toast {
   animation: save-toast-life 2.5s ease both;
 }
+
+.tax-detail-web {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 16px;
+  margin-top: 20px;
+  border: 1px solid #dce5fb;
+  border-radius: 16px;
+  background: #f0f5ff;
+}
+.tax-detail-kicker {
+  color: #2b59a6;
+  font-size: 10px;
+  font-weight: 800;
+}
+.tax-detail-web h2 {
+  margin: 5px 0;
+  color: #17233a;
+  font-size: 15px;
+  line-height: 21px;
+}
+.tax-detail-web p {
+  margin: 0;
+  color: #69758b;
+  font-size: 11px;
+  line-height: 16px;
+}
+.tax-detail-web a {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-radius: 11px;
+  background: #203f8c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.tax-detail-web a span {
+  font-size: 16px;
+}
