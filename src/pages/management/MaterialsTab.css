@@ -1,0 +1,445 @@
+/* 입력/관리 화면 전체: 배경과 화면 안쪽 여백 */
+.management-page {
+  min-height: calc(100vh - 56px);
+  padding: 0 18px 92px;
+  background: #faf8ff;
+}
+
+/* 상단 탭: 고정 위치, 선택 표시선, 탭 버튼과 활성 상태 */
+.management-tabs {
+  position: sticky;
+  top: 56px;
+  z-index: 4;
+  height: 47px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 -18px 24px;
+  border-bottom: 1px solid #e8e7ef;
+  background: #faf8fff5;
+  backdrop-filter: blur(6px);
+}
+
+.management-tabs::after {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 33.3333%;
+  height: 2px;
+  background: #1e3a8a;
+  content: "";
+  transition: transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.management-tabs[data-active="expenses"]::after {
+  transform: translateX(100%);
+}
+
+.management-tabs[data-active="sales"]::after {
+  transform: translateX(200%);
+}
+
+.management-tabs button {
+  position: relative;
+  padding: 0 3px;
+  border: 0;
+  background: transparent;
+  color: #747783;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.management-tabs button.active {
+  color: #00236f;
+  font-weight: 700;
+}
+
+/* 탭 내용이 나타나고 사라질 때의 전환 효과 */
+:where([data-management-panel="1"]).management-tab-panel {
+  animation: screen-enter 0.14s ease-out both;
+}
+
+:where([data-management-panel="1"]).management-tab-panel.is-leaving {
+  pointer-events: none;
+  animation: screen-exit 0.14s ease-in both;
+}
+
+/* 상단 안내 카드: 제목, 설명, 안내 닫기 버튼 */
+:where([data-management-panel="1"]) .management-intro {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  min-height: 122px;
+  padding: 17px 50px 17px 14px;
+  margin-bottom: 23px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 2px #0000000c;
+}
+
+:where([data-management-panel="1"]) .management-intro h1 {
+  margin: 0 0 9px;
+  color: #13213a;
+  font-size: 19px;
+  line-height: 27px;
+  letter-spacing: -0.4px;
+}
+
+:where([data-management-panel="1"]) .management-intro p {
+  margin: 0;
+  color: #444651;
+  font-size: 13px;
+  line-height: 20px;
+  word-break: keep-all;
+}
+
+:where([data-management-panel="1"]) .management-intro > button {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #f2f3ff;
+  color: #131b2e;
+  font-size: 25px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+/* 원재료·지출·메뉴 입력 카드 목록의 세로 배치와 간격 */
+:where([data-management-panel="1"]) .management-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 원재료·지출·메뉴 입력 카드의 테두리와 내부 여백 */
+:where([data-management-panel="1"]) .management-item {
+  padding: 18px 18px 20px;
+  border: 1px solid #d9dbe8;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 1px 2px #0000000b;
+}
+
+/* 입력 카드의 제목 줄, 삭제 버튼과 아이콘 */
+:where([data-management-panel="1"]) .management-item-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 33px;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e9ebf3;
+  color: #14213a;
+  font-size: 14px;
+}
+
+:where([data-management-panel="1"]) .management-item-title button {
+  width: 26px;
+  height: 26px;
+  border: 0;
+  background: transparent;
+  color: #727989;
+  font-size: 17px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+:where([data-management-panel="1"]) .management-item-title button img {
+  display: block;
+}
+
+/* 입력 항목 이름과 입력란 사이 간격 및 글씨 */
+:where([data-management-panel="1"]) .management-item label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+  color: #515767;
+  font-size: 11px;
+}
+
+/* 카드 안 입력란의 크기, 테두리, 배경과 글씨 */
+:where([data-management-panel="1"]) .management-item input {
+  width: 100%;
+  height: 46px;
+  padding: 0 15px;
+  border: 1px solid #d3d7eb;
+  border-radius: 13px;
+  outline-color: #2872e8;
+  background: #f2f3ff;
+  color: #202a3e;
+  font-size: 13px;
+}
+
+/* 항목 추가 버튼 아래의 도움말 */
+:where([data-management-panel="1"]) .management-helper {
+  margin: 8px 12px 22px;
+  color: #777d8a;
+  font-size: 10px;
+  line-height: 15px;
+  text-align: center;
+  word-break: keep-all;
+}
+
+/* 각 탭 하단의 합계 카드: 제목, 금액과 항목 배치 */
+:where([data-management-panel="1"]) .management-summary {
+  padding: 24px 18px 19px;
+  margin-bottom: 18px;
+  border: 1px solid #d9dcef;
+  border-radius: 16px;
+  background: #edeeff;
+}
+
+:where([data-management-panel="1"]) .management-summary > b {
+  display: block;
+  margin-bottom: 24px;
+  color: #17223a;
+  font-size: 13px;
+}
+
+:where([data-management-panel="1"])
+  .management-summary
+  > div:not(.management-save-wrap) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 21px;
+  color: #4c5363;
+  font-size: 12px;
+}
+
+:where([data-management-panel="1"]) .management-summary strong {
+  color: #002d83;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+/* 전체 저장 버튼과 저장 알림의 위치 기준 */
+:where([data-management-panel="1"]) .management-save-wrap {
+  position: relative;
+}
+
+/* 탭 전체 저장 버튼과 저장 완료 상태 */
+:where([data-management-panel="1"]) .management-save {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 12px;
+  background: #1e3a8a;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 7px 15px #1e3a8a2e;
+}
+
+:where([data-management-panel="1"]) .management-save.saved {
+  background: #d6dcf5;
+  box-shadow: none;
+}
+
+/* 전체 저장 완료 알림을 버튼 중앙에 표시 */
+:where([data-management-panel="1"]) .management-toast {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 모바일에서 주요 버튼을 누를 때 기본 강조 배경 제거 */
+.management-tabs button,
+:where([data-management-panel="1"]) .management-intro > button,
+:where([data-management-panel="1"]) .management-item-title button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 금액 입력란: 바깥 상자의 스타일을 사용하고 숫자를 오른쪽 정렬 */
+:where([data-management-panel="1"]) .management-item .currency-field input {
+  width: auto;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  text-align: right;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* 원재료 박스 하단의 저장 안내와 버튼을 오른쪽으로 배치 */
+:where([data-management-panel="1"]) .material-save-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* 원재료별 중간 저장 완료 및 오류 안내 문구 */
+:where([data-management-panel="1"]) .material-save-actions span {
+  font-size: 11px;
+  color: #515767;
+}
+
+/* 원재료별 중간 저장 버튼: 크기, 여백, 색상, 글씨 두께 (공통 버튼 스타일보다 우선 적용) */
+.management-page :where([data-management-panel="1"]) .material-save-button {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: #002d83;
+  color: white;
+  font-size: 11px;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+/* 실제 사용하는 원재료 입력 영역과 입력 안내 */
+.ingredient-name-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 15px 16px;
+  margin: 0 0 16px;
+  border: 1px solid #d9dcef;
+  border-radius: 14px;
+  background: #fff;
+  color: #14213a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ingredient-name-field input {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #d3d7eb;
+  border-radius: 11px;
+  outline-color: #2872e8;
+  background: #f2f3ff;
+  color: #202a3e;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.ingredient-name-field input::placeholder {
+  color: #8a90a0;
+  opacity: 1;
+}
+
+.ingredient-name-field small {
+  color: #777d8a;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+/* 입력한 원재료 이름을 보여주는 미리보기와 이름 배지 */
+.ingredient-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-top: 4px;
+}
+
+.ingredient-preview b {
+  color: #515767;
+  font-size: 11px;
+}
+
+.ingredient-preview ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.ingredient-preview li {
+  padding: 5px 9px;
+  border-radius: 99px;
+  background: #eaedff;
+  color: #203f8c;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* 저장한 원재료 이름과 길게 눌렀을 때 나타나는 삭제 버튼 */
+.ingredient-preview .saved-ingredient {
+  position: relative;
+  padding: 0;
+}
+
+.ingredient-preview .ingredient-chip {
+  padding: 5px 9px;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  color: inherit;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.ingredient-preview .ingredient-delete-button {
+  position: absolute;
+  z-index: 2;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 9px;
+  border: 1px solid #d9dcef;
+  border-radius: 3px;
+  background: white;
+  color: #14213a;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px #0002;
+}
+
+/* 저장한 메뉴명과 원재료비를 두 열로 표시하는 표 */
+.menu-material-table {
+  align-self: flex-start;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.menu-material-table th {
+  padding: 6px 0;
+  color: #6b7280;
+  font-size: 10px;
+}
+
+.menu-material-table td {
+  padding: 6px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.menu-material-table th:last-child,
+.menu-material-table td:nth-child(2) {
+  padding-left: 20px;
+  white-space: nowrap;
+}
+/* 메뉴판의 안쪽 너비를 기준으로 머리글 아래 구분선 길이를 지정 */
+.ingredient-name-field:has(> .menu-material-table) {
+  container-type: inline-size;
+}
+
+.menu-material-table thead {
+  position: relative;
+}
+
+.menu-material-table thead::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 66.667cqw;
+  border-bottom: 1px solid #d9dcef;
+  content: "";
+}

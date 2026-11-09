@@ -1,0 +1,65 @@
+/* 전체 기본 설정 */
+:root {
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: #222222;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 모든 요소의 크기 계산 방식 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* HTML 전체 */
+html {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+/* PC 브라우저 배경 */
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+
+  background-color: #f5f5f5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 모바일 앱 화면 */
+#root {
+  width: min(100%, 360px);
+  height: min(100dvh, 800px);
+
+  margin: 0;
+  padding: 0;
+
+  background-color: #faf8ff;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  flex-shrink: 0;
+}
+
+/* 제목 기본 스타일 */
+h1,
+h2 {
+  margin: 0;
+  font-family: inherit;
+}
+
+/* 문단 기본 스타일 */
+p {
+  margin: 0;
+}

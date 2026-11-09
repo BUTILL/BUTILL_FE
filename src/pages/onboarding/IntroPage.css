@@ -1,0 +1,383 @@
+/* 전체 화면 */
+.introduction-container {
+  min-height: 100vh;
+  background: #faf8ff;
+  color: #374151;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* 화면 요소 크기 계산 */
+.introduction-container *,
+.introduction-container *::before,
+.introduction-container *::after {
+  box-sizing: border-box;
+}
+
+
+/* 상단 헤더 */
+.introduction-header {
+  height: 65px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* 뒤로가기 버튼 */
+.introduction-back {
+  position: absolute;
+  left: 20px;
+  border: 0;
+  background: none;
+  color: #24448f;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* 로고 기본 스타일 */
+.introduction-header .introduction-logo {
+  width: 90px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+
+/* 메인 콘텐츠 */
+.introduction-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 16px 20px 24px;
+}
+
+
+/* 상단 안내 배지 */
+.introduction-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: #e5edff;
+  color: #24448f;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* 작은 소개 문구 */
+.introduction-greeting {
+  margin: 14px 0 3px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* 메인 제목 */
+.introduction-title {
+  margin: 0 0 5px;
+  color: #102f76;
+  font-size: 21px;
+  font-weight: 800;
+  -webkit-text-stroke: 0.4px currentColor;
+  line-height: 1.35;
+}
+
+
+/* 메인 설명 */
+.introduction-description {
+  margin: 0;
+  color: #4b5563;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* 3가지 약속 제목 */
+.introduction-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* 제목 앞 별 아이콘 */
+.introduction-star {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #2448a5;
+  color: white;
+  font-size: 12px;
+}
+
+/* 약속 카드 */
+.introduction-feature-card {
+  padding: 15px 13px;
+  border-radius: 13px;
+  background: white;
+}
+
+/* 약속 카드 사이 간격 */
+.introduction-feature-card + .introduction-feature-card {
+  margin-top: 12px;
+}
+
+
+/* 카드 상단 */
+.introduction-feature-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* 카드 아이콘 */
+.introduction-feature-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: #e8efff;
+  color: #103780;
+  font-size: 20px;
+}
+
+
+/* 카드 번호 */
+.introduction-feature-number {
+  color: #3478e5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* 카드 제목 */
+.introduction-feature-top h4 {
+  margin: 3px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* 카드 설명 */
+.introduction-feature-card > p {
+  margin: 10px 0 0;
+  color: #4b5563;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+/* 이용 절차 안내 영역 */
+.introduction-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 18px 15px;
+  border-radius: 15px;
+  background: #eef2ff;
+}
+
+
+/* 안내 영역 상단 */
+.introduction-steps-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+
+/* 안내 제목 */
+.introduction-steps-header h3 {
+  margin: 0;
+  color: #3478e5;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+
+/* 안내 부제목 */
+.introduction-steps-header p {
+  margin: 3px 0 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* 소요 시간 배지 */
+.introduction-time {
+  padding: 8px 11px;
+  border-radius: 20px;
+  background: #103780;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+
+/* 진행 단계 카드 */
+.introduction-step-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 12px;
+  border-radius: 12px;
+  background: white;
+}
+
+
+/* 단계 번호 */
+.introduction-step-number {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #24448f;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* 두 번째 단계 번호 색상 */
+.introduction-step-card:nth-of-type(3) .introduction-step-number {
+  background: #365cba;
+}
+
+
+/* 세 번째 단계 번호 색상 */
+.introduction-step-card:nth-of-type(4) .introduction-step-number {
+  background: #2877e5;
+}
+
+
+/* 단계 설명 영역 */
+.introduction-step-text {
+  flex: 1;
+  min-width: 0;
+}
+
+
+/* 단계 제목 */
+.introduction-step-text h4 {
+  margin: 0 0 3px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* 단계 설명 */
+.introduction-step-text p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* 단계별 소요 시간 */
+.introduction-step-time,
+.introduction-step-complete {
+  align-self: flex-start;
+  color: #6b7280;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+
+/* 마지막 단계 즉시 확인 */
+.introduction-step-complete {
+  color: #2877e5;
+  font-weight: 700;
+}
+
+
+/* 개인정보 보호 안내 */
+.introduction-security {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+
+/* 개인정보 안내 문구 */
+.introduction-security p {
+  margin: 0;
+}
+
+
+/* 자물쇠 아이콘 */
+.introduction-lock {
+  flex-shrink: 0;
+  color: #24448f;
+  font-size: 18px;
+}
+
+
+/* 하단 버튼 영역 */
+.introduction-footer {
+  padding: 16px 20px 24px;
+}
+
+
+/* 시작하기 버튼 */
+.introduction-start-button {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 13px;
+  background: #24448f;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(36, 68, 143, .2);
+}
+
+
+/* 키보드 포커스 표시 */
+.introduction-back:focus-visible,
+.introduction-start-button:focus-visible {
+  outline: 3px solid #6c9cff;
+  outline-offset: 3px;
+}
+
+
+/* 로고 이미지 크기 */
+.introduction-logo {
+  display: block;
+  width: 100px;
+  height: auto;
+  max-height: 40px;
+  object-fit: contain;
+}

@@ -1,0 +1,327 @@
+/* Information 전체 화면 */
+.information-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  background-color: #faf8ff;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+
+/* 상단 헤더 */
+.information-page .information-header {
+  width: 100%;
+  height: 56px;
+  min-height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #faf8ff;
+}
+
+/* 뒤로가기 버튼 */
+.information-page .back-button {
+  position: absolute;
+  left: 16px;
+
+  padding: 0;
+  border: none;
+  background: none;
+
+  color: #2448a5;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* BUTILL 로고 이미지 */
+.information-page .information-logo {
+  width: 90px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* 진행 상태바 */
+.information-page .information-progress {
+  width: 100%;
+  height: 4px;
+  background-color: #e5e7eb;
+}
+
+/* 현재 진행 상태 */
+.information-page .information-progress-fill {
+  width: 50%;
+  height: 100%;
+  background-color: #2448a5;
+}
+
+
+/* 메인 내용 */
+.information-page .information-content {
+  width: 100%;
+  flex: 1;
+  padding: 20px 20px 30px;
+}
+
+/* 메인 제목 */
+.information-page .information-content h1 {
+  margin: 0 0 8px;
+  color: #000000;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+
+/* 제목 아래 설명 */
+.information-page .information-description {
+  margin: 0 0 26px;
+  color: #666666;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* 입력 영역 공통 */
+.information-page .information-section {
+  width: 100%;
+  margin-bottom: 26px;
+}
+
+
+/* 각 영역 제목 */
+.information-page .information-section h2 {
+  margin: 0 0 12px;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* 영역 제목 + 필수 선택 */
+.information-page .section-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.information-page .section-title-row h2 {
+  margin: 0;
+}
+
+/* 필수 선택 글씨 */
+.information-page .required {
+  color: #2448a5;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* 서울시 */
+.information-page .small-text {
+  margin-left: 4px;
+  color: #666666;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+/* 현재 비즈니스 상태 */
+.information-page .status-card {
+  width: 100%;
+  min-height: 64px;
+
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 12px 14px;
+
+  background-color: #ffffff;
+  border: 1px solid #e4e4e4;
+  border-radius: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* 선택된 상태 */
+.information-page .status-card.selected {
+  border: 2px solid #2448a5;
+}
+
+/* 상태 아이콘 */
+.information-page .status-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-shrink: 0;
+  margin-right: 12px;
+  background-color: #f2f3f8;
+  border-radius: 10px;
+  font-size: 19px;
+}
+
+/* 상태 이름 */
+.information-page .status-name {
+  flex: 1;
+  color: #000000;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* 선택 체크 아이콘 */
+.information-page .check-icon {
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #2448a5;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* 희망 지역 */
+.information-page .region-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+/* 지역 버튼 */
+.information-page .region-button {
+  width: 100%;
+  min-width: 0;
+  height: 34px;
+  padding: 0 2px;
+
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  border-radius: 9px;
+
+  color: #333333;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* 선택된 지역 */
+.information-page .region-button.selected {
+  background-color: #2448a5;
+  border-color: #2448a5;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* 희망 / 영위 업종 */
+.information-page .category-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+/* 업종 카드 */
+.information-page .category-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  border-radius: 12px;
+
+  text-align: left;
+  cursor: pointer;
+}
+
+/* 선택된 업종 */
+.information-page .category-card.selected {
+  border: 2px solid #2448a5;
+}
+
+/* 업종 이름 */
+.information-page .category-name {
+  flex: 1;
+  min-width: 0;
+
+  color: #000000;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+/* 업종 선택 체크 */
+.information-page .category-check {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-shrink: 0;
+  margin-left: 5px;
+
+  background-color: #2448a5;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* 하단 다음 단계 */
+.information-page .information-bottom {
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+
+  margin-top: auto;
+  padding: 16px 20px 18px;
+  background-color: #faf8ff;
+  border-top: 1px solid #eeeeee;
+}
+
+/* 다음 단계 버튼 */
+.information-page .next-button {
+  width: 100%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0;
+
+  background-color: #2448a5;
+  border: none;
+  border-radius: 10px;
+
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* 버튼 클릭 */
+.information-page .next-button:active {
+  transform: scale(0.99);
+}

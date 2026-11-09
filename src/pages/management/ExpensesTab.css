@@ -1,0 +1,409 @@
+/* 탭 내용이 나타나고 사라질 때의 전환 효과 */
+:where([data-management-panel="2"]).management-tab-panel {
+  animation: screen-enter 0.14s ease-out both;
+}
+
+:where([data-management-panel="2"]).management-tab-panel.is-leaving {
+  pointer-events: none;
+  animation: screen-exit 0.14s ease-in both;
+}
+
+/* 상단 안내 카드: 제목, 설명, 안내 닫기 버튼 */
+:where([data-management-panel="2"]) .management-intro {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  min-height: 122px;
+  padding: 17px 50px 17px 14px;
+  margin-bottom: 23px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 2px #0000000c;
+}
+
+:where([data-management-panel="2"]) .management-intro h1,
+:where([data-management-panel="2"]) .additional-heading h1 {
+  margin: 0 0 9px;
+  color: #13213a;
+  font-size: 19px;
+  line-height: 27px;
+  letter-spacing: -0.4px;
+}
+
+:where([data-management-panel="2"]) .management-intro p,
+:where([data-management-panel="2"]) .additional-heading p {
+  margin: 0;
+  color: #444651;
+  font-size: 13px;
+  line-height: 20px;
+  word-break: keep-all;
+}
+
+:where([data-management-panel="2"]) .management-intro > button {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #f2f3ff;
+  color: #131b2e;
+  font-size: 25px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+/* 원재료·지출·메뉴 입력 카드 목록의 세로 배치와 간격 */
+:where([data-management-panel="2"]) .management-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 원재료·지출·메뉴 입력 카드의 테두리와 내부 여백 */
+:where([data-management-panel="2"]) .management-item {
+  padding: 18px 18px 20px;
+  border: 1px solid #d9dbe8;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 1px 2px #0000000b;
+}
+
+/* 입력 카드의 제목 줄, 삭제 버튼과 아이콘 */
+:where([data-management-panel="2"]) .management-item-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 33px;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e9ebf3;
+  color: #14213a;
+  font-size: 14px;
+}
+
+:where([data-management-panel="2"]) .management-item-title button,
+:where([data-management-panel="2"]) .fixed-title > button {
+  width: 26px;
+  height: 26px;
+  border: 0;
+  background: transparent;
+  color: #727989;
+  font-size: 17px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+:where([data-management-panel="2"]) .management-item-title button img,
+:where([data-management-panel="2"]) .fixed-title > button img {
+  display: block;
+}
+
+/* 입력 항목 이름과 입력란 사이 간격 및 글씨 */
+:where([data-management-panel="2"]) .management-item label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+  color: #515767;
+  font-size: 11px;
+}
+
+/* 카드 안 입력란의 크기, 테두리, 배경과 글씨 */
+:where([data-management-panel="2"]) .management-item input {
+  width: 100%;
+  height: 46px;
+  padding: 0 15px;
+  border: 1px solid #d3d7eb;
+  border-radius: 13px;
+  outline-color: #2872e8;
+  background: #f2f3ff;
+  color: #202a3e;
+  font-size: 13px;
+}
+
+/* 항목 추가 버튼 아래의 도움말 */
+:where([data-management-panel="2"]) .management-helper {
+  margin: 8px 12px 22px;
+  color: #777d8a;
+  font-size: 10px;
+  line-height: 15px;
+  text-align: center;
+  word-break: keep-all;
+}
+
+/* 각 탭 하단의 합계 카드: 제목, 금액과 항목 배치 */
+:where([data-management-panel="2"]) .management-summary {
+  padding: 24px 18px 19px;
+  margin-bottom: 18px;
+  border: 1px solid #d9dcef;
+  border-radius: 16px;
+  background: #edeeff;
+}
+
+:where([data-management-panel="2"]) .management-summary > b {
+  display: block;
+  margin-bottom: 24px;
+  color: #17223a;
+  font-size: 13px;
+}
+
+:where([data-management-panel="2"])
+  .management-summary
+  > div:not(.management-save-wrap) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 21px;
+  color: #4c5363;
+  font-size: 12px;
+}
+
+:where([data-management-panel="2"]) .management-summary strong {
+  color: #002d83;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+/* 전체 저장 버튼과 저장 알림의 위치 기준 */
+:where([data-management-panel="2"]) .management-save-wrap {
+  position: relative;
+}
+
+/* 탭 전체 저장 버튼과 저장 완료 상태 */
+:where([data-management-panel="2"]) .management-save {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 12px;
+  background: #1e3a8a;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 7px 15px #1e3a8a2e;
+}
+
+:where([data-management-panel="2"]) .management-save.saved {
+  background: #d6dcf5;
+  box-shadow: none;
+}
+
+/* 전체 저장 완료 알림을 버튼 중앙에 표시 */
+:where([data-management-panel="2"]) .management-toast {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 매출·지출 기준 월 표시, 당월 배지와 이전/다음 달 버튼 */
+:where([data-management-panel="2"]) .month-selector {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 10px;
+  margin-bottom: 23px;
+  border: 1px solid #d9dcef;
+  border-radius: 16px;
+  background: #f2f3ff;
+  color: #002d83;
+}
+
+:where([data-management-panel="2"]) .month-selector b {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+:where([data-management-panel="2"]) .month-selector span {
+  padding: 3px 8px;
+  border-radius: 99px;
+  background: #dce4ff;
+  font-size: 10px;
+}
+
+/* 고정/추가 지출과 메뉴별 매출 영역의 제목 및 설명 */
+:where([data-management-panel="2"]) .additional-heading {
+  margin: 0 8px 16px;
+}
+
+:where([data-management-panel="2"]) .additional-heading h1 {
+  margin-bottom: 7px;
+}
+
+/* 모바일에서 주요 버튼을 누를 때 기본 강조 배경 제거 */
+:where([data-management-panel="2"]) .management-intro > button,
+:where([data-management-panel="2"]) .management-item-title button,
+:where([data-management-panel="2"]) .fixed-title > button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 금액 입력란: 바깥 상자의 스타일을 사용하고 숫자를 오른쪽 정렬 */
+:where([data-management-panel="2"]) .management-item .currency-field input {
+  width: auto;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  text-align: right;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* 매출·지출 기준 월 표시, 당월 배지와 이전/다음 달 버튼 */
+:where([data-management-panel="2"]) .month-selector button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  padding: 5px 12px;
+}
+
+/* 고정/추가 지출 탭의 안내 카드 크기와 간격 */
+.fixed-intro {
+  min-height: 155px;
+  margin-bottom: 22px;
+}
+
+/* 고정 지출 안내 카드의 납부일 도움말 배지 */
+.management-tip {
+  display: inline-block;
+  padding: 3px 9px;
+  margin-top: 8px;
+  border-radius: 99px;
+  background: #1e3a8a;
+  color: white;
+  font-size: 10px;
+}
+
+/* 고정 지출 카드의 아이콘, 제목과 삭제 버튼 배치 */
+.fixed-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.fixed-title > span {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  flex: none;
+  place-items: center;
+  border-radius: 12px;
+  background: #eaedff;
+  color: #1e3a8a;
+  font-size: 19px;
+}
+
+.fixed-title > div {
+  min-width: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* 고정 지출의 이름·상세 내역 입력란과 안내 글씨 */
+.fixed-title-fields {
+  min-width: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.fixed-title-fields input {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  background: transparent;
+}
+
+.fixed-title-fields .fixed-name-input {
+  font-size: 14px;
+  font-weight: 700;
+  color: #17233a;
+}
+
+.fixed-title-fields .fixed-name-input::placeholder {
+  color: #17233a;
+  opacity: 1;
+}
+
+.fixed-title-fields .fixed-description-input {
+  color: #777d8a;
+  font-size: 10px;
+}
+
+.fixed-title-fields .fixed-description-input::placeholder {
+  color: #777d8a;
+  opacity: 1;
+}
+
+/* 지출 금액을 빠르게 더하는 금액 버튼 */
+.amount-presets {
+  display: flex;
+  gap: 6px;
+  margin: 7px 0 8px;
+}
+
+.amount-presets button {
+  padding: 4px 9px;
+  border: 0;
+  border-radius: 99px;
+  background: #f2f3f6;
+  color: #515767;
+  font-size: 10px;
+}
+
+/* 고정 지출 지급일 선택란과 아이콘 */
+.due-field {
+  height: 45px;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  margin-top: 0 !important;
+  border: 1px solid #d3d7eb;
+  border-radius: 13px;
+  background: #f2f3ff;
+}
+
+.due-field select {
+  max-width: 130px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #202a3e;
+  font-size: 11px;
+}
+
+.due-field > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.due-field > span img {
+  display: block;
+}
+
+/* 추가 지출 항목명 입력란의 아래 간격 */
+.extra-entry > input {
+  margin-bottom: 12px;
+}

@@ -1,0 +1,480 @@
+/* Information2 전체 배경 */
+.information2-background {
+  min-height: 100vh;
+  background-color: #faf8ff;
+  font-family: "Pretendard", sans-serif;
+  color: #20263a;
+}
+
+/* Information2 화면 컨테이너 */
+.information2-container {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: #faf8ff;
+  box-sizing: border-box;
+}
+
+
+/* 상단 헤더 */
+.information2-header {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #faf8ff;
+}
+
+/* 뒤로가기 버튼 */
+.information2-back {
+  position: absolute;
+  left: 20px;
+  background: none;
+  border: none;
+  color: #2448a5;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* BUTILL 로고 이미지 */
+.information2-header .information2-logo {
+  width: 90px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* 진행 상태바 */
+.information2-progress {
+  width: 100%;
+  height: 4px;
+  background-color: #e5e7eb;
+}
+
+/* 현재 진행 상태 */
+.information2-progress-fill {
+  width: 100%;
+  height: 100%;
+  background-color: #2448a5;
+}
+
+/* 메인 내용 */
+.information2-content {
+  flex: 1;
+  padding: 25px 30px 20px;
+}
+
+
+/* 화면 제목 */
+.information2-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 15px;
+}
+
+/* 서브타이틀 */
+.information2-subtitle {
+  font-size: 13px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* 공통 섹션*/
+.information2-section {
+  margin-bottom: 20px;
+}
+
+/* 섹션 제목 영역 */
+.information2-section-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+/* 섹션 번호 */
+.information2-step {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background-color: #e8edff;
+  color: #23418f;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 섹션 번호와 제목 */
+.information2-section-left {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* 섹션 제목 자체 */
+.information2-section-title h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* 필수 입력, 선택 입력 안내 */
+.information2-required,
+.information2-optional {
+  margin-left: auto;
+  font-size: 10px;
+  color: #3156a6;
+  font-weight: 600;
+}
+
+
+/* 공통 입력창 */
+.information2-field {
+  margin-bottom: 14px;
+}
+
+/* 입력 항목 제목 (대표자명, 월세 등) */
+.information2-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.information2-input-box {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid #d0d3e2;
+  border-radius: 13px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* 입력창 왼쪽 아이콘 */
+.information2-input-icon {
+  font-size: 16px;
+  color: #70788d;
+  flex-shrink: 0;
+}
+
+/* 실제 입력 영역 */
+.information2-input-box input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #000000;
+  font-family: inherit;
+}
+
+/* 입력 전 예시 문구 */
+.information2-input::placeholder {
+  color: #a3a7b5;
+}
+
+/* 입력창 클릭 시 */
+.information2-input-box:focus-within {
+  border-color: #233e90;
+}
+
+
+/* 금액 단위 */
+.information2-unit {
+  font-size: 11px;
+  color: #7d8190;
+  white-space: nowrap;
+}
+
+
+/* 2.보유 운영 자금 및 비상 운영 자금 카드 */
+.information2-card {
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #d7e1ff;
+  border-radius: 15px;
+  margin-bottom: 14px;
+}
+
+.information2-description {
+  font-size: 10px;
+  color: #7d8190;
+  line-height: 1.4;
+  margin: 0 0 10px;
+}
+
+/* 운영 자금 입력창 */
+.information2-money-input {
+  height: 48px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  background-color: #f7f7fd;
+  border-radius: 12px;
+}
+
+/* 운영 자금 입력 */
+.information2-money-input input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 800;
+  color: #233e90;
+}
+
+/* 금액 단위 */
+.information2-money-input span {
+  font-size: 15px;
+  color: #000000;
+  margin-left: 8px;
+}
+
+
+/* 3.비상 완충 비율 선택 */
+/* 비상 완충 비율 제목 */
+.information2-emergency-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* 기준 보유액 */
+.information2-emergency-header span {
+  font-size: 10px;
+  color: #73788a;
+}
+
+.information2-rate-buttons {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+/* 비율 버튼 */
+.information2-rate {
+  flex: 1;
+  min-height: 42px;
+  border: none;
+  border-radius: 8px;
+  background-color: #edf2ff;
+  color: #28354f;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* 선택된 버튼 */
+.information2-rate.selected {
+  background-color: #233e90;
+  color: #ffffff;
+}
+
+/* 권장 문구 */
+.information2-rate small {
+  display: block;
+  font-size: 9px;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* 설정 예비자금 안내 영역 */
+.information2-emergency-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+
+  width: 100%;
+  padding: 12px;
+
+  background-color: #eaf1ff;
+  border-radius: 10px;
+
+  box-sizing: border-box;
+}
+
+/* 방패 아이콘 */
+.information2-emergency-icon {
+  flex-shrink: 0;
+
+  color: #2448a5;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+/* 안내 텍스트 영역 */
+.information2-emergency-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 설정 예비자금 */
+.information2-emergency-amount {
+  margin: 0 0 3px;
+  color: #173b88;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* 설명 문구 */
+.information2-emergency-description {
+  margin: 0;
+  color: #555555;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* 월 고정 지출 */
+.information2-expense-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 월 고정 지출 입력창 */
+.information2-expense-input-box {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 45px;
+  padding: 0 12px;
+  border: 1px solid #d0d3e2;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+.information2-expense-input-box:focus-within {
+  border-color: #233e90;
+}
+
+
+/* 예상 월 고정 지출 합계 */
+.information2-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px;
+  margin-top: 15px;
+  background-color: #e2e8ff;
+  border: 1px solid #cbd6ff;
+  border-radius: 12px;
+}
+
+/* 합계 제목 */
+.information2-total span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4b5268;
+}
+
+/* 합계 금액 */
+.information2-total strong {
+  font-size: 17px;
+  font-weight: 800;
+  color: #233e90;
+  white-space: nowrap;
+}
+
+
+/* 하단 다음 단계 버튼 */
+.information2-footer {
+  padding: 15px 20px 24px;
+  background-color: #faf8ff;
+}
+
+.information2-next-button {
+  width: 100%;
+  height: 49px;
+  border: none;
+  border-radius: 13px;
+  background-color: #233e90;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(35, 62, 144, 0.2);
+}
+
+/* 다음 단계 버튼 비활성화 */
+.information2-next-button:disabled {
+  background-color: #b7bfd7;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* 입력 오류 스낵바 */
+.information2-snackbar {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+  padding: 14px 20px;
+
+  background-color: #363c58;
+  color: white;
+
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 500;
+
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+
+  animation: snackbarFadeIn 0.3s ease;
+}
+
+/* 스낵바 안내 아이콘 */
+.information2-snackbar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* 스낵바 등장 애니메이션 */
+@keyframes information2-snackbar-show {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
