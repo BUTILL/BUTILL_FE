@@ -1,0 +1,1806 @@
+/* 가이드 전체 배치 */
+.guide-page {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px 16px;
+  background: #faf8ff;
+  color: #111c32;
+}
+
+/* 단계 진행 표시 */
+.guide-progress {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 13px;
+}
+
+.guide-progress span {
+  height: 6px;
+  border-radius: 99px;
+  background: #dce6ff;
+}
+
+.guide-progress span.active {
+  background: #203f8c;
+}
+
+.guide-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.guide-welcome {
+  align-self: flex-start;
+  padding: 5px 13px;
+  border-radius: 99px;
+  background: #e6edff;
+  color: #203f8c;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+}
+
+/* 제목과 본문 */
+.guide-title {
+  margin: 21px 0 7px;
+  color: #101b30;
+  font-size: 25px;
+  line-height: 1.55;
+  letter-spacing: -0.7px;
+  font-weight: 700;
+}
+
+.guide-title strong,
+.guide-description b,
+.guide-footer b {
+  color: #203f8c;
+}
+
+.guide-description {
+  margin: 0 0 18px;
+  color: #4b4d5a;
+  font-size: 13px;
+  line-height: 1.75;
+  letter-spacing: -0.18px;
+  font-weight: 500;
+}
+
+.guide-description b {
+  font-weight: 700;
+}
+
+.guide-caption {
+  align-self: flex-start;
+  margin: 15px 0 9px 11px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: #dce8ff;
+  color: #173c8b;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+/* 자금 상태 카드 */
+.guide-runway-card {
+  min-height: 242px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px;
+  border-radius: 24px;
+  color: white;
+  background: linear-gradient(135deg, #082876 0%, #1e3a8a 54%, #0058be 100%);
+  box-shadow: 0 9px 14px #12204a20;
+}
+
+.guide-balance-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #dce5ff;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.guide-balance-label .figma-icon {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) invert(1);
+}
+
+.guide-balance {
+  display: block;
+  margin: 5px 0 10px;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.6px;
+}
+
+.guide-runway-panel {
+  padding: 17px 14px 12px;
+  border: 1px solid #ffffff2b;
+  border-radius: 16px;
+  background: #ffffff1c;
+}
+
+.guide-runway-panel small {
+  display: block;
+  color: #dce5ff;
+  font-size: 10px;
+}
+
+.guide-runway-panel b {
+  display: block;
+  margin-top: 3px;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: nowrap;
+  letter-spacing: -0.3px;
+}
+
+.guide-runway-panel u {
+  color: #b7caff;
+  text-underline-offset: 3px;
+  font-size: 19px;
+}
+
+.guide-progress-track {
+  height: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+  border-radius: 99px;
+  background: #061c56aa;
+}
+
+.guide-progress-track i {
+  display: block;
+  width: 70%;
+  height: 100%;
+  border: 1px solid #8fb4ff;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #2181f3, #d9e6ff);
+}
+
+.guide-runway-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin-top: 5px;
+  color: #cfdbff;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* 세금·위험 알림 아이콘 */
+.guide-feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 10px 15px;
+}
+
+.guide-feature-row > div {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 9px;
+  background: #edf2ff;
+  color: #152442;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.guide-feature-row img,
+.guide-finish-card img {
+  display: block;
+  flex: none;
+  object-fit: contain;
+}
+
+.guide-feature-row img[src*="calendar"] {
+  width: 14px;
+  height: 15px;
+}
+
+.guide-feature-row img[src*="risk-alert"] {
+  width: 15px;
+  height: 16px;
+}
+
+.guide-caption-secondary {
+  margin-top: 13px;
+}
+
+/* 하단 안내와 버튼 */
+.guide-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.guide-footer p {
+  margin: 0 0 10px;
+  color: #4b4d5a;
+  font-size: 14px;
+  line-height: 1.65;
+  font-weight: 600;
+}
+
+.guide-footer button {
+  width: 100%;
+  min-height: 56px;
+  border: 0;
+  border-radius: 15px;
+  background: #203f8c;
+  color: white;
+  box-shadow: 0 5px 9px #13295430;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.guide-footer button span {
+  padding-left: 4px;
+  font-size: 19px;
+}
+
+.guide-footer > small {
+  display: block;
+  margin-top: 6px;
+  color: #85899a;
+  font-size: 11px;
+}
+
+.guide-title-step-two {
+  margin-top: 18px;
+  font-size: 23px;
+  line-height: 1.5;
+}
+
+/* 홈 화면 미리보기 */
+.guide-home-preview {
+  margin: 2px 9px 6px;
+  padding: 9px 10px 0;
+  overflow: hidden;
+  border: 1px solid #f0eff5;
+  background: #faf8ff;
+  box-shadow: 0 2px 7px #1d2e5410;
+}
+
+.guide-preview-header {
+  position: relative;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e9e7ef;
+  color: #203f8c;
+}
+
+.guide-preview-header b {
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.guide-preview-header span {
+  position: absolute;
+  right: 25px;
+  color: #343d50;
+  font-size: 15px;
+}
+
+.guide-preview-header span img {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+}
+
+.guide-preview-status {
+  height: 23px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 7px 3px 0;
+  padding: 0 8px;
+  border: 1px solid #e0e6ff;
+  border-radius: 8px;
+  background: white;
+  color: #4c5363;
+  font-size: 8px;
+}
+
+.guide-preview-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0058be;
+}
+
+.guide-preview-hint {
+  margin-top: 5px;
+}
+
+.guide-preview-hero {
+  min-height: 166px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 2px;
+  margin: 9px 3px 11px;
+  padding: 12px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #082876, #0058be);
+  color: white;
+  box-shadow: 0 6px 10px #102b6724;
+}
+
+.guide-preview-hero small {
+  color: #e2e9ff;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.guide-preview-hero span {
+  padding: 4px 8px;
+  border-radius: 99px;
+  background: #edf2ff;
+  color: #26437f;
+  font-size: 10px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.guide-preview-section-title {
+  display: block;
+  margin: 0 4px 5px;
+  font-size: 13px;
+}
+
+.guide-preview-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  padding: 0 3px;
+}
+
+.guide-preview-cards > div {
+  min-height: 74px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+  border: 1px solid #e1e6ff;
+  border-radius: 10px;
+  background: white;
+}
+
+.guide-preview-cards > div.highlight {
+  border: 2px solid #e33b35;
+}
+
+.guide-preview-cards b {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #e3e9ff;
+  color: #173c8b;
+  font-size: 15px;
+}
+
+.guide-preview-cards strong {
+  font-size: 9px;
+}
+
+.guide-preview-callout {
+  margin: 2px 0 5px;
+  color: #e33b35;
+  font-size: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.guide-preview-calendar {
+  min-height: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 9px;
+  border: 1px solid #e1e6ff;
+  border-radius: 10px;
+  background: white;
+}
+
+.guide-preview-calendar b {
+  font-size: 9px;
+}
+
+.guide-preview-calendar small {
+  color: #707789;
+  font-size: 9px;
+}
+
+.guide-preview-nav {
+  height: 36px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 7px -10px 0;
+  background: white;
+  color: #454c5c;
+}
+
+.guide-preview-nav > span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.guide-preview-nav small {
+  margin-top: 2px;
+  font-size: 7px;
+}
+
+.guide-step-two-note {
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.guide-finish-content {
+  padding-top: 78px;
+  text-align: center;
+}
+
+.guide-finish-icon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 17px;
+  border-radius: 50%;
+  background: #e2eaff;
+  color: #203f8c;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.guide-finish-content .guide-title {
+  margin-top: 0;
+}
+
+.guide-finish-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 23px;
+  padding: 15px;
+  border-radius: 15px;
+  background: #edf2ff;
+  text-align: left;
+}
+
+.guide-finish-card > div {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.guide-finish-card img[src*="calendar"] {
+  width: 14px;
+  height: 15px;
+}
+
+.guide-finish-card img[src*="risk-alert"] {
+  width: 15px;
+  height: 16px;
+}
+
+.guide-finish-card span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.guide-finish-card b {
+  color: #203f8c;
+  font-size: 13px;
+}
+
+.guide-finish-card small {
+  color: #5c6475;
+  font-size: 11px;
+}
+
+@media (max-height: 760px) {
+  .guide-page {
+    padding-top: 18px;
+  }
+  .guide-runway-card {
+    min-height: 218px;
+  }
+  .guide-finish-content {
+    padding-top: 42px;
+  }
+}
+
+@media (max-width: 360px) {
+  .guide-page {
+    padding-inline: 16px;
+  }
+  .guide-title {
+    font-size: 22px;
+  }
+  .guide-description {
+    font-size: 14px;
+  }
+  .guide-runway-panel b {
+    font-size: 16px;
+  }
+  .guide-runway-panel u {
+    font-size: 19px;
+  }
+  .guide-runway-labels {
+    font-size: 7px;
+  }
+  .guide-feature-row > div {
+    gap: 4px;
+    font-size: 10px;
+  }
+}
+
+.guide-example {
+  margin: 0 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 9px #1d2e541c;
+}
+
+.guide-example-balance {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #203f8c;
+  color: white;
+}
+
+.guide-example-balance small, .guide-example-balance span {
+  font-size: 10px;
+}
+
+.guide-example-balance b {
+  font-size: 20px;
+}
+
+.guide-example p {
+  margin: 12px 0 5px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.guide-example p small {
+  color: #71809f;
+}
+
+.guide-bars {
+  height: 100px;
+  display: flex;
+  gap: 5px;
+  align-items: end;
+  border-bottom: 1px solid #c5cee0;
+}
+
+.guide-bars span {
+  flex: 1;
+  background: linear-gradient(90deg,#286ad7 55%,#ef725f 55%);
+}
+
+.guide-example-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  padding-top: 10px;
+  font-size: 9px;
+}
+
+.guide-example-summary span {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.guide-scenario .guide-caption {
+  display: inline-block;
+  margin-left: 0;
+}
+
+.guide-scenario h2 {
+  margin: 20px 0 6px;
+  font-size: 17px;
+}
+
+.guide-scenario .guide-description {
+  font-size: 13px;
+}
+
+/* 시나리오 탭 */
+.guide-scenario-tabs {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #e9efff;
+  text-align: center;
+  font-size: 11px;
+}
+
+.guide-scenario-tabs > * {
+  padding: 12px 4px;
+}
+
+.guide-scenario-tabs b {
+  background: #203f8c;
+  color: white;
+}
+
+.guide-scenario-box, .guide-tip {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #eaf0ff;
+  font-size: 12px;
+}
+
+.guide-scenario-box p {
+  margin-top: 10px;
+  color: #59677e;
+}
+
+.guide-scenario-box strong {
+  float: right;
+  color: #203f8c;
+  font-size: 16px;
+}
+
+.guide-chart {
+  padding: 12px;
+  border: 1px solid #dce5f5;
+  border-radius: 12px;
+  background: white;
+}
+
+.guide-chart-legend, .guide-chart small {
+  font-size: 9px;
+}
+
+.guide-chart-bars {
+  height: 170px;
+  display: flex;
+  align-items: end;
+  gap: 5px;
+  margin: 15px 0 5px;
+  border-bottom: 1px solid #aebbd3;
+}
+
+.guide-chart-bars div {
+  display: flex;
+  align-items: end;
+  flex: 1;
+  height: 100%;
+  gap: 2px;
+}
+
+.guide-chart-bars i {
+  flex: 1;
+  background: #2870db;
+}
+
+.guide-chart-bars i + i {
+  background: #ed795f;
+}
+
+.guide-tip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.guide-tip b {
+  color: #2867c5;
+  white-space: nowrap;
+}
+
+/*가이드 이미지에 표시된 미리보기 구성*/
+
+.guide-example {
+  width: 72%;
+  align-self: center;
+  margin: 8px auto 0;
+  padding: 0;
+  box-shadow: none;
+  background: transparent;
+  font-size: 9px;
+}
+
+.guide-example-balance {
+  min-height: 200px;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px;
+  border-radius: 18px;
+  background: linear-gradient(145deg,#092974,#0058be);
+}
+
+.guide-example-balance small {
+  color: #dfe8ff;
+  font-size: 8px;
+}
+
+.guide-example-balance b {
+  font-size: 18px;
+}
+
+.guide-example-balance > span {
+  margin-top: 8px;
+  font-size: 10px;
+}
+
+.guide-example-track {
+  height: 6px;
+  border-radius: 8px;
+  background: #071d53;
+  overflow: hidden;
+}
+
+.guide-example-track i {
+  display: block;
+  width: 70%;
+  height: 100%;
+  background: #9dbfff;
+}
+
+.guide-example-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  margin-top: 7px;
+}
+
+.guide-example-stats span {
+  padding: 10px;
+  border-radius: 6px;
+  background: #ffffff20;
+  font-size: 9px;
+  line-height: 1.7;
+}
+
+.guide-example-stats b {
+  font-size: 12px;
+}
+
+.guide-example-tags, .guide-example-note {
+  margin-top: 9px;
+  padding: 8px;
+  border-radius: 6px;
+  background: #edf2ff;
+  color: #244581;
+  font-size: 8px;
+}
+
+.guide-example-summary {
+  padding: 9px;
+  background: #edf2ff;
+  border-radius: 6px;
+}
+
+.guide-scenario-current {
+  background: #fff;
+  border: 1px solid #e4e9f7;
+}
+
+.guide-scenario-current small {
+  display: block;
+  margin: 5px 0 12px;
+  color: #748096;
+}
+
+.guide-scenario-current p {
+  min-height: 42px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #edf2ff;
+}
+
+.guide-chart {
+  position: relative;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+}
+
+.guide-chart-legend {
+  color: #385078;
+  font-size: 9px;
+}
+
+.guide-chart-bars {
+  position: relative;
+  height: 190px;
+  padding-top: 15px;
+  background: repeating-linear-gradient(to top, transparent 0, transparent 37px, #e3e9f5 38px);
+}
+
+.guide-chart-line {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.guide-chart-line polyline {
+  fill: none;
+  stroke: #173c8b;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.guide-risk-label {
+  position: absolute;
+  top: 20%;
+  right: 0;
+  padding: 4px;
+  border-radius: 4px;
+  background: #d73735;
+  color: white;
+  font-size: 8px;
+}
+
+.guide-chart-insight {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #eaf0ff;
+  color: #244581;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.guide-tip {
+  min-height: 68px;
+}
+
+@media (max-width: 360px) {
+  .guide-example {
+    width: 76%;
+  }
+  .guide-chart-legend {
+    font-size: 8px;
+  }
+}
+
+/*첫 번째 가이드 화면*/
+
+.guide-page-first .guide-title {
+  line-height: 1.25;
+  margin: 25px 0 12px;
+}
+
+.guide-page-first .guide-description {
+  line-height: 1.65;
+  color: #313744;
+  font-weight: 600;
+}
+
+.guide-page-first .guide-description b {
+  font-weight: 800;
+}
+
+.guide-page-first .guide-caption {
+  margin-top: 20px;
+}
+
+.guide-page-first .guide-runway-card {
+  min-height: 230px;
+  margin: 0 10px;
+}
+
+.guide-page-first .guide-feature-row img {
+  width: 16px;
+  height: 16px;
+}
+
+.guide-page-first .guide-caption-secondary {
+  margin-top: 24px;
+}
+
+.guide-page-first .guide-example {
+  width: 70%;
+}
+
+.guide-page-first .guide-example-balance {
+  min-height: 0;
+  display: block;
+  padding: 12px;
+  border-radius: 17px;
+}
+
+.guide-page-first .guide-example-balance > b {
+  display: block;
+  margin: 5px 0;
+  font-size: 17px;
+}
+
+.guide-mini-runway {
+  padding: 10px 8px;
+  border-radius: 10px;
+  background: #ffffff21;
+}
+
+.guide-mini-runway > span {
+  display: block;
+  margin: 4px 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.guide-mini-runway small{
+  display: block;
+  color: #d3ddf7;
+  font-size: 10px;
+}
+
+.guide-mini-runway u {
+  color: #c6d6ff;
+  font-size: 14px;
+}
+
+.guide-mini-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 2px;
+  margin-top: 3px;
+  color: #d3ddf7;
+  font-size: 2px;
+  white-space: nowrap;
+}
+
+.guide-page-first .guide-example-stats {
+  margin-top: 5px;
+}
+
+.guide-page-first .guide-example-stats span {
+  min-height: 68px;
+  font-size: 7px;
+  line-height: 1.45;
+}
+
+.guide-page-first .guide-example-stats b {
+  display: inline-block;
+  margin: 3px 0;
+  font-size: 10px;
+}
+
+.guide-mini-chart {
+  margin-top: 15px;
+  padding: 8px;
+  background: white;
+  border-radius: 8px;
+}
+
+.guide-mini-chart-title {
+  color: #28477d;
+  font-size: 7px;
+  font-weight: 700;
+}
+
+.guide-mini-chart-title span {
+  font-size: 6px;
+}
+
+.guide-page-first .guide-example-tags {
+  margin-top: 5px;
+  padding: 6px;
+  font-size: 7px;
+  line-height: 1.6;
+}
+
+.guide-mini-plot {
+  height: 110px;
+  display: flex;
+  align-items: end;
+  gap: 2px;
+  position: relative;
+  margin: 5px 0 0;
+  background: repeating-linear-gradient(to top,transparent 0,transparent 26px,#ebedf3 27px);
+  border-bottom: 1px solid #d6dce8;
+}
+
+.guide-mini-plot div {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  gap: 1px;
+  align-items: end;
+}
+
+.guide-mini-plot i {
+  flex: 1;
+  background: #4384ef;
+}
+
+.guide-mini-plot i + i {
+  background: #ef877e;
+}
+
+.guide-mini-plot svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.guide-mini-plot polyline {
+  fill: none;
+  stroke: #193e88;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.guide-mini-plot polyline.danger {
+  stroke: #dc413c;
+}
+
+.guide-mini-months {
+  color: #7a8497;
+  white-space: nowrap;
+  font-size: 5px;
+  margin: 3px 0 10px;
+}
+
+.guide-mini-summary {
+  padding: 8px;
+  border-radius: 7px;
+  background: #edf2ff;
+  color: #274783;
+  font-size: 7px;
+}
+
+.guide-mini-summary > strong {
+  float: right;
+  color: #d83a36;
+}
+
+.guide-mini-summary > div {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.guide-mini-summary > div span {
+  padding: 5px 2px;
+  border-radius: 5px;
+  background: white;
+  text-align: center;
+  color: #555d6d;
+  font-size: 8px;
+}
+
+.guide-mini-summary > div b {
+  color: #286dd4;
+  font-size: 10px;
+}
+
+.guide-mini-summary > div span:nth-child(2) b {
+  color: #df443d;
+}
+
+.guide-mini-summary small {
+  color: #647188;
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.guide-page-first .guide-footer {
+  padding-top: 18px;
+}
+
+.guide-page-first .guide-footer p{
+  font-size: 12px;
+}
+@media (max-width: 360px) {
+  .guide-first-break {
+    display: none;
+  }
+  .guide-page-first .guide-example {
+    width: 72%;
+  }
+}
+
+/* 첫 단계 현금 흐름 그래프 */
+.guide-mini-graph {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 5px 0 3px;
+  overflow: visible;
+}
+
+.guide-mini-graph text {
+  fill: #667083;
+  font-size: 6px;
+  font-family: inherit;
+}
+
+.guide-mini-graph .guide-graph-zero, .guide-mini-graph .guide-graph-danger-label {
+  fill: #df3f3c;
+}
+
+.guide-graph-grid {
+  stroke: #dfe4ed;
+  stroke-width: .6;
+  stroke-dasharray: 2 2;
+}
+
+.guide-bar-income {
+  fill: #4387ed;
+}
+
+.guide-bar-expense {
+  fill: #d34440;
+}
+
+.guide-graph-balance {
+  fill: none;
+  stroke: #123d88;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.guide-graph-dot {
+  fill: #123d88;
+  stroke: white;
+  stroke-width: 1.2;
+}
+
+.guide-graph-danger {
+  fill: none;
+  stroke: #df3636;
+  stroke-width: 2;
+  stroke-dasharray: 3 2;
+  stroke-linecap: round;
+}
+
+.guide-graph-danger-dot {
+  fill: #df3636;
+  stroke: white;
+  stroke-width: 1.1;
+}
+
+/*두 번째 가이드의 홈 화면 미리보기*/
+
+.guide-page-second .guide-title {
+  line-height: 1.4;
+}
+
+.guide-page-second .guide-home-preview {
+  margin: 4px 18px 0;
+  padding: 0 0 8px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.guide-preview-logo {
+  display: block;
+  width: 76px;
+  max-height: 26px;
+  object-fit: contain;
+}
+
+.guide-preview-header {
+  height: 44px;
+}
+
+.guide-preview-header span {
+  right: 4px;
+  display: flex;
+}
+
+.guide-preview-header span i {
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #d62727;
+}
+
+.guide-preview-cards b img {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+}
+
+.guide-preview-cards strong em {
+  color: #356fdb;
+  font-style: normal;
+}
+
+.guide-preview-cards > div.highlight {
+  outline: 3px solid #f12619;
+  outline-offset: 0;
+  border-radius: 0;
+}
+
+.guide-preview-cards > div > small {
+  color: #8b91a0;
+  font-size: 7px;
+}
+
+.guide-preview-calendar b {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.guide-preview-calendar b img {
+  width: 12px;
+  height: 12px;
+}
+
+.guide-preview-calendar b span {
+  margin-left: auto;
+  color: #717987;
+  font-size: 7px;
+}
+
+.guide-preview-nav {
+  margin: 32px -4px 0;
+  height: 42px;
+}
+
+.guide-preview-nav > span {
+  width: 22%;
+  height: 36px;
+  justify-content: center;
+  border-radius: 7px;
+}
+
+.guide-preview-nav img {
+  width: 15px;
+  height: 15px;
+}
+
+.guide-preview-nav > span.active {
+  background: #2472e8;
+  color: white;
+}
+
+.guide-preview-nav > span.active img {
+  filter: brightness(0) invert(1);
+}
+
+.guide-page-second .guide-footer {
+  padding-top: 120px;
+}
+
+.guide-page-second .guide-footer p {
+  max-width: 260px;
+  margin: 0 auto 14px;
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.55;
+  font-weight: 550;
+}
+
+.guide-page-second .guide-home-preview {
+  border: 1px solid #e1e1e1;
+}
+
+.guide-page-second .guide-home-preview {
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+.guide-page-second .guide-preview-hero {
+  min-height: 180px;
+}
+
+.guide-page-second .guide-preview-cards > div {
+  min-height: 82px;
+}
+
+.guide-page-second .guide-footer {
+  padding-top: 50px;
+}
+
+
+/*세 번째 가이드: 시뮬레이션 예시*/
+.guide-page-third .guide-title {
+  margin: 22px 0 8px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.guide-page-third .guide-description {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.guide-page-third .guide-scenario-tabs {
+  margin: 4px 0 15px;
+  font-size: 11px;
+}
+
+.guide-page-third .guide-scenario-tabs > * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 11px 3px;
+}
+.guide-page-third .guide-scenario-tabs b {
+  color: #fff;
+  font-size: 12px;
+}
+.guide-page-third .guide-scenario-tabs small {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+/* 세 번째 단계 시나리오 카드 */
+.guide-third-card {
+  position: relative;
+  margin-bottom: 15px;
+  padding: 14px;
+  border-radius: 11px;
+  background: #fff;
+  color: #313c50;
+}
+
+.guide-third-current > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.guide-third-current img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.guide-third-current span, .guide-third-current strong {
+  display: flex;
+  flex-direction: column;
+}
+
+.guide-third-current b {
+  font-size: 12px;
+}
+
+.guide-third-current small {
+  margin-top: 3px;
+  font-size: 9px;
+  color: #778294;
+}
+
+.guide-third-current p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding: 11px;
+  border-radius: 8px;
+  background: #edf2ff;
+  font-size: 10px;
+}
+
+.guide-third-current strong {
+  text-align: right;
+  color: #173b88;
+  font-size: 17px;
+}
+
+.guide-page-third .guide-third-chart h2 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.guide-third-chart > p {
+  margin: 0 0 12px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.guide-third-legend {
+  padding: 8px 5px;
+  border-radius: 6px;
+  background: #edf2ff;
+  font-size: 9px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.guide-third-graph {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 14px;
+}
+
+.guide-third-graph text {
+  fill: #607088;
+  font: 9px sans-serif;
+}
+
+.guide-third-risk {
+  position: absolute;
+  right: 14px;
+  top: 43%;
+  padding: 4px;
+  background: #d52f2e;
+  border-radius: 4px;
+  color: white;
+  font-size: 8px;
+}
+
+.guide-third-chart .guide-chart-insight {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  font-size: 9px;
+}
+
+.guide-third-chart .guide-chart-insight img {
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+}
+
+.guide-page-third .guide-third-plan-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 22px 0 12px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.guide-third-plan-title img {
+  width: 23px;
+  height: 23px;
+  object-fit: contain;
+}
+
+.guide-third-plan-title small {
+  color: #3978d9;
+  font-size: 9px;
+}
+
+.guide-third-plan > p {
+  margin: 0 0 12px;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.guide-third-option {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 9px;
+  padding: 12px 9px;
+  background: #eef3ff;
+  border-radius: 8px;
+  font-size: 10px;
+}
+
+.guide-third-option i {
+  width: 13px;
+  height: 13px;
+  border: 1px solid #9eacc5;
+  background: #fff;
+  flex: none;
+}
+
+.guide-third-option span {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.guide-third-option span b {
+  line-height: 1.4;
+}
+
+.guide-third-option small {
+  color: #748097;
+  font-size: 8px;
+}
+
+.guide-third-option strong {
+  color: #1871d8;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.guide-third-result {
+  margin-top: 12px;
+  padding: 12px 9px;
+  border-radius: 8px;
+  background: #dceaff;
+  color: #244781;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.guide-third-result strong {
+  float: right;
+  font-size: 15px;
+}
+
+.guide-third-result small {
+  display: block;
+  margin-top: 14px;
+  line-height: 1.5;
+  font-size: 10px;
+}
+
+.guide-third-data {
+  margin-top: 9px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 6px;
+  background: #e6efff;
+  font-size: 11px;
+}
+
+.guide-page-third .guide-footer {
+  padding-top: 30px;
+}
+
+.guide-page-third .guide-footer p {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+@media (max-width: 360px) {
+  .guide-page-third .guide-title {
+    font-size: 19px;
+  }
+  .guide-third-legend {
+    font-size: 7px;
+  }
+  .guide-page-third .guide-third-plan-title {
+    font-size: 11px;
+  }
+}
+
+/* 현금 흐름 예시 지갑 아이콘 */
+.guide-mini-wallet {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.guide-mini-wallet img {
+  width: 10px;
+  height: 10px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+
+.guide-mini-chart-title {
+  display: flex;
+  align-items: center;
+}
+
+/* 그래프 범례 색상 */
+.guide-mini-chart-title-total {
+  margin-left: auto;
+  color: #173c8b;
+}
+
+.guide-mini-chart-title-danger {
+  color: #d73735;
+}
+
+
+/* 아래쪽 현금 흐름 예시의 기간 눈금 */
+.guide-page-first .guide-mini-labels {
+  gap: 1px;
+  font-size: 2px;
+  letter-spacing: -0.15px;
+  white-space: nowrap;
+}
+
+/* 현금 흐름 예시의 양옆 여백 축소 */
+.guide-page-first .guide-example {
+  width: 80%;
+}
+
+
+
+/* 아래쪽 예시의 세 눈금 글자에 크기를 직접 적용 */
+.guide-page-first .guide-mini-labels > span {
+  font-size: 7px;
+}
+
+
+/* 현금 흐름 그래프의 잔고 소진 안내 */
+.guide-mini-graph .guide-graph-danger-label {
+  font-size: 8px;
+  font-weight: 700;
+}
+
+/* 현금 흐름 요약 카드 제목과 적자 금액 */
+.guide-mini-summary > b{
+  font-size: 9px;
+}
+
+.guide-mini-summary > strong {
+  font-size: 9px;
+}
+
+
+
+/* 두 번째 가이드의 정보 입력 안내 */
+.guide-page-second .guide-description {
+  font-size: 12px;
+}
+
+@media (max-width: 360px) {
+  .guide-page-second .guide-description {
+    font-size: 13px;
+  }
+}
+
+/* 미리보기 항목: 아이콘 아래에 제목과 설명 배치 */
+.guide-page-second .guide-preview-cards > div {
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.guide-page-second .guide-preview-cards > div > strong {
+  font-size: 11px;
+}
+
+.guide-page-second .guide-preview-cards > div > small {
+  font-size: 9px;
+}
+
+/* 강조된 입력 카드 바로 아래 안내 */
+.guide-preview-cards > .guide-preview-callout {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 10px;
+}
+
+/* 안내 문구를 카드 간격에 겹쳐 표시해 아래 카드의 위치 유지 */
+.guide-preview-cards > .guide-preview-callout {
+  grid-row: 1;
+  align-self: end;
+  position: relative;
+  z-index: 1;
+  transform: translateY(100%);
+  pointer-events: none;
+}
+
+/* 카드 두 줄은 고정하고 안내 문구를 아래 카드 위에 겹침 */
+.guide-preview-cards > div:nth-of-type(1) {
+  grid-area: 1 / 1;
+}
+
+.guide-preview-cards > div:nth-of-type(2) {
+  grid-area: 1 / 2;
+}
+
+.guide-preview-cards > div:nth-of-type(3) {
+  grid-area: 2 / 1;
+}
+
+.guide-preview-cards > div:nth-of-type(4) {
+  grid-area: 2 / 2;
+}
+
+.guide-preview-cards > .guide-preview-callout {
+  grid-row: 2;
+  align-self: start;
+  transform: none;
+}
+
+/* 미리보기 캘린더 위치 */
+.guide-page-second .guide-preview-calendar {
+  position: relative;
+  top: 10px;
+}
+
+
+
+/* 미리보기 캘린더 제목과 양옆 여백 */
+.guide-page-second .guide-preview-calendar {
+  margin-inline: 5px;
+  padding-inline: 12px;
+}
+
+.guide-page-second .guide-preview-calendar b {
+  font-size: 11px;
+}
+
+.guide-page-second .guide-preview-calendar b span {
+  font-size: 9px;
+}
+
+
+
+
+/* 세금 안내 첫 문장 */
+.guide-tax-note {
+  color: #203f8c;
+}
+
+/* 세 번째 가이드 제목 강조 */
+.guide-title-emphasis {
+  font-size: 23px;
+}
+
+.guide-title-black {
+  color: #101b30;
+}
+
+/* 위험 분기점 글자 크기 */
+.guide-third-chart .guide-chart-insight span {
+  font-size: 10px;
+}
+
+.guide-third-chart .guide-chart-insight span b {
+  font-size: 11px;
+}
+
+/* 처방전 항목 이름, 설명, 연장 기간 */
+.guide-third-option span b {
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.guide-third-option small {
+  font-size: 9px;
+}
+
+.guide-third-option strong {
+  font-size: 12px;
+}
+
+
+
+/* 선택된 처방전 표시 */
+.guide-third-option i.guide-option-selected {
+  border-color: #203f8c;
+  background: #203f8c;
+}
+

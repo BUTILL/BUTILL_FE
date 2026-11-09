@@ -1,0 +1,400 @@
+.simulation-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px 20px 86px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+.simulation-intro {
+  position: relative;
+  min-height: 150px;
+  padding: 15px 54px 14px 14px;
+  margin: 0;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 2px #0000000c;
+}
+.simulation-intro h1 {
+  margin: 0 0 8px;
+  color: #13213a;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.5px;
+}
+.simulation-intro p {
+  margin: 0;
+  color: #444651;
+  font-size: 14px;
+  line-height: 20px;
+  word-break: keep-all;
+}
+.simulation-intro > button {
+  position: absolute;
+  top: 26px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #f2f3ff;
+  color: #131b2e;
+  font-size: 25px;
+  line-height: 1;
+}
+.scenario-overview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.scenario-overview {
+  min-height: 174px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px 15px;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 1px 2px #0000000c;
+}
+.scenario-overview.optimistic {
+  background: #a8d8bb;
+  color: #075d2c;
+}
+.scenario-overview.pessimistic {
+  background: #ffddda;
+  color: #b91c1c;
+}
+.scenario-overview-heading {
+  min-height: 48px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 1px 2px 0;
+}
+.scenario-overview-heading > img {
+  display: block;
+  flex: none;
+  object-fit: contain;
+}
+.scenario-overview.optimistic .scenario-overview-heading > img {
+  width: 19px;
+  height: 11px;
+}
+.scenario-overview.basic .scenario-overview-heading > img {
+  width: 19px;
+  height: 18px;
+}
+.scenario-overview.pessimistic .scenario-overview-heading > img {
+  width: 19px;
+  height: 19px;
+}
+.scenario-overview-heading h2 {
+  margin: 0 0 3px;
+  color: inherit;
+  font-size: 16px;
+  line-height: 20px;
+}
+.scenario-overview-heading p {
+  margin: 0;
+  color: inherit;
+  font-size: 12px;
+  line-height: 17px;
+}
+.scenario-runway-result {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 17px;
+  border-radius: 9px;
+  background: #eef3ff;
+  color: #454b5a;
+  font-size: 13px;
+}
+.scenario-overview.optimistic .scenario-runway-result,
+.scenario-overview.pessimistic .scenario-runway-result {
+  background: #ffffffd9;
+}
+.scenario-runway-result > span {
+  white-space: nowrap;
+}
+.scenario-runway-result > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+}
+.scenario-runway-result b {
+  color: #002d83;
+  font-size: 20px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+.scenario-overview.optimistic .scenario-runway-result b,
+.scenario-overview.optimistic .scenario-runway-result small {
+  color: #006b31;
+}
+.scenario-overview.pessimistic .scenario-runway-result b,
+.scenario-overview.pessimistic .scenario-runway-result small {
+  color: #c52222;
+}
+.scenario-runway-result small {
+  color: #0058be;
+  font-size: 11px;
+  line-height: 15px;
+}
+.scenario-chart-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 2px #0000000c;
+}
+.scenario-analysis-eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 99px;
+  background: #e8efff;
+  color: #203f8c;
+  font-size: 10px;
+  font-weight: 700;
+}
+.scenario-chart-card h2 {
+  margin: 8px 0 4px;
+  color: #13213a;
+  font-size: 16px;
+  line-height: 23px;
+}
+.scenario-analysis-copy > p {
+  margin: 0;
+  color: #596273;
+  font-size: 12px;
+  line-height: 18px;
+}
+.scenario-analysis-link {
+  width: 100%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 11px;
+  background: #203f8c;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+.scenario-analysis-link span {
+  font-size: 17px;
+  line-height: 1;
+}
+.store-diagnosis-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #e6eaff;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 2px #0000000c;
+}
+.store-diagnosis-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.store-diagnosis-heading h2 {
+  margin: 0 0 4px;
+  color: #13213a;
+  font-size: 16px;
+  line-height: 22px;
+}
+.store-diagnosis-heading p {
+  margin: 0;
+  color: #667085;
+  font-size: 11px;
+  line-height: 16px;
+}
+.store-diagnosis-heading > span {
+  flex: none;
+  padding: 4px 8px;
+  border-radius: 99px;
+  background: #e8edff;
+  color: #203f8c;
+  font-size: 10px;
+  font-weight: 700;
+}
+.store-diagnosis-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.store-diagnosis-item {
+  padding: 12px;
+  border-radius: 12px;
+  background: #f2f5ff;
+}
+.store-diagnosis-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.store-diagnosis-label b {
+  color: #17233a;
+  font-size: 13px;
+}
+.store-diagnosis-label span {
+  flex: none;
+  padding: 3px 7px;
+  border-radius: 99px;
+  background: #fff;
+  color: #53617b;
+  font-size: 9px;
+}
+.store-diagnosis-item p {
+  margin: 0 0 7px;
+  color: #555d6d;
+  font-size: 11px;
+  line-height: 16px;
+  word-break: keep-all;
+}
+.store-diagnosis-item small {
+  display: block;
+  color: #203f8c;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 15px;
+  word-break: keep-all;
+}
+.store-diagnosis-item.cost-risk {
+  background: #fff5f2;
+}
+.store-diagnosis-item.labor-risk {
+  background: #f2f5ff;
+}
+.store-diagnosis-item.sales-risk {
+  background: #f0f8f3;
+}
+.financial-coach {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 2px #0000000c;
+}
+.financial-coach > img {
+  display: block;
+  width: 24px;
+  height: 21px;
+  flex: none;
+  object-fit: contain;
+}
+.financial-coach b {
+  color: #17233a;
+  font-size: 13px;
+}
+.financial-coach p {
+  margin: 3px 0 0;
+  color: #555b69;
+  font-size: 12px;
+  line-height: 17px;
+}
+@media (max-width: 360px) {
+  .simulation-page {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+  .scenario-runway-result {
+    padding-inline: 12px;
+    font-size: 12px;
+  }
+  .scenario-runway-result b {
+    font-size: 18px;
+  }
+}
+
+.simulation-detail-web {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 16px;
+  border: 1px solid #dce5fb;
+  border-radius: 16px;
+  background: #f0f5ff;
+}
+.simulation-detail-kicker {
+  display: inline-flex;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 99px;
+  background: #e8efff;
+  color: #203f8c;
+  font-size: 10px;
+  font-weight: 700;
+}
+.simulation-detail-copy h2 {
+  margin: 5px 0;
+  color: #17233a;
+  font-size: 15px;
+  line-height: 21px;
+}
+.simulation-detail-copy p {
+  margin: 0;
+  color: #69758b;
+  font-size: 11px;
+  line-height: 16px;
+}
+.simulation-detail-link {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 12px;
+  border-radius: 11px;
+  background: #203f8c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+.simulation-detail-link span {
+  font-size: 16px;
+}
+/* Keep the diagnosis area quiet so it doesn't compete with scenario colors. */
+.store-diagnosis-card {
+  border-color: #e8ebf3;
+}
+.store-diagnosis-item,
+.store-diagnosis-item.cost-risk,
+.store-diagnosis-item.labor-risk,
+.store-diagnosis-item.sales-risk {
+  background: #f3f5fb;
+}
+.store-diagnosis-label b {
+  color: #25324a;
+}
+.store-diagnosis-label span {
+  background: #e8edff;
+  color: #53617b;
+}
+.store-diagnosis-item small {
+  color: #435982;
+}

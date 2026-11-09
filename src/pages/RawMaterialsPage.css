@@ -1,0 +1,362 @@
+.raw-topbar {
+  height: 56px;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 0 20px;
+}
+.raw-topbar .back {
+  width: 28px;
+  height: 36px;
+  flex: none;
+  padding: 0;
+  color: #131b2e;
+  font-size: 30px;
+  line-height: 1;
+}
+.raw-topbar .brand-logo {
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+}
+.raw-topbar .refresh {
+  width: 32px;
+  height: 36px;
+  margin-left: auto;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #667085;
+}
+.raw-page {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 14px 20px 38px;
+}
+.raw-source {
+  width: 100%;
+  min-height: 27px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 11px;
+  border: 1px solid #e2e7ff;
+  border-radius: 99px;
+  background: #fff;
+  color: #566179;
+  font-size: 10px;
+  white-space: nowrap;
+}
+.raw-source-dot {
+  width: 9px;
+  height: 9px;
+  flex: none;
+  border-radius: 50%;
+  background: #075bc5;
+  flex: none;
+}
+.raw-overview {
+  min-height: 108px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 17px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #082b7a, #1e3a8a 55%, #0758b9);
+  color: #fff;
+  box-shadow: 0 7px 15px #10275420;
+}
+.raw-overview > div {
+  min-width: 0;
+  flex: 1;
+}
+.raw-overview small {
+  display: block;
+  color: #dce5ff;
+  font-size: 11px;
+  line-height: 16px;
+}
+.raw-overview h1 {
+  margin: 5px 0 3px;
+  overflow: hidden;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.raw-overview p {
+  margin: 0;
+  color: #dce5ff;
+  font-size: 10px;
+  line-height: 15px;
+}
+.raw-overview-change {
+  min-width: 74px;
+  flex: none;
+  padding: 7px 9px;
+  border: 1px solid #ffffff55;
+  border-radius: 99px;
+  background: #ffffff18;
+  color: #fff;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  white-space: nowrap;
+}
+.raw-short-list {
+  padding: 15px;
+  border: 1px solid #e8ebf5;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 2px #0000000c;
+}
+.raw-short-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #edf0f7;
+}
+.raw-short-heading h2 {
+  margin: 0 0 3px;
+  color: #17233a;
+  font-size: 15px;
+}
+.raw-short-heading p {
+  margin: 0;
+  color: #778094;
+  font-size: 10px;
+}
+.raw-short-heading > span {
+  padding: 4px 8px;
+  border-radius: 99px;
+  background: #e9edff;
+  color: #1e3a8a;
+  font-size: 10px;
+  white-space: nowrap;
+}
+.raw-short-items {
+  display: flex;
+  flex-direction: column;
+}
+.raw-short-item {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid #f0f2f7;
+}
+.raw-short-item:last-child {
+  border-bottom: 0;
+}
+.raw-short-name,
+.raw-short-price {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.raw-short-name b {
+  overflow: hidden;
+  color: #253149;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.raw-short-name small {
+  color: #8a91a0;
+  font-size: 9px;
+}
+.raw-short-price {
+  align-items: flex-end;
+  flex: none;
+}
+.raw-short-price strong {
+  color: #17233a;
+  font-size: 14px;
+}
+.raw-short-price small {
+  color: #8a91a0;
+  font-size: 9px;
+  white-space: nowrap;
+}
+.raw-change {
+  font-size: 10px;
+  font-weight: 700;
+}
+.raw-change.up {
+  color: #cb2f32;
+}
+.raw-change.down {
+  color: #1769d2;
+}
+.raw-change.steady {
+  color: #737b8a;
+}
+.raw-detail-link {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 16px;
+  border: 1px solid #dce5fb;
+  border-radius: 16px;
+  background: #f0f5ff;
+}
+.raw-detail-kicker {
+  color: #2b59a6;
+  font-size: 10px;
+  font-weight: 800;
+}
+.raw-detail-link h2 {
+  margin: 5px 0;
+  color: #17233a;
+  font-size: 15px;
+  line-height: 21px;
+}
+.raw-detail-link p {
+  margin: 0;
+  color: #69758b;
+  font-size: 11px;
+  line-height: 16px;
+}
+.raw-detail-link a {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-radius: 11px;
+  background: #203f8c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.raw-detail-link a span {
+  font-size: 16px;
+}
+.raw-unit-edit {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid #dce2f2;
+  border-radius: 11px;
+  background: #fff;
+  color: #203f8c;
+  font-size: 12px;
+  font-weight: 700;
+}
+.raw-toast {
+  position: fixed;
+  z-index: 15;
+  left: 50%;
+  bottom: 75px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: calc(100% - 32px);
+  padding: 13px 16px;
+  border-radius: 99px;
+  background: #283044;
+  color: #fff;
+  font-size: 12px;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px #0002;
+}
+.raw-modal-backdrop {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: #11182770;
+}
+.raw-modal {
+  width: min(100%, 390px);
+  padding: 22px 20px 28px;
+  border-radius: 20px 20px 0 0;
+  background: #fff;
+}
+.raw-modal h2 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+.raw-modal p {
+  margin: 0 0 18px;
+  color: #647087;
+  font-size: 12px;
+}
+.raw-modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #30384a;
+  font-size: 12px;
+}
+.raw-modal label + label {
+  margin-top: 14px;
+}
+.raw-modal label span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.raw-modal input,
+.raw-modal select {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid #dce2ff;
+  border-radius: 10px;
+  outline-color: #2872e8;
+  background: #fff;
+}
+.raw-modal input {
+  min-width: 0;
+  flex: 1;
+}
+.raw-modal > div {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+.raw-modal > div button {
+  height: 44px;
+  flex: 1;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f1f5f9;
+  color: #30384a;
+}
+.raw-modal > div .raw-primary {
+  border: 0;
+  background: #1e3a8a;
+  color: #fff;
+}
+@media (max-width: 360px) {
+  .raw-page {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+  .raw-source {
+    gap: 6px;
+    padding-inline: 8px;
+    font-size: 9px;
+  }
+  .raw-overview {
+    padding: 14px;
+  }
+  .raw-overview-change {
+    font-size: 17px;
+  }
+}

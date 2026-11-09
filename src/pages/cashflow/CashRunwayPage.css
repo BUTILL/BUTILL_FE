@@ -1,0 +1,296 @@
+/* 전체 화면 배경과 기본 글씨 */
+.cash-runway {
+  min-height: 100vh;
+  background: #faf8ff;
+  font-family: inherit;
+}
+
+.cash-runway *, .cash-runway *::before, .cash-runway *::after {
+  box-sizing: border-box;
+}
+
+/* 상단 로고와 뒤로 가기 */
+.cash-header {
+  height: 56px;
+  border-bottom: 1px solid #eeeaf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cash-header img {
+  width: 100px;
+  max-height: 40px;
+  object-fit: contain;
+}
+
+.cash-back {
+  position: absolute;
+  left: 20px;
+  border: 0;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.cash-bell {
+  position: absolute;
+  right: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.cash-bell i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c8212b;
+}
+
+/* 화면 내용의 너비와 여백 */
+.cash-content {
+  max-width: 480px;
+  margin: auto;
+  padding: 20px 16px 48px;
+}
+
+/* 잔액과 운영 기간 카드 */
+.cash-hero {
+  color: white;
+  background: linear-gradient(120deg, #102b70, #3153a0 62%, #0752a9);
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow: 0 3px 8px #172b5940;
+}
+
+.cash-hero > span, .cash-hero small, .cash-stats span {
+  display: block;
+  font-size: 11px;
+  color: #d8e2ff;
+}
+
+.cash-hero > strong {
+  display: block;
+  font-size: 23px;
+  margin: 7px 0 13px;
+}
+
+/* 운영 기간과 요약 정보 */
+.cash-runway-box, .cash-stats > div {
+  background: #ffffff1c;
+  border: 1px solid #ffffff20;
+  border-radius: 13px;
+  padding: 14px;
+}
+
+.cash-runway-box b {
+  display: block;
+  margin: 5px 0 10px;
+  font-size: 16px;
+}
+
+.cash-runway-box u {
+  color: #b6caff;
+  font-size: 19px;
+}
+
+.cash-progress {
+  height: 7px;
+  border-radius: 5px;
+  background: #112858;
+  overflow: hidden;
+}
+
+.cash-progress i {
+  display: block;
+  height: 100%;
+  background: #8ab8ff;
+  border-radius: inherit;
+}
+
+.cash-progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 9px;
+  color: #bdcff3;
+}
+
+.cash-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cash-stats b {
+  display: block;
+  margin: 5px 0;
+  font-size: 17px;
+}
+
+/* 그래프와 리스트의 공통 카드 */
+.cash-panel {
+  background: #fff;
+  border: 1px solid #ece9f8;
+  border-radius: 16px;
+  padding: 15px;
+  margin-top: 15px;
+  box-shadow: 0 2px 5px #26204a08;
+}
+
+.cash-panel h2 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #142b68;
+}
+
+
+/* 선택한 월의 상세 내역 */
+.cash-detail {
+  border-radius: 10px;
+  background: #f0f2ff;
+  padding: 12px;
+}
+
+.cash-detail-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  font-size: 13px;
+  color: #142b68;
+}
+
+.cash-detail-heading strong {
+  font-size: 11px;
+}
+
+.cash-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.cash-detail-grid div {
+  text-align: center;
+  background: #fff;
+  border-radius: 7px;
+  padding: 8px 2px;
+  min-width: 0;
+}
+
+.cash-detail-grid span {
+  display: block;
+  color: #666;
+  font-size: 10px;
+}
+
+.cash-detail-grid b {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.cash-detail p {
+  color: #666666;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 9px 0 0;
+}
+
+/* 순 증감에 따른 색상 */
+.negative {
+  color: #d32931 !important;
+}
+
+.positive {
+  color: #246ee6 !important;
+}
+
+/* 월별 현금 흐름 리스트 */
+.cash-list {
+  display: grid;
+  gap: 8px;
+}
+
+.cash-list-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f0f2ff;
+  border: 1px solid #e5e9fa;
+  border-radius: 10px;
+  padding: 11px;
+}
+
+.cash-month-label {
+  flex-shrink: 0;
+  background: #d6e2ff;
+  color: #142b68;
+  padding: 7px 5px;
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+.cash-list-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 11px;
+}
+
+.cash-list-flow span {
+  font-size: 10px;
+}
+
+.cash-list-balance {
+  margin-left: auto;
+  text-align: right;
+  font-size: 12px;
+}
+
+.cash-list-balance small {
+  display: block;
+  color: #666;
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+
+/* 리스트 더보기 버튼 */
+.cash-more {
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #e1e5f5;
+  border-radius: 8px;
+  background: #fff;
+  color: #170917;
+  padding: 9px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+}
+
+/* 키보드 선택 표시 */
+.cash-back:focus-visible, .cash-more:focus-visible, .cash-month:focus-visible {
+  outline: 2px solid #170917;
+  outline-offset: 2px;
+}
+
+/* 입력 데이터가 없을 때 안내 */
+.cash-empty p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}

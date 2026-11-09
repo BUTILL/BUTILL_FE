@@ -1,0 +1,359 @@
+.tax-page {
+  padding: 17px 18px 28px;
+}
+.tax-diagnosis-toggle {
+  width: 100%;
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  margin: 0 0 16px;
+  border: 1px solid #eaedff;
+  border-radius: 16px;
+  background: #fff;
+  color: #17233a;
+  text-align: left;
+  box-shadow: 0 1px 2px #0000000c;
+}
+.tax-diagnosis-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.tax-diagnosis-copy b {
+  font-size: 15px;
+}
+.tax-diagnosis-copy small {
+  color: #667085;
+  font-size: 11px;
+}
+.tax-diagnosis-chevron {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  display: block;
+  align-self: center;
+  margin: 0 4px 5px 12px;
+  border-right: 2px solid #111;
+  border-bottom: 2px solid #111;
+  transform: rotate(45deg);
+  transition: transform 180ms ease;
+}
+.tax-diagnosis-chevron.open {
+  margin-bottom: -5px;
+  transform: rotate(225deg);
+}
+.diagnosis-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 280ms ease,
+    opacity 200ms ease;
+}
+.diagnosis-panel.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.diagnosis-panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+.choice-card {
+  padding: 16px;
+  margin-bottom: 17px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 2px #0000000c;
+}
+.choice-heading {
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+.choice-heading > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.choice-heading i {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #eaedff;
+  color: #00236f;
+  font: 11px "Plus Jakarta Sans";
+  font-style: normal;
+}
+.choice-heading b {
+  font-size: 16px;
+  font-weight: 500;
+}
+.choice-heading small {
+  color: #0058be;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.options {
+  display: flex;
+  gap: 6px;
+}
+.option {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 2px;
+  border: 0;
+  border-radius: 12px;
+  background: #f1f5f9;
+  color: #444651;
+  font-size: 12px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+.option.selected {
+  background: #1e3a8a;
+  color: white;
+  box-shadow: 0 1px 2px #00000010;
+}
+.has-tip {
+  margin-bottom: 17px;
+}
+.tip {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  margin-top: 9px;
+  border-radius: 12px;
+  background: #f2f3ff;
+  color: #00236f;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.two-rows {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.two-rows .option {
+  height: 44px;
+}
+.save {
+  width: 100%;
+  height: 48px;
+  margin: 11px 0 29px;
+  border: 0;
+  border-radius: 12px;
+  background: #1e3a8a;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px -4px #1e3a8a59;
+}
+.form {
+  position: relative;
+}
+.schedule {
+  padding: 16px;
+  border: 1px solid #eaedff;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 1px 2px #0000000c;
+}
+.tax-event {
+  min-height: 81px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border: 1px solid #e2e8f080;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 1px 2px #0000000c;
+  font-size: 14px;
+}
+.tax-event.urgent {
+  border-color: #fecaca;
+}
+.datebox {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #eaedff;
+  color: #00236f;
+}
+.datebox small {
+  color: #757682;
+  font-size: 10px;
+}
+.datebox b {
+  font: 700 15px "Plus Jakarta Sans";
+  line-height: 17px;
+}
+.urgent .datebox {
+  background: #fef2f2;
+  color: #dc2626;
+}
+.urgent .datebox small {
+  color: #dc2626;
+  font-weight: 700;
+}
+.tax-event em {
+  padding: 2px 6px;
+  border-radius: 99px;
+  background: #fef2f2;
+  color: #dc2626;
+  font-size: 10px;
+  font-style: normal;
+  white-space: nowrap;
+}
+.tax-copy {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+.tax-copy small {
+  flex-basis: 100%;
+  color: #444651;
+  font-size: 11px;
+}
+.tax-copy em {
+  background: #f1f5f9;
+  color: #444651;
+}
+.annual {
+  width: 100%;
+  height: 36px;
+  margin-top: 13px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: white;
+  color: #444651;
+  font-size: 11px;
+}
+.annual-events {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 260ms ease,
+    opacity 180ms ease;
+}
+.annual-events.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.annual-events-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+.annual-events .tax-event {
+  margin-bottom: 0;
+}
+.tax-page {
+  padding-top: 17px;
+}
+.choice-heading {
+  margin-bottom: 10px;
+}
+.save-wrap {
+  position: relative;
+  margin: 11px 0 29px;
+}
+.save-wrap .save {
+  margin: 0;
+}
+.form .toast {
+  position: absolute;
+  z-index: 6;
+  top: auto;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 11px 17px;
+  border-radius: 99px;
+  background: #283044;
+  color: #eef0ff;
+  font-size: 12px;
+  white-space: nowrap;
+  box-shadow: 0 5px 14px #17255424;
+  animation: save-toast-in 0.18s ease-out;
+}
+.save.saved {
+  background: #d6dcf5;
+  box-shadow: 0 8px 20px -4px #d6dcf559;
+}
+.form .toast {
+  animation: save-toast-life 2.5s ease both;
+}
+
+.tax-detail-web {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 16px;
+  margin-top: 20px;
+  border: 1px solid #dce5fb;
+  border-radius: 16px;
+  background: #f0f5ff;
+}
+.tax-detail-kicker {
+  color: #2b59a6;
+  font-size: 10px;
+  font-weight: 800;
+}
+.tax-detail-web h2 {
+  margin: 5px 0;
+  color: #17233a;
+  font-size: 15px;
+  line-height: 21px;
+}
+.tax-detail-web p {
+  margin: 0;
+  color: #69758b;
+  font-size: 11px;
+  line-height: 16px;
+}
+.tax-detail-web a {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-radius: 11px;
+  background: #203f8c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.tax-detail-web a span {
+  font-size: 16px;
+}
+
+.tax-schedule-empty {
+  margin: 8px 0;
+  color: #8a94a6;
+  font-size: 13px;
+}
