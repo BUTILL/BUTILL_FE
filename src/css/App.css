@@ -1,0 +1,5 @@
+/* 대시보드 내부 디자인은 css/Home.css에서 관리합니다. */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}

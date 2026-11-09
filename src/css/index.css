@@ -1,0 +1,15 @@
+/* 웹 앱 공통 설정: 기본 샘플 화면의 너비 제한과 어두운 테마를 제거합니다. */
+:root {
+  font-family: "Pretendard", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  color: #17233a;
+  background: #f7f8fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}

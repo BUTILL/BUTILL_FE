@@ -1,0 +1,656 @@
+/* 공통 설정: 요소 크기 계산과 키보드 포커스 표시 */
+.dashboard-web,
+.dashboard-web * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.dashboard-web a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dashboard-web a:focus-visible,
+.dashboard-web [tabindex]:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 4px;
+}
+
+/* 대시보드 전체 배경, 기본 글자색과 글꼴 */
+.dashboard-web {
+  min-height: 100vh;
+  background: #f7f8fc;
+  color: #17233a;
+  font-family: "Pretendard", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+}
+
+/* 상단바: 높이, 고정 위치, 로고와 메뉴 간격 */
+.dashboard-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 52px;
+  padding: 0 max(32px, calc((100vw - 1200px) / 2));
+  border-bottom: 1px solid #e8eaf1;
+  background: #ffffffed;
+  backdrop-filter: blur(12px);
+}
+
+/* 상단 로고: 원본 이미지에서 글자 부분만 보이도록 자르기 */
+.dashboard-logo {
+  position: relative;
+  width: 115px;
+  height: 34px;
+  flex: none;
+  overflow: hidden;
+}
+
+.dashboard-logo img {
+  position: absolute;
+  left: -35.67%;
+  top: -220.34%;
+  width: 173.39%;
+  height: 413.66%;
+  max-width: none;
+}
+
+/* 상단 메뉴와 현재 선택된 대시보드 탭 표시 */
+.dashboard-header nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 100%;
+}
+
+.dashboard-header nav a {
+  color: #5f6778;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dashboard-header nav a.active {
+  position: relative;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  color: #203f8c;
+}
+
+.dashboard-header nav a.active::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: #2563eb;
+  content: "";
+}
+
+/* 본문: 최대 1,200px 너비와 중앙 정렬 */
+.dashboard-container {
+  width: min(1200px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 26px 0 40px;
+}
+
+/* 본문 제목과 안내 문구 */
+.dashboard-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 25px;
+}
+
+.dashboard-hero h1 {
+  margin: 9px 0 8px;
+  color: #14213a;
+  font-size: clamp(25px, 3vw, 34px);
+  line-height: 1.35;
+  letter-spacing: -.04em;
+}
+
+.dashboard-hero p {
+  margin: 0;
+  color: #697285;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* 본문 2열 배치: 왼쪽 분석 카드, 오른쪽 월별 목록 */
+.dashboard-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(300px, .82fr);
+  align-items: start;
+  gap: 18px;
+}
+
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+/* 공통 카드: 여백, 테두리, 모서리와 그림자 */
+.dashboard-panel {
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid #eaedf4;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 3px 12px #17255408;
+}
+
+/* 카드 제목과 우측 정보 배치 */
+.dashboard-panel-heading,
+.dashboard-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.dashboard-panel h2 {
+  margin: 6px 0;
+  color: #17233a;
+  font-size: 20px;
+  line-height: 1.45;
+  letter-spacing: -.03em;
+}
+
+.dashboard-panel-heading p {
+  margin: 0;
+  color: #788092;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* 그래프 우측 상단의 12개월 전망 표시 */
+.dashboard-period {
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: #f0f3fb;
+  color: #4c5d80;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* 그래프 범례: 수입·지출 색상과 잔액선 */
+.dashboard-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 22px 0 18px;
+  padding: 13px 14px;
+  border-radius: 11px;
+  background: #f5f7fb;
+  color: #596273;
+  font-size: 11px;
+}
+
+.dashboard-legend span {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.dashboard-legend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.income-key {
+  background: #1769d2;
+}
+
+.expense-key {
+  background: #d83c3c;
+}
+
+.dashboard-legend .balance-key {
+  height: 3px;
+  width: 17px;
+  background: #203f8c;
+}
+
+
+/* 그래프 표시 영역 */
+.dashboard-chart-scroll {
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.dashboard-chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 그래프 좌표 기준 영역: 경고 박스 위치 계산에 사용 */
+.dashboard-chart-canvas {
+  position: relative;
+  container-type: inline-size;
+}
+
+/* 잔고 소진 경고: 계산된 위험 월의 막대에서 시작하고 위쪽 간격을 10px로 유지 */
+.dashboard-chart-warning {
+  position: absolute;
+  /* top과 left는 해당 월의 막대 좌표를 TSX에서 계산*/
+  transform: translateY(-100%);
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 9px;
+  border: 1px solid #d83c3c;
+  border-radius: 6px;
+  background: #fff;
+  color: #c53b3b;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.dashboard-chart-warning span {
+  font-size: 13px;
+}
+
+/* 전달된 데이터의 부가세 납부월 카드와 순증감 금액 */
+.dashboard-tax {
+  background: #fafbff;
+}
+
+.dashboard-deficit {
+  margin-top: 20px;
+  color: #c53b3b;
+  font-size: 23px;
+  letter-spacing: -.04em;
+  white-space: nowrap;
+}
+
+/* 부가세 카드 안의 수입·지출·월말 잔액 3개 항목 */
+.dashboard-tax-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.dashboard-tax-metrics > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 10px;
+  border: 1px solid #e7eaf1;
+  border-radius: 11px;
+  background: #fff;
+  text-align: center;
+}
+
+.dashboard-tax-metrics span {
+  color: #6b7384;
+  font-size: 11px;
+}
+
+.dashboard-tax-metrics strong {
+  color: #203f8c;
+  font-size: 21px;
+  letter-spacing: -.04em;
+}
+
+/* 부가세 카드 하단의 안내 아이콘과 설명 */
+.dashboard-tax-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 16px 0 0;
+  color: #5d6677;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.dashboard-tax-note > span {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 19px;
+  height: 19px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: #edf3ff;
+  color: #2863c4;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* 골든타임 진단 카드 우측의 주의 등급 표시 */
+.dashboard-risk-badge {
+  flex: none;
+  margin-top: 8px;
+  border: 1px solid #e7eaf1;
+  border-radius: 99px;
+  padding: 6px 10px;
+  color: #c53b3b;
+  background: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* 골든타임 진단 내용: 소진 예상 시점과 대응 제안 배치 */
+.dashboard-diagnosis-body {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+/* 예상 잔고 소진 시점과 진단 설명 */
+.dashboard-runway {
+  padding: 18px;
+  border-radius: 12px;
+  background: #f5f7fb;
+}
+
+.dashboard-runway > span {
+  color: #67748e;
+  font-size: 12px;
+}
+
+.dashboard-runway strong {
+  display: block;
+  margin-top: 10px;
+  color: #c53b3b;
+  font-size: 22px;
+  line-height: 1.5;
+  letter-spacing: -.04em;
+}
+
+.dashboard-runway p {
+  margin: 12px 0 0;
+  color: #727b8d;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+/* 버틸 제안 솔루션 목록과 확인 표시 */
+.dashboard-solutions {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-solutions h3 {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #2d3950;
+}
+
+.dashboard-solutions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.dashboard-solutions li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #5d6677;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.dashboard-solutions li::before {
+  content: "✓";
+  color: #2863c4;
+  font-weight: 800;
+}
+
+/* 오른쪽 사용 시작 월부터 6개월 현금흐름 카드와 스크롤 고정 위치 */
+.dashboard-history {
+  position: sticky;
+  top: 90px;
+}
+
+.dashboard-history h2 {
+  font-size: 18px;
+}
+
+.dashboard-months {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 20px 0 16px;
+  list-style: none;
+}
+
+.dashboard-months > li {
+  border: 1px solid #e9edf5;
+  border-radius: 12px;
+  padding: 13px 14px;
+  background: #fafbff;
+}
+
+/* 월별 목록의 월 이름과 월별 증감액 */
+.dashboard-month-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.dashboard-month-heading > strong {
+  font-size: 13px;
+  color: #203f8c;
+}
+
+.dashboard-month-heading > span {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* 월별 목록의 수입·지출·월말 잔고 정렬 */
+.dashboard-months dl {
+  margin: 0;
+  display: grid;
+  gap: 5px;
+}
+
+.dashboard-months dl > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.dashboard-months dt {
+  color: #788092;
+}
+
+.dashboard-months dd {
+  margin: 0;
+  color: #596273;
+  font-variant-numeric: tabular-nums;
+}
+
+.dashboard-months dl > .dashboard-closing {
+  padding-top: 7px;
+  margin-top: 3px;
+  border-top: 1px solid #e8eaf1;
+}
+
+.dashboard-closing dd {
+  font-size: 14px;
+  font-weight: 700;
+  color: #17233a;
+}
+
+/* 월별 목록 하단의 평균 잔고 감소액 */
+.dashboard-history-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  border-radius: 11px;
+  padding: 15px;
+  background: #f0f3fb;
+}
+
+.dashboard-history-summary span {
+  color: #67748e;
+  font-size: 11px;
+}
+
+.dashboard-history-summary strong {
+  color: #c53b3b;
+  font-size: 18px;
+}
+
+/* 금액 상태 색상: 감소는 빨강, 증가는 초록 */
+.dashboard-web .negative,
+.dashboard-tax-metrics .negative {
+  color: #c53b3b;
+}
+
+.dashboard-web .positive {
+  color: #11763a;
+}
+
+/* 작은 PC 화면: 진단 카드의 내용을 한 열로 배치 */
+@media (max-width: 1050px) {
+  .dashboard-diagnosis-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 태블릿 화면: 본문을 한 열로 바꾸고 월별 목록을 두 열로 배치 */
+@media (max-width: 900px) {
+  .dashboard-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-history {
+    position: static;
+  }
+
+  .dashboard-months {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-diagnosis-body {
+    grid-template-columns: 1fr 1.15fr;
+  }
+
+  .dashboard-header {
+    gap: 28px;
+  }
+
+  .dashboard-header nav {
+    gap: 22px;
+  }
+}
+
+/* 모바일 화면: 상단바, 본문 여백, 카드와 글자 크기 조정 */
+@media (max-width: 640px) {
+  .dashboard-header {
+    height: 60px;
+    gap: 16px;
+    padding: 0 16px;
+  }
+
+  .dashboard-logo {
+    width: 94px;
+    height: 30px;
+  }
+
+  .dashboard-header nav {
+    display: none;
+  }
+
+  .dashboard-container {
+    width: calc(100% - 32px);
+    padding-top: 18px;
+  }
+
+  .dashboard-hero {
+    display: block;
+  }
+
+  .dashboard-hero p {
+    font-size: 13px;
+  }
+
+  .dashboard-panel {
+    padding: 17px 14px;
+  }
+
+  .dashboard-panel-heading {
+    display: block;
+  }
+
+  .dashboard-panel h2 {
+    font-size: 18px;
+  }
+
+  .dashboard-legend {
+    gap: 12px;
+    font-size: 10px;
+    padding: 12px 10px;
+  }
+
+
+  .dashboard-card-heading {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .dashboard-deficit {
+    margin-top: 0;
+    font-size: 21px;
+  }
+
+  .dashboard-tax-metrics strong {
+    font-size: 19px;
+  }
+
+  .dashboard-tax-metrics span {
+    font-size: 10px;
+  }
+
+  .dashboard-diagnosis-body {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .dashboard-months {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-risk-badge {
+    margin-top: 2px;
+  }
+}
+
+/* 데이터가 없거나 형식이 올바르지 않을 때의 안내 */
+.dashboard-empty p {
+  margin: 12px 0 0;
+  color: #697285;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
